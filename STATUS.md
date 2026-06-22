@@ -28,7 +28,9 @@
 - **ビルド手順（Mac）**：`brew install xcodegen` → `cd app && xcodegen generate` → Xcode で開き **iOS Simulator（例 iPhone 17）**を選んで ⌘R。`*.xcodeproj` は gitignore（毎回 generate）。テスト：⌘U（Deal/Store/NowPlaying の単体）。
 - 設計/計画：`docs/superpowers/specs/2026-06-22-makanapo-ios-app-design.md` / `docs/superpowers/plans/2026-06-22-makanapo-ios-mvp.md`。
 - 未確認（実機推奨）：ロック画面でのバックグラウンド継続（シミュレータは擬似的）。
-- 次：地図/近く・検索・フィルタ・報告ボタン（設計の「対象外（将来）」）、App Store配布（Developer Program $99/年）。
+- 実装済み追加：**セグメント絞り込み**（すべて/ハッピーアワー/カマアイナ。`Deal.isHappyHour`/`isKamaaina` で分類）。
+- **TODO（依頼・後で）**：UIの **英語/日本語 切替**（ローカライズ。`Localizable.strings` ＋ ja/en、アプリ内言語スイッチ or 端末言語追従）。今はUI文言が日本語ハードコード。
+- 次：地図/近く・検索・報告ボタン（設計の「対象外（将来）」）、App Store配布（Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
 ### 前提
