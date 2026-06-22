@@ -1,0 +1,33 @@
+name: Makanapo
+options:
+  bundleIdPrefix: fm.makana
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""   # set your Apple Developer Team ID in Xcode (Signing & Capabilities)
+targets:
+  Makanapo:
+    type: application
+    platform: iOS
+    sources:
+      - path: Makanapo
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: fm.makana.makanapo
+        GENERATE_INFOPLIST_FILE: true
+        INFOPLIST_KEY_CFBundleDisplayName: Makanapo
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UIBackgroundModes: audio
+        TARGETED_DEVICE_FAMILY: "1"
+  MakanapoTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MakanapoTests
+    dependencies:
+      - target: Makanapo
