@@ -28,6 +28,7 @@ struct Deal: Identifiable, Codable, Equatable {
     var neighborhood: String?
     var hours: String?
     var validUntil: String?
+    var requiresID: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id, name, category, status, subcategory, discount, conditions
@@ -35,5 +36,43 @@ struct Deal: Identifiable, Codable, Equatable {
         case sourceURL = "source_url"
         case lastVerified = "last_verified"
         case validUntil = "valid_until"
+        case requiresID = "requires_id"
+    }
+}
+
+extension Deal {
+    /// Time-window discount (subcategory happy_hour, or text mentions happy hour / pau hana).
+    var isHappyHour: Bool {
+        if subcategory?.lowercased().contains("happy") == true { return true }
+        let t = "\(discount ?? "") \(conditions ?? "") \(hours ?? "")".lowercased()
+        return t.contains("happy hour") || t.contains("pau hana")
+    }
+
+    /// Local-resident discount (needs Hawaii ID, or text mentions kama'aina).
+    var isKamaaina: Bool {
+        if requiresID == true || redemption == "show_id" { return true }
+        let t = "\(discount ?? "") \(conditions ?? "")".lowercased()
+        return t.contains("kama")
+    }
+}
+
+enum DealFilter: String, CaseIterable, Identifiable {
+    case all, happyHour, kamaaina
+    var id: Self { self }
+
+    var label: String {
+        switch self {
+        case .all: return "すべて"
+        case .happyHour: return "ハッピーアワー"
+        case .kamaaina: return "カマアイナ"
+        }
+    }
+
+    func matches(_ deal: Deal) -> Bool {
+        switch self {
+        case .all: return true
+        case .happyHour: return deal.isHappyHour
+        case .kamaaina: return deal.isKamaaina
+        }
     }
 }

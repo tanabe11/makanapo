@@ -22,17 +22,28 @@ struct ContentView: View {
     @EnvironmentObject var radio: RadioPlayer
     @Environment(\.scenePhase) private var scenePhase
     @State private var scrolledY: CGFloat = 0
+    @State private var filter: DealFilter = .all
 
     private var collapsed: Bool { scrolledY > 60 }
+    private var shownDeals: [Deal] { dealsStore.deals.filter { filter.matches($0) } }
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 // Radio bar is OUTSIDE the scroll -> always pinned at top.
-                // Morphs hero <-> slim based on how far the list is scrolled.
                 RadioHeader(player: radio, collapsed: collapsed)
                     .background(.ultraThinMaterial)
                     .animation(.easeInOut(duration: 0.2), value: collapsed)
+                Divider()
+
+                Picker("絞り込み", selection: $filter) {
+                    ForEach(DealFilter.allCases) { f in
+                        Text(f.label).tag(f)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .padding(.vertical, 6)
                 Divider()
 
                 ScrollView {
@@ -56,13 +67,18 @@ struct ContentView: View {
 
     @ViewBuilder private var dealsSection: some View {
         if !dealsStore.deals.isEmpty {
-            LazyVStack(spacing: 0) {
-                ForEach(dealsStore.deals) { deal in
-                    NavigationLink(value: deal.id) {
-                        DealRow(deal: deal).padding(.horizontal)
+            if shownDeals.isEmpty {
+                Text("この絞り込みに該当する割引はありません")
+                    .font(.subheadline).foregroundStyle(.secondary).padding(40)
+            } else {
+                LazyVStack(spacing: 0) {
+                    ForEach(shownDeals) { deal in
+                        NavigationLink(value: deal.id) {
+                            DealRow(deal: deal).padding(.horizontal)
+                        }
+                        .buttonStyle(.plain)
+                        Divider()
                     }
-                    .buttonStyle(.plain)
-                    Divider()
                 }
             }
         } else if case .error(let msg) = dealsStore.state {
