@@ -1058,5 +1058,6 @@ git commit -m "feat(app): collapsing radio hero + integrated MVP screen"
 - Run everything on a Mac with Xcode. `cd app && xcodegen generate` after pulling, whenever `project.yml` or the file list changes (the `.xcodeproj` is gitignored).
 - Fill `app/Makanapo/App/Config.swift` `radioStreamURL` / `nowPlayingURL` with the real makana.fm radio3 (AzuraCast) values before Tasks 6–7's live verification.
 - Set `DEVELOPMENT_TEAM` in Xcode (Signing & Capabilities) for device runs / TestFlight.
+- **Task 7 scroll-collapse — as built:** the GeometryReader + `PreferenceKey` approach shown in Task 7 did **not** update on iOS 26.5; the shipped `ContentView.swift` uses a `TrackScroll` modifier wrapping `onScrollGeometryChange` (iOS 18+), no-op on iOS 16–17. See the committed file for the authoritative version.
 - In Xcode's GUI, pick an **iOS Simulator** destination (e.g. iPhone 17). Building to "My Mac" or a physical device fails with a signing error while `DEVELOPMENT_TEAM` is empty — the simulator needs no signing.
 - This Mac's installed simulators are iPhone 17 family (iOS 26.5); adjust `-destination` names if they differ (`xcrun simctl list devices`).

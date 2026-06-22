@@ -2,7 +2,7 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-21 (discovery runs #1-2: +6 official sources; active 15→18)
+> Last updated: 2026-06-22 (iOS MVP built: radio + deals + collapsing hero; data: active 18)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
@@ -20,6 +20,15 @@
 ```
 - 「No LLM in the pipeline」: LLMは cron の外（ローカル発見スキル）にだけ存在。
 - アグリゲータ（Honolulu Magazine 等）は **leads-only・非公開**（著作権）。公開は一次情報/公式のみ。
+
+## iOS アプリ（MVP・`app/` 配下）
+- **状態：MVP 完成（未push のコミットあり）**。ラジオ（makana.fm/AzuraCast バックグラウンド再生＋ロック画面操作＋now-playing）＋ 割引一覧＋詳細。トップは「折り畳みヒーロー」（スクロールでラジオが細バーに）。
+- 技術：SwiftUI / iOS 16+（折り畳みは `onScrollGeometryChange`＝iOS18+のみ作動、16-17はヒーロー固定）。XcodeGen。Bundle ID `fm.makana.makanapo`。データは CDN直 `deals.json`。
+- ラジオ実URL（`app/Makanapo/App/Config.swift`）：stream `https://radio.makana.fm/listen/makana.fm/radio.mp3`、now-playing `https://radio.makana.fm/api/nowplaying/makana.fm`（station shortcode = `makana.fm`）。
+- **ビルド手順（Mac）**：`brew install xcodegen` → `cd app && xcodegen generate` → Xcode で開き **iOS Simulator（例 iPhone 17）**を選んで ⌘R。`*.xcodeproj` は gitignore（毎回 generate）。テスト：⌘U（Deal/Store/NowPlaying の単体）。
+- 設計/計画：`docs/superpowers/specs/2026-06-22-makanapo-ios-app-design.md` / `docs/superpowers/plans/2026-06-22-makanapo-ios-mvp.md`。
+- 未確認（実機推奨）：ロック画面でのバックグラウンド継続（シミュレータは擬似的）。
+- 次：地図/近く・検索・フィルタ・報告ボタン（設計の「対象外（将来）」）、App Store配布（Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
 ### 前提
