@@ -20,6 +20,7 @@ private struct TrackScroll: ViewModifier {
 struct ContentView: View {
     @EnvironmentObject var dealsStore: DealsStore
     @EnvironmentObject var radio: RadioPlayer
+    @EnvironmentObject var loc: LocalizationManager
     @Environment(\.scenePhase) private var scenePhase
     @State private var scrolledY: CGFloat = 0
     @State private var filter: DealFilter = .all
@@ -30,15 +31,14 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Radio bar is OUTSIDE the scroll -> always pinned at top.
                 RadioHeader(player: radio, collapsed: collapsed)
                     .background(.ultraThinMaterial)
                     .animation(.easeInOut(duration: 0.2), value: collapsed)
                 Divider()
 
-                Picker("絞り込み", selection: $filter) {
+                Picker("filter", selection: $filter) {
                     ForEach(DealFilter.allCases) { f in
-                        Text(f.label).tag(f)
+                        Text(filterLabel(f)).tag(f)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -53,6 +53,14 @@ struct ContentView: View {
             }
             .navigationTitle("makanapo")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { loc.toggle() } label: {
+                        Label(loc.lang == .ja ? "EN" : "日本語", systemImage: "globe")
+                            .font(.subheadline)
+                    }
+                }
+            }
             .navigationDestination(for: String.self) { id in
                 if let deal = dealsStore.deals.first(where: { $0.id == id }) {
                     DealDetailView(deal: deal)
@@ -65,10 +73,18 @@ struct ContentView: View {
         }
     }
 
+    private func filterLabel(_ f: DealFilter) -> String {
+        switch f {
+        case .all: return loc.t(.pickerAll)
+        case .happyHour: return loc.t(.pickerHappyHour)
+        case .kamaaina: return loc.t(.pickerKamaaina)
+        }
+    }
+
     @ViewBuilder private var dealsSection: some View {
         if !dealsStore.deals.isEmpty {
             if shownDeals.isEmpty {
-                Text("この絞り込みに該当する割引はありません")
+                Text(loc.t(.noResults))
                     .font(.subheadline).foregroundStyle(.secondary).padding(40)
             } else {
                 LazyVStack(spacing: 0) {
@@ -81,17 +97,16 @@ struct ContentView: View {
                     }
                 }
             }
-        } else if case .error(let msg) = dealsStore.state {
+        } else if case .error = dealsStore.state {
             VStack(spacing: 12) {
                 Image(systemName: "wifi.slash").font(.largeTitle).foregroundStyle(.secondary)
-                Text("割引を読み込めませんでした").font(.headline)
-                Text(msg).font(.caption).foregroundStyle(.secondary).multilineTextAlignment(.center)
-                Button("再試行") { Task { await dealsStore.refresh() } }
+                Text(loc.t(.loadFailed)).font(.headline)
+                Button(loc.t(.retry)) { Task { await dealsStore.refresh() } }
                     .buttonStyle(.borderedProminent)
             }
             .padding(40)
         } else {
-            ProgressView("読み込み中…").padding(40)
+            ProgressView(loc.t(.loading)).padding(40)
         }
     }
 }

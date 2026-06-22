@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RadioHeader: View {
     @ObservedObject var player: RadioPlayer
+    @EnvironmentObject var loc: LocalizationManager
     let collapsed: Bool
 
     var body: some View {
@@ -26,7 +27,7 @@ struct RadioHeader: View {
         VStack(spacing: 8) {
             Text("MAKANA.FM RADIO").font(.caption).tracking(2).foregroundStyle(.secondary)
             playButton(size: 96)
-            Text(player.nowPlaying?.display ?? "♪ tap to listen")
+            Text(player.nowPlaying?.display ?? "♪ \(loc.t(.tapToListen))")
                 .font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
                 .multilineTextAlignment(.center)
         }

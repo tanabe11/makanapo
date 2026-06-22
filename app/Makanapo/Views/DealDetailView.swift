@@ -2,29 +2,30 @@ import SwiftUI
 
 struct DealDetailView: View {
     let deal: Deal
+    @EnvironmentObject var loc: LocalizationManager
     @Environment(\.openURL) private var openURL
 
     var body: some View {
         List {
             Section {
-                if let d = deal.discount { row("割引", d) }
-                if let c = deal.conditions { row("条件", c) }
-                if let r = deal.redemption { row("利用方法", r) }
-                if let h = deal.hours { row("時間", h) }
-                if let a = deal.address { row("住所", a) }
-                if let n = deal.neighborhood { row("地区", n) }
+                if let d = deal.discount { row(loc.t(.detailDiscount), d) }
+                if let c = deal.conditions { row(loc.t(.detailConditions), c) }
+                if let r = deal.redemption { row(loc.t(.detailRedemption), r) }
+                if let h = deal.hours { row(loc.t(.detailHours), h) }
+                if let a = deal.address { row(loc.t(.detailAddress), a) }
+                if let n = deal.neighborhood { row(loc.t(.detailNeighborhood), n) }
             }
-            Section("鮮度") {
-                row("最終確認日", deal.lastVerified)
-                row("ステータス", statusText)
+            Section(loc.t(.freshnessSection)) {
+                row(loc.t(.lastVerified), deal.lastVerified)
+                row(loc.t(.statusRow), statusText)
             }
             Section {
                 Button { openURL(deal.sourceURL) } label: {
-                    Label("公式で確認", systemImage: "arrow.up.right.square")
+                    Label(loc.t(.verifyAtSource), systemImage: "arrow.up.right.square")
                 }
                 if let maps = mapsURL {
                     Button { openURL(maps) } label: {
-                        Label("マップで開く", systemImage: "map")
+                        Label(loc.t(.openInMaps), systemImage: "map")
                     }
                 }
             }
@@ -43,10 +44,10 @@ struct DealDetailView: View {
 
     private var statusText: String {
         switch deal.status {
-        case .active: return "確認済み"
-        case .unverified: return "未確認"
-        case .expired: return "期限切れ"
-        case .unknown: return "不明"
+        case .active: return loc.t(.statusActive)
+        case .unverified: return loc.t(.statusUnverified)
+        case .expired: return loc.t(.statusExpired)
+        case .unknown: return loc.t(.statusUnknown)
         }
     }
 

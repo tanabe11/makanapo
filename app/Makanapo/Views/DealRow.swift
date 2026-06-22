@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DealRow: View {
     let deal: Deal
+    @EnvironmentObject var loc: LocalizationManager
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
@@ -23,13 +24,13 @@ struct DealRow: View {
     @ViewBuilder private var freshness: some View {
         switch deal.status {
         case .active:
-            Label("確認 \(deal.lastVerified)", systemImage: "checkmark.seal")
+            Label("\(loc.t(.verifiedPrefix)) \(deal.lastVerified)", systemImage: "checkmark.seal")
                 .font(.caption2).foregroundStyle(.green)
         case .unverified:
-            Label("未確認", systemImage: "questionmark.circle")
+            Label(loc.t(.unverified), systemImage: "questionmark.circle")
                 .font(.caption2).foregroundStyle(.secondary)
         case .expired:
-            Label("期限切れ", systemImage: "xmark.circle")
+            Label(loc.t(.expired), systemImage: "xmark.circle")
                 .font(.caption2).foregroundStyle(.red)
         case .unknown:
             EmptyView()
