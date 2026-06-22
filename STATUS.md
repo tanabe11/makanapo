@@ -83,6 +83,17 @@ gh run list --workflow=build-deals # 実行履歴
 - Python 3.9 互換のため各モジュール先頭に `from __future__ import annotations`（実装済み）。
 - IMP（International Market Place）= 接続レベルでブロック（Playwright不可）→ 対象外。RHC = テナント割引一覧頁が存在せず深追い不要。
 
+## push が rejected されたら（毎日の cron が先にコミットしている）
+日次 Actions が `data/deals.json` を自動更新するため、ローカルに未push作業があると衝突する。`deals.json` は生成物なので**取り込んで再生成**するだけ：
+```
+git fetch origin
+git merge origin/main --no-edit       # deals.json は自動マージされるが信用しない
+python3 -m pipeline.core.build         # sources.json から再生成（整合保証）
+git add data/deals.json && git commit --amend --no-edit   # マージコミットに反映
+git push
+```
+（恒久対策メモ: `last_verified` は CI=UTC / ローカル=HST で日付がズレ得る。将来 build を Honolulu 時刻固定にすると差分ノイズが減る。）
+
 ## 次にやること（候補）
 - [ ] 発見スキルを回して active を 18 → 50 に近づける（最優先。HHある独立系=active化しやすい / カマアイナのみ=unverified+リンクになりがち）
 - [ ] CI セーフガード（件数大幅減で commit 抑止）
