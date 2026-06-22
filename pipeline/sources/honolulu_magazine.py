@@ -13,7 +13,6 @@ Region headers are <h2> followed by an empty <p>: <h2>WAIKIKI</h2><p>&nbsp;</p>
 from __future__ import annotations
 
 import re
-from datetime import date
 
 from pipeline.core import extract, fetch, normalize
 
@@ -36,7 +35,7 @@ def _section_label(low: str, name: str) -> str:
 
 
 def collect() -> list[dict]:
-    today = date.today().isoformat()
+    today = normalize.today()
     posts = fetch.get_json(API)
     if not posts:
         return []

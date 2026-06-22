@@ -49,7 +49,7 @@ def _last_date(text: str) -> str | None:
 
 
 def collect() -> list[dict]:
-    today = date.today().isoformat()
+    today = normalize.today()
     html = fetch.get_text(URL, timeout=40)
     out: list[dict] = []
 

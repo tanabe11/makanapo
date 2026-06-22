@@ -4,7 +4,16 @@ from __future__ import annotations
 
 import hashlib
 import re
-from datetime import date
+from datetime import datetime, timedelta, timezone
+
+# Hawaii has no DST -> a fixed UTC-10 offset. Use this everywhere for the
+# "today" of last_verified so CI (UTC runners) and local (HST) agree on the date
+# and don't produce spurious daily diffs / branch divergence.
+_HST = timezone(timedelta(hours=-10))
+
+
+def today() -> str:
+    return datetime.now(_HST).date().isoformat()
 
 
 def slugify(name: str) -> str:
@@ -20,9 +29,8 @@ def make_id(name: str, source_url: str) -> str:
     return f"{slugify(name)}-{h}"
 
 
-def finalize(rec: dict, today: str | None = None) -> dict:
-    today = today or date.today().isoformat()
-    rec.setdefault("last_verified", today)
+def finalize(rec: dict, today_str: str | None = None) -> dict:
+    rec.setdefault("last_verified", today_str or today())
     rec.setdefault("status", "unverified")
     return rec
 

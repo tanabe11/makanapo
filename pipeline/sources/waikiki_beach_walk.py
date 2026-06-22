@@ -33,7 +33,7 @@ def _category(path: str) -> str | None:
 
 
 def collect() -> list[dict]:
-    today = date.today().isoformat()
+    today = normalize.today()
     html = fetch.get_text(URL, timeout=30)
     matches = list(_MERCHANT.finditer(html))
     out: list[dict] = []

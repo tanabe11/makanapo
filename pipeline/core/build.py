@@ -16,7 +16,6 @@ from __future__ import annotations
 import json
 import sys
 from collections import Counter
-from datetime import date
 from pathlib import Path
 
 import jsonschema
@@ -75,7 +74,7 @@ def _validate(records: list[dict], label: str) -> int:
 
 
 def main() -> int:
-    today = date.today().isoformat()
+    today = normalize.today()
 
     published = _read_curated()
     src_recs, pub_per = _run(PUBLISH_SOURCES)

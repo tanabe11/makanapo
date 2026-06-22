@@ -8,7 +8,6 @@ extracted from a primary source, the record is `status: active`.
 from __future__ import annotations
 
 import re
-from datetime import date
 
 from pipeline.core import extract, fetch, jsonld, normalize
 
@@ -69,7 +68,7 @@ def from_official(
     html = fetch.get_text(url)
     biz = _pick_business(jsonld.extract_jsonld(html)) or {}
     text = extract.strip_html(html)
-    today = date.today().isoformat()
+    today = normalize.today()
 
     resolved_name = name or biz.get("name") or ""
     if not resolved_name:
