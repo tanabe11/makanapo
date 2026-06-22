@@ -86,6 +86,10 @@ targets:
     platform: iOS
     sources:
       - path: MakanapoTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
+        PRODUCT_BUNDLE_IDENTIFIER: fm.makana.makanapoTests
     dependencies:
       - target: Makanapo
 ```
@@ -151,9 +155,9 @@ Run (on the Mac, in `app/`):
 brew install xcodegen   # once
 cd app && xcodegen generate
 xcodebuild -project Makanapo.xcodeproj -scheme Makanapo \
-  -destination 'platform=iOS Simulator,name=iPhone 15' build
+  -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
-Expected: `BUILD SUCCEEDED`. (If "iPhone 15" is missing, run `xcrun simctl list devices` and pick an installed name.)
+Expected: `BUILD SUCCEEDED`. (If "iPhone 17" is missing, run `xcrun simctl list devices` and pick an installed name, or use `-destination 'generic/platform=iOS Simulator'`.)
 
 - [ ] **Step 7: Commit**
 
@@ -224,7 +228,7 @@ final class DealDecodingTests: XCTestCase {
 In Xcode `⌘U`, or:
 ```bash
 xcodebuild test -project app/Makanapo.xcodeproj -scheme Makanapo \
-  -destination 'platform=iOS Simulator,name=iPhone 15' \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
   -only-testing:MakanapoTests/DealDecodingTests
 ```
 Expected: FAIL — `Deal` not found.
@@ -1037,7 +1041,7 @@ struct MakanapoApp: App {
 
 ```bash
 xcodebuild test -project app/Makanapo.xcodeproj -scheme Makanapo \
-  -destination 'platform=iOS Simulator,name=iPhone 15'
+  -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 Expected: all unit tests (Deal decode, DealsStore, NowPlaying) PASS.
 
@@ -1054,3 +1058,5 @@ git commit -m "feat(app): collapsing radio hero + integrated MVP screen"
 - Run everything on a Mac with Xcode. `cd app && xcodegen generate` after pulling, whenever `project.yml` or the file list changes (the `.xcodeproj` is gitignored).
 - Fill `app/Makanapo/App/Config.swift` `radioStreamURL` / `nowPlayingURL` with the real makana.fm radio3 (AzuraCast) values before Tasks 6–7's live verification.
 - Set `DEVELOPMENT_TEAM` in Xcode (Signing & Capabilities) for device runs / TestFlight.
+- In Xcode's GUI, pick an **iOS Simulator** destination (e.g. iPhone 17). Building to "My Mac" or a physical device fails with a signing error while `DEVELOPMENT_TEAM` is empty — the simulator needs no signing.
+- This Mac's installed simulators are iPhone 17 family (iOS 26.5); adjust `-destination` names if they differ (`xcrun simctl list devices`).

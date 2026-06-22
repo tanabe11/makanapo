@@ -29,5 +29,9 @@ targets:
     platform: iOS
     sources:
       - path: MakanapoTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: true
+        PRODUCT_BUNDLE_IDENTIFIER: fm.makana.makanapoTests
     dependencies:
       - target: Makanapo
