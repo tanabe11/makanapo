@@ -4,9 +4,9 @@ enum Config {
     /// Published deals (jsDelivr CDN, public repo). No bundled fallback.
     static let dealsURL = URL(string: "https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json")!
 
-    // --- OWNER INPUT: replace with the real makana.fm radio3 (AzuraCast) values ---
-    /// Direct audio stream (e.g. https://<host>/listen/<shortcode>/radio.mp3)
-    static let radioStreamURL = URL(string: "https://REPLACE_ME/listen/radio3/radio.mp3")!
-    /// AzuraCast now-playing JSON (e.g. https://<host>/api/nowplaying/<shortcode>)
-    static let nowPlayingURL = URL(string: "https://REPLACE_ME/api/nowplaying/radio3")!
+    // makana.fm radio (AzuraCast @ radio.makana.fm, station shortcode "makana.fm")
+    /// Live MP3 stream. (HLS alt: https://radio.makana.fm/hls/makana.fm/aac_hifi.m3u8)
+    static let radioStreamURL = URL(string: "https://radio.makana.fm/listen/makana.fm/radio.mp3")!
+    /// AzuraCast now-playing JSON.
+    static let nowPlayingURL = URL(string: "https://radio.makana.fm/api/nowplaying/makana.fm")!
 }
