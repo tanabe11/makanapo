@@ -2,16 +2,16 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-21 (discovery run #1: +Hideout/Redfish active, +Banán/Pint+Jigger unverified)
+> Last updated: 2026-06-21 (discovery runs #1-2: +6 official sources; active 15→18)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **27件**（active 17 / unverified 9 / expired 1）一次情報・公式のみ
-- `data/sources.json` の official_sites: **9件**（発見スキルが追記していく）
+- 公開 `data/deals.json`: **31件**（active 18 / unverified 12 / expired 1）一次情報・公式のみ
+- `data/sources.json` の official_sites: **13件**（発見スキルが追記していく）
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
-- **Go 基準: active 50件。現在 17件。**
+- **Go 基準: active 50件。現在 18件。**
 
 ## アーキテクチャ（二層）
 ```
@@ -84,7 +84,7 @@ gh run list --workflow=build-deals # 実行履歴
 - IMP（International Market Place）= 接続レベルでブロック（Playwright不可）→ 対象外。RHC = テナント割引一覧頁が存在せず深追い不要。
 
 ## 次にやること（候補）
-- [ ] 発見スキルを回して active を 17 → 50 に近づける（最優先）
+- [ ] 発見スキルを回して active を 18 → 50 に近づける（最優先。HHある独立系=active化しやすい / カマアイナのみ=unverified+リンクになりがち）
 - [ ] CI セーフガード（件数大幅減で commit 抑止）
 - [ ] README 追加
 - [ ] アプリ（SwiftUI + MapKit, v1 閲覧専用）着手は active が十分溜まってから

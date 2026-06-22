@@ -351,6 +351,49 @@
     "status": "unverified"
   },
   {
+    "id": "tsurutontan-waikiki-a98146",
+    "name": "Tsurutontan",
+    "category": "food",
+    "source_url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
+    "last_verified": "2026-06-21",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
+    "hours": "Su 11:30-21:30; Mo 11:30-21:30; Tu 11:30-21:30; We 11:30-21:30; Th 11:30-21:30; Fr 11:30-21:30; Sa 11:30-21:30",
+    "discount": "happy hour specials",
+    "status": "active"
+  },
+  {
+    "id": "noi-thai-cuisine-waikiki-ba08f6",
+    "name": "Noi Thai Cuisine",
+    "category": "food",
+    "source_url": "https://noithaicuisine.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "status": "unverified"
+  },
+  {
+    "id": "tonkatsu-ginza-bairin-waikiki-71f7e5",
+    "name": "Tonkatsu Ginza Bairin",
+    "category": "food",
+    "source_url": "https://ginzabairinhawaii.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "status": "unverified"
+  },
+  {
+    "id": "fat-cheeks-ala-moana-80d0a6",
+    "name": "Fat Cheeks",
+    "category": "food",
+    "source_url": "https://www.fatcheekshawaii.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "restaurant",
+    "neighborhood": "Ala Moana",
+    "status": "unverified"
+  },
+  {
     "id": "giovanni-pastrami-waikiki-74b645",
     "name": "Giovanni Pastrami",
     "category": "food",

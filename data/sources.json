@@ -63,6 +63,34 @@
       "subcategory": "happy_hour",
       "neighborhood": "Ala Moana",
       "name": "Pint + Jigger"
+    },
+    {
+      "url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Tsurutontan"
+    },
+    {
+      "url": "https://noithaicuisine.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Noi Thai Cuisine"
+    },
+    {
+      "url": "https://ginzabairinhawaii.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Tonkatsu Ginza Bairin"
+    },
+    {
+      "url": "https://www.fatcheekshawaii.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Ala Moana",
+      "name": "Fat Cheeks"
     }
   ]
 }
