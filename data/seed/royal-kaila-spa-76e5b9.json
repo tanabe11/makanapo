@@ -1,0 +1,15 @@
+{
+  "id": "royal-kaila-spa-76e5b9",
+  "name": "Royal Kaila Spa",
+  "category": "service",
+  "subcategory": "spa_massage",
+  "discount": "10% off massages, facials and body wraps (kamaaina rate)",
+  "conditions": "show Hawaii ID",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "neighborhood": "Waikiki",
+  "source_url": "https://www.spa-royalkaila.com/",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}

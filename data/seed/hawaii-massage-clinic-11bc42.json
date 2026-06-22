@@ -1,0 +1,15 @@
+{
+  "id": "hawaii-massage-clinic-11bc42",
+  "name": "Hawaii Massage Clinic",
+  "category": "service",
+  "subcategory": "spa_massage",
+  "discount": "$8 off with Hawaii State ID (kamaaina rate)",
+  "conditions": "show Hawaii State ID; source listed promotion period through 2025-04-30",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "neighborhood": "Waikiki",
+  "source_url": "https://hawaiimassageclinic.com/kamaaina-massage/",
+  "last_verified": "2026-06-21",
+  "status": "expired"
+}

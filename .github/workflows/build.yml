@@ -1,0 +1,45 @@
+name: build-deals
+
+# Tier-2 deterministic pipeline: crawl configured sources -> data/deals.json.
+# No LLM, no secrets. Reads data/sources.json (maintained by the local Tier-1
+# discovery skill) + the per-source parsers. Fails if any record is invalid.
+
+on:
+  schedule:
+    - cron: "17 15 * * *"   # daily ~05:17 HST (15:17 UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-deals
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install jsonschema
+
+      - name: Build deals.json (validates; fails on invalid record)
+        run: python3 -m pipeline.core.build
+
+      - name: Commit if changed
+        run: |
+          git config user.name "makanapo-bot"
+          git config user.email "noreply@makana.fm"
+          git add data/deals.json
+          if git diff --staged --quiet; then
+            echo "No changes to deals.json"
+          else
+            git commit -m "data: daily refresh $(date -u +%F)"
+            git push
+          fi

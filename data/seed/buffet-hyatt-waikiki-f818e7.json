@@ -1,0 +1,19 @@
+{
+  "id": "buffet-hyatt-waikiki-f818e7",
+  "name": "The Buffet at Hyatt Regency Waikiki",
+  "category": "food",
+  "subcategory": "restaurant",
+  "discount": "20% off dining (kamaaina rate)",
+  "conditions": "show valid Hawaii ID; dine-in; not valid with holiday/special menus or other promotions; cannot be combined with other offers; subject to change",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "address": "2424 Kalakaua Avenue, Honolulu, HI 96815",
+  "lat": 21.2776,
+  "lng": -157.8262,
+  "neighborhood": "Waikiki",
+  "hours": "Daily 17:00-21:30",
+  "source_url": "https://www.buffetathyatt.com/team-member/is-there-a-kamaaina-discount/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

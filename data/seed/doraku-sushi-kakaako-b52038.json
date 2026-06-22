@@ -1,0 +1,17 @@
+{
+  "id": "doraku-sushi-kakaako-b52038",
+  "name": "Doraku Sushi Kaka'ako",
+  "category": "food",
+  "subcategory": "happy_hour",
+  "discount": "happy hour pricing on select food and drinks",
+  "conditions": "happy hour window only; excludes holidays",
+  "requires_id": false,
+  "address": "1009 Kapi'olani Boulevard, Honolulu, HI 96814",
+  "lat": 21.2952,
+  "lng": -157.8556,
+  "neighborhood": "Kakaako",
+  "hours": "Happy hour Mon-Fri 16:00-18:00 and 21:00-close",
+  "source_url": "https://dorakusushi.com/kakaako/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

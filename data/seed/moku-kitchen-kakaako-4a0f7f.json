@@ -1,0 +1,17 @@
+{
+  "id": "moku-kitchen-kakaako-4a0f7f",
+  "name": "Moku Kitchen",
+  "category": "food",
+  "subcategory": "happy_hour",
+  "discount": "happy hour pricing on select food and drinks",
+  "conditions": "happy hour window only; walk-in",
+  "requires_id": false,
+  "address": "660 Ala Moana Boulevard, No. 145, SALT at Our Kaka'ako, Honolulu, HI 96813",
+  "lat": 21.2949,
+  "lng": -157.8629,
+  "neighborhood": "Kakaako",
+  "hours": "Happy hour daily 15:00-17:30 and 21:00-23:00",
+  "source_url": "https://www.mokukitchen.com/templates/visit.html",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

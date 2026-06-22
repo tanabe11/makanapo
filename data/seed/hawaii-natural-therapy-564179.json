@@ -1,0 +1,18 @@
+{
+  "id": "hawaii-natural-therapy-564179",
+  "name": "Hawaii Natural Therapy",
+  "category": "service",
+  "subcategory": "spa_massage",
+  "discount": "10% off every massage session (kamaaina rate)",
+  "conditions": "show Hawaii State ID; cannot be applied to an already discounted massage package",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "address": "350 Ward Avenue, Suite 210, Honolulu, HI 96814",
+  "lat": 21.2967,
+  "lng": -157.8517,
+  "neighborhood": "Kakaako",
+  "source_url": "https://bestoahumassage.com/massage-deals/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "yard-house-waikiki-e3d2f0",
+  "name": "Yard House Waikiki",
+  "category": "food",
+  "subcategory": "happy_hour",
+  "discount": "$2 off beer, wine and cocktails; 50% off select appetizers",
+  "conditions": "happy hour window only",
+  "requires_id": false,
+  "neighborhood": "Waikiki",
+  "source_url": "https://www.yardhouse.com/locations/hi/honolulu/honolulu-waikiki-beach-walk/8362",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}

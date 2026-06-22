@@ -1,0 +1,18 @@
+{
+  "id": "island-crepes-lemonade-ala-moana-0df834",
+  "name": "Island Crepes & Lemonade (Ala Moana Center)",
+  "category": "food",
+  "subcategory": "cafe",
+  "discount": "10% off (kamaaina rate)",
+  "conditions": "show valid Hawaii state photo ID",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "address": "1450 Ala Moana Boulevard, Ala Moana Center, Honolulu, HI 96814",
+  "lat": 21.2911,
+  "lng": -157.8434,
+  "neighborhood": "Ala Moana",
+  "source_url": "https://www.alamoanacenter.com/en/shopping/kamaainadiscounts/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

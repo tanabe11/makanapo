@@ -1,0 +1,17 @@
+{
+  "id": "vein-kakaako-b90b1a",
+  "name": "Vein at Kaka'ako",
+  "category": "food",
+  "subcategory": "happy_hour",
+  "discount": "18% off all pasta and appetizers during happy hour",
+  "conditions": "dine-in; happy hour window only",
+  "requires_id": false,
+  "address": "685 Auahi Street, Building 2, Suite 121, Honolulu, HI 96813",
+  "lat": 21.2952,
+  "lng": -157.8556,
+  "neighborhood": "Kakaako",
+  "hours": "Happy hour 16:30-18:00 (dinner service Thu-Sat lunch 11:00-14:00; daily dinner 16:30-22:00, last seating 20:30; closed Sun)",
+  "source_url": "https://www.veinatkakaako.com/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

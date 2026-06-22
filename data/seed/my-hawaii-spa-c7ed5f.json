@@ -1,0 +1,15 @@
+{
+  "id": "my-hawaii-spa-c7ed5f",
+  "name": "My Hawaii Spa",
+  "category": "service",
+  "subcategory": "spa_massage",
+  "discount": "10% off body massages (kamaaina rate)",
+  "conditions": "show Hawaii ID",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "neighborhood": "Ala Moana",
+  "source_url": "https://www.my-hawaii-spa.com/kamaaina",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}

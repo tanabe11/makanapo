@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "makanapo deal",
+  "type": "object",
+  "required": ["id", "name", "category", "source_url", "last_verified", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "enum": ["food", "service"] },
+    "subcategory": { "type": "string" },
+    "discount": { "type": "string" },
+    "conditions": { "type": "string" },
+    "redemption": { "enum": ["show_id", "code", "online"] },
+    "requires_id": { "type": "boolean" },
+    "code": { "type": ["string", "null"] },
+    "address": { "type": "string" },
+    "lat": { "type": "number" },
+    "lng": { "type": "number" },
+    "neighborhood": { "type": "string" },
+    "hours": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "last_verified": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "valid_until": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "status": { "enum": ["active", "expired", "unverified"] }
+  }
+}

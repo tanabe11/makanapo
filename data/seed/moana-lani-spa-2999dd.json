@@ -1,0 +1,15 @@
+{
+  "id": "moana-lani-spa-2999dd",
+  "name": "Moana Lani Spa",
+  "category": "service",
+  "subcategory": "spa_massage",
+  "discount": "15% off spa treatments and retail (kamaaina rate)",
+  "conditions": "show Hawaii ID",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "neighborhood": "Waikiki",
+  "source_url": "https://www.moanalanispa.com/specials",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}

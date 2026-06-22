@@ -1,0 +1,13 @@
+{
+  "id": "tommy-bahama-restaurant-bar-waikiki-95bbca",
+  "name": "Tommy Bahama Restaurant & Bar Waikiki",
+  "category": "food",
+  "subcategory": "happy_hour",
+  "discount": "happy hour pricing on select food and drinks",
+  "conditions": "happy hour window; bar area only",
+  "requires_id": false,
+  "neighborhood": "Waikiki",
+  "source_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/waikiki",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}

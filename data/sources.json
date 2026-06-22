@@ -1,0 +1,40 @@
+{
+  "_comment": "Crawl config (DATA, not code). Tier-1 discovery skill APPENDS here; Tier-2 deterministic pipeline READS here. official_sites are individual business pages verified via core.venue.from_official.",
+  "official_sites": [
+    {
+      "url": "https://www.veinatkakaako.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kakaako",
+      "name": "Vein at Kaka'ako"
+    },
+    {
+      "url": "https://www.dukeswaikiki.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Duke's Waikiki"
+    },
+    {
+      "url": "https://www.hulagrillwaikiki.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Hula Grill Waikiki"
+    },
+    {
+      "url": "https://www.pikowaikikihawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Piko Kitchen + Bar"
+    },
+    {
+      "url": "https://appetitowaikiki.com/happy-hour/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Appetito Craft Pizza & Wine Bar"
+    }
+  ]
+}

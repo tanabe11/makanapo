@@ -1,0 +1,18 @@
+{
+  "id": "mani-pedi-spa-ala-moana-2d1085",
+  "name": "Mani Pedi Spa (Ala Moana Center)",
+  "category": "service",
+  "subcategory": "salon_nails",
+  "discount": "OPI nail polish for $7-8 with salon service; 20% off retail items (kamaaina rate)",
+  "conditions": "show valid Hawaii state photo ID",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "address": "1450 Ala Moana Boulevard, Ala Moana Center, Honolulu, HI 96814",
+  "lat": 21.2911,
+  "lng": -157.8434,
+  "neighborhood": "Ala Moana",
+  "source_url": "https://www.alamoanacenter.com/en/shopping/kamaainadiscounts/",
+  "last_verified": "2026-06-21",
+  "status": "active"
+}

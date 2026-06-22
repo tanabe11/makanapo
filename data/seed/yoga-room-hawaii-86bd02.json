@@ -1,0 +1,14 @@
+{
+  "id": "yoga-room-hawaii-86bd02",
+  "name": "Yoga Room Hawaii",
+  "category": "service",
+  "subcategory": "fitness",
+  "discount": "two weeks unlimited yoga for Hawaii residents",
+  "conditions": "show local or Hawaii ID at first class check-in",
+  "redemption": "show_id",
+  "requires_id": true,
+  "code": null,
+  "source_url": "https://www.yogaroomhawaii.com/class-pricing",
+  "last_verified": "2026-06-21",
+  "status": "unverified"
+}
