@@ -35,6 +35,34 @@
       "subcategory": "happy_hour",
       "neighborhood": "Waikiki",
       "name": "Appetito Craft Pizza & Wine Bar"
+    },
+    {
+      "url": "https://www.hideoutwaikiki.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Hideout at The Laylow"
+    },
+    {
+      "url": "https://www.redfishpoke.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Redfish"
+    },
+    {
+      "url": "https://banan.co/",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Waikiki",
+      "name": "Banán"
+    },
+    {
+      "url": "https://pintandjigger.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "Pint + Jigger"
     }
   ]
 }

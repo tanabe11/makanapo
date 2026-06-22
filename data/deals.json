@@ -307,6 +307,50 @@
     "status": "active"
   },
   {
+    "id": "hideout-at-the-laylow-waikiki-7a1ced",
+    "name": "Hideout at The Laylow",
+    "category": "food",
+    "source_url": "https://www.hideoutwaikiki.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "discount": "happy hour specials",
+    "status": "active"
+  },
+  {
+    "id": "redfish-waikiki-85c401",
+    "name": "Redfish",
+    "category": "food",
+    "source_url": "https://www.redfishpoke.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "discount": "10% off your order with valid Hawaii ID",
+    "requires_id": true,
+    "redemption": "show_id",
+    "status": "active"
+  },
+  {
+    "id": "ban-n-waikiki-4bcd63",
+    "name": "Banán",
+    "category": "food",
+    "source_url": "https://banan.co/",
+    "last_verified": "2026-06-21",
+    "subcategory": "cafe",
+    "neighborhood": "Waikiki",
+    "status": "unverified"
+  },
+  {
+    "id": "pint-jigger-ala-moana-c09bca",
+    "name": "Pint + Jigger",
+    "category": "food",
+    "source_url": "https://pintandjigger.com/",
+    "last_verified": "2026-06-21",
+    "subcategory": "happy_hour",
+    "neighborhood": "Ala Moana",
+    "status": "unverified"
+  },
+  {
     "id": "giovanni-pastrami-waikiki-74b645",
     "name": "Giovanni Pastrami",
     "category": "food",
