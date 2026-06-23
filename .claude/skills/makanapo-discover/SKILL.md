@@ -43,14 +43,20 @@ publishes from that config. **Never write `data/deals.json` here** — only conf
    - `No record` / robots / fetch fail → skip.
 5. **Add the usable ones**: re-run the same command with `--add` to append to
    `data/sources.json` (deduped by url).
-6. After the batch, **rebuild and review**:
+6. **Geocode new venues**, then **rebuild and review**:
    ```
    python3 -m pipeline.core.build      # regenerates data/deals.json (validated)
+   python3 -m pipeline.geocode_fill    # LOCAL Nominatim fill for deals missing lat/lng (rate-limited)
+   python3 -m pipeline.core.build      # re-run: attaches the new coords from cache
    python3 -m pipeline.stats           # active/unverified/expired counts
    python3 -m pipeline.preview && open data/preview.html
    ```
-7. **Present the diff** of `data/sources.json` (and the active-count change) for
-   the human to approve, then commit. Do not auto-push.
+   Geocoding is deterministic and event-driven — it runs here (after discovery adds
+   venues), never in the cron. It writes `data/geocode_cache.json`; unresolved
+   venues (no address, name not in OSM) just stay pin-less until an address is found.
+7. **Present the diff** of `data/sources.json` (+ active-count / coords change) for
+   the human to approve, then commit `data/sources.json` + `data/deals.json` +
+   `data/geocode_cache.json`. Do not auto-push.
 
 ## Notes
 - `discover_add` does no LLM work — it just fetches + extracts + writes config.
