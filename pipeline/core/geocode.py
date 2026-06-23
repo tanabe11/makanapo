@@ -54,6 +54,7 @@ def _clean_for_api(q: str) -> str:
     q = q.replace("‘", "").replace("’", "").replace("ʻ", "").replace("ʼ", "")
     q = "".join(c for c in unicodedata.normalize("NFKD", q) if not unicodedata.combining(c))
     q = re.sub(r",?\s*(?:suite|ste\.?|unit|bldg|building|#)\s*[\w-]+", "", q, flags=re.I)
+    q = re.sub(r",?\s*\d*\s*(?:st|nd|rd|th)?\s*floor\b", "", q, flags=re.I)
     return re.sub(r"\s+", " ", q).strip()
 
 

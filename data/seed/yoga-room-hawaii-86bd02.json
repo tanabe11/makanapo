@@ -8,6 +8,8 @@
   "redemption": "show_id",
   "requires_id": true,
   "code": null,
+  "neighborhood": "Kaimuki",
+  "address": "1120 12th Avenue, 2nd Floor, Honolulu, HI 96816",
   "source_url": "https://www.yogaroomhawaii.com/class-pricing",
   "last_verified": "2026-06-21",
   "status": "unverified"

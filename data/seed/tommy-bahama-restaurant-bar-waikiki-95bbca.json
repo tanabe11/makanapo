@@ -7,6 +7,7 @@
   "conditions": "happy hour window; bar area only",
   "requires_id": false,
   "neighborhood": "Waikiki",
+  "address": "298 Beach Walk, Honolulu, HI 96815",
   "source_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/waikiki",
   "last_verified": "2026-06-21",
   "status": "unverified"

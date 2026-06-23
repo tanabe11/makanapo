@@ -136,9 +136,12 @@
     "requires_id": true,
     "code": null,
     "neighborhood": "Waikiki",
+    "address": "2365 Kalakaua Ave, Honolulu, HI 96815",
     "source_url": "https://www.moanalanispa.com/specials",
     "last_verified": "2026-06-21",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.276499,
+    "lng": -157.8268852
   },
   {
     "id": "moku-kitchen-kakaako-4a0f7f",
@@ -214,9 +217,12 @@
     "conditions": "happy hour window; bar area only",
     "requires_id": false,
     "neighborhood": "Waikiki",
+    "address": "298 Beach Walk, Honolulu, HI 96815",
     "source_url": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/waikiki",
     "last_verified": "2026-06-21",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2811161,
+    "lng": -157.8307366
   },
   {
     "id": "vein-kakaako-b90b1a",
@@ -261,9 +267,13 @@
     "redemption": "show_id",
     "requires_id": true,
     "code": null,
+    "neighborhood": "Kaimuki",
+    "address": "1120 12th Avenue, 2nd Floor, Honolulu, HI 96816",
     "source_url": "https://www.yogaroomhawaii.com/class-pricing",
     "last_verified": "2026-06-21",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2815985,
+    "lng": -157.7995746
   },
   {
     "id": "dukes-waikiki-waikiki-b70ef7",
