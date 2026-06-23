@@ -31,7 +31,9 @@
 - 実装済み追加：**セグメント絞り込み**（すべて/ハッピーアワー/カマアイナ。`Deal.isHappyHour`/`isKamaaina` で分類）。
 - 実装済み追加：**EN/JA ローカライズ**（`LocalizationManager`＋`L10n` 文字列テーブル、ナビバー🌐で即切替、初回は端末言語追従）。UIラベルのみ（データ＝店名/割引文は英語のまま）。
 - 実装済み追加：**地図ビュー（Phase A）**（`DealMapView`、左上トグルでリスト⇄地図、座標ありの割引をピン表示＝現13件、ピン→詳細、絞り込み連動。iOS17+のMapKit）。
-- **TODO（Phase B・地図のピン増加）**：`build.py` に **OSM Nominatim ジオコーディング**を追加し、住所 or「店名＋地区」から lat/lng を補完（決定論・無料・LLM不要）。現状31件中 lat/lng は13件のみ → 大半に増やせる。
+- 実装済み追加：**地図ピン増加（Phase B・ジオコーディング）**。`pipeline/core/geocode.py`＋`pipeline/geocode_fill.py`（ローカルでNominatim、1req/秒、`data/geocode_cache.json`にキャッシュ）。`build.py` は**キャッシュ読むだけ**でlat/lng付与（cronはネット不要）。**coords 13→20/31**。
+  - 運用：座標を増やすときはローカルで `python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `data/deals.json`＋`data/geocode_cache.json` をコミット＆push。アプリは CDN 取得なので**push後にjsDelivr反映されてからピン増**（必要なら purge）。
+  - 未解決11件（店名がNominatim未収録）：spa系/Piko/Hideout/Redfish/Pint+Jigger/Fat Cheeks/Yoga Room/Tommy Bahama/Hawaii Massage Clinic。**住所が取れれば解決** → discoveryで各公式から住所抽出を足すのが次の改善。
 - 次：現在地/近く（位置情報許可）、検索、報告ボタン、App Store配布（Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
