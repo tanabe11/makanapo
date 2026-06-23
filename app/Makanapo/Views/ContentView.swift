@@ -24,8 +24,9 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var scrolledY: CGFloat = 0
     @State private var filter: DealFilter = .all
+    @State private var showMap = false
 
-    private var collapsed: Bool { scrolledY > 60 }
+    private var collapsed: Bool { !showMap && scrolledY > 60 }
     private var shownDeals: [Deal] { dealsStore.deals.filter { filter.matches($0) } }
 
     var body: some View {
@@ -46,14 +47,25 @@ struct ContentView: View {
                 .padding(.vertical, 6)
                 Divider()
 
-                ScrollView {
-                    dealsSection
+                if #available(iOS 17.0, *), showMap {
+                    DealMapView(deals: shownDeals)
+                } else {
+                    ScrollView {
+                        dealsSection
+                    }
+                    .modifier(TrackScroll { scrolledY = $0 })
                 }
-                .modifier(TrackScroll { scrolledY = $0 })
             }
             .navigationTitle("makanapo")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    if #available(iOS 17.0, *) {
+                        Button { showMap.toggle() } label: {
+                            Image(systemName: showMap ? "list.bullet" : "map")
+                        }
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { loc.toggle() } label: {
                         Label(loc.lang == .ja ? "EN" : "日本語", systemImage: "globe")
