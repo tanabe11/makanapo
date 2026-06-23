@@ -20,7 +20,7 @@ from pathlib import Path
 
 import jsonschema
 
-from pipeline.core import normalize
+from pipeline.core import geocode, normalize
 from pipeline.sources import ala_moana, honolulu_magazine, oahu_official, waikiki_beach_walk
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -83,6 +83,16 @@ def main() -> int:
         normalize.finalize(r, today)
     published = normalize.dedupe(published)
 
+    # Attach cached coordinates (cache-only; live geocoding is the local Tier-1 step).
+    geo_cache = geocode.load_cache()
+    geo_attached = 0
+    for r in published:
+        if r.get("lat") is None or r.get("lng") is None:
+            q = geocode.query_for(r)
+            if q and q in geo_cache:
+                r["lat"], r["lng"] = geo_cache[q][0], geo_cache[q][1]
+                geo_attached += 1
+
     leads, lead_per = _run(LEAD_SOURCES)
     for r in leads:
         normalize.finalize(r, today)
@@ -100,7 +110,9 @@ def main() -> int:
     print(f"  curated seed: {len(_read_curated())}")
     for name, n in pub_per:
         print(f"  publish source {name:20s}: {n}")
+    geo_have = sum(1 for r in published if r.get("lat") and r.get("lng"))
     print(f"  PUBLISHED deals.json: {len(published)}  by_status: {dict(pub_status)}")
+    print(f"  coords: {geo_have}/{len(published)} (attached from cache this run: {geo_attached})")
     for name, n in lead_per:
         print(f"  lead source {name:20s}: {n}")
     print(f"  INTERNAL leads.json:  {len(leads)}  (not published)")

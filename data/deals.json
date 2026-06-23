@@ -270,7 +270,9 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2768421,
+    "lng": -157.8277917
   },
   {
     "id": "hula-grill-waikiki-waikiki-2fe781",
@@ -280,7 +282,9 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2769825,
+    "lng": -157.8277491
   },
   {
     "id": "piko-kitchen-bar-waikiki-eb8116",
@@ -304,7 +308,9 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "discount": "happy hour specials",
-    "status": "active"
+    "status": "active",
+    "lat": 21.2778478,
+    "lng": -157.8246824
   },
   {
     "id": "hideout-at-the-laylow-waikiki-7a1ced",
@@ -338,7 +344,9 @@
     "last_verified": "2026-06-22",
     "subcategory": "cafe",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2773117,
+    "lng": -157.8277843
   },
   {
     "id": "pint-jigger-ala-moana-c09bca",
@@ -361,7 +369,9 @@
     "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
     "hours": "Su 11:30-21:30; Mo 11:30-21:30; Tu 11:30-21:30; We 11:30-21:30; Th 11:30-21:30; Fr 11:30-21:30; Sa 11:30-21:30",
     "discount": "happy hour specials",
-    "status": "active"
+    "status": "active",
+    "lat": 21.278721,
+    "lng": -157.8294248
   },
   {
     "id": "noi-thai-cuisine-waikiki-ba08f6",
@@ -371,7 +381,9 @@
     "last_verified": "2026-06-22",
     "subcategory": "restaurant",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2779061,
+    "lng": -157.827948
   },
   {
     "id": "tonkatsu-ginza-bairin-waikiki-71f7e5",
@@ -381,7 +393,9 @@
     "last_verified": "2026-06-22",
     "subcategory": "restaurant",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.2801166,
+    "lng": -157.8309164
   },
   {
     "id": "fat-cheeks-ala-moana-80d0a6",
