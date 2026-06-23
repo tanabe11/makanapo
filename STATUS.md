@@ -6,12 +6,12 @@
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **31件**（active 18 / unverified 12 / expired 1）一次情報・公式のみ
-- `data/sources.json` の official_sites: **13件**（発見スキルが追記していく）
+- 公開 `data/deals.json`: **43件**（active 27 / unverified 15 / expired 1）一次情報・公式のみ。coords 38/43。
+- `data/sources.json` の official_sites: **25件**（発見スキルが追記していく）
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
-- **Go 基準: active 50件。現在 18件。**
+- **Go 基準: active 50件。現在 27件**（あと23）。未push のローカルコミットあり → `git push` 必要。
 
 ## アーキテクチャ（二層）
 ```

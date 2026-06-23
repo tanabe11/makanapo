@@ -168,7 +168,7 @@ po/
 ```
 
 ## Current status / next actions
-- **data**: 31 deals (active 18 / unverified 12 / expired 1). Goal: active 50 → Go/No-Go.
-- **coords**: 29/31 geocoded. Remaining 2 (My Hawaii Spa, Royal Kaila Spa) need address in seed.
+- **data**: 43 deals (active 27 / unverified 15 / expired 1). Goal: active 50 → Go/No-Go.
+- **coords**: 38/43 geocoded. Missing: My Hawaii Spa, Royal Kaila Spa, Maui Brewing Waikiki, Restaurant Suntory, Arancino (need address / cleaner extraction).
 - **app**: MVP shipped (all features above). Pending: user-location/nearby, report-expired button, App Store.
 - **priority**: run `makanapo-discover` skill to push active count toward 50.
