@@ -25,6 +25,7 @@ struct ContentView: View {
     @State private var scrolledY: CGFloat = 0
     @State private var filter: DealFilter = .all
     @State private var showMap = false
+    @State private var showAbout = false
 
     private var collapsed: Bool { !showMap && scrolledY > 60 }
     private var shownDeals: [Deal] { dealsStore.deals.filter { filter.matches($0) } }
@@ -37,19 +38,21 @@ struct ContentView: View {
                     .animation(.easeInOut(duration: 0.2), value: collapsed)
                 Divider()
 
-                // Page header: what this list is + map/list toggle (under the radio).
-                HStack(spacing: 8) {
+                // Page header: centered title + map/list toggle on the right (under the radio).
+                ZStack {
                     Text(loc.t(.dealsTitle))
                         .font(.headline)
-                    Spacer()
                     if #available(iOS 17.0, *) {
-                        Button { showMap.toggle() } label: {
-                            Label(showMap ? loc.t(.showList) : loc.t(.showMap),
-                                  systemImage: showMap ? "list.bullet" : "map")
-                                .labelStyle(.iconOnly)
-                                .imageScale(.large)
+                        HStack {
+                            Spacer()
+                            Button { showMap.toggle() } label: {
+                                Label(showMap ? loc.t(.showList) : loc.t(.showMap),
+                                      systemImage: showMap ? "list.bullet" : "map")
+                                    .labelStyle(.iconOnly)
+                                    .imageScale(.large)
+                            }
+                            .accessibilityLabel(showMap ? loc.t(.showList) : loc.t(.showMap))
                         }
-                        .accessibilityLabel(showMap ? loc.t(.showList) : loc.t(.showMap))
                     }
                 }
                 .padding(.horizontal)
@@ -82,15 +85,15 @@ struct ContentView: View {
                         Button { Task { await dealsStore.refresh() } } label: {
                             Label(loc.t(.menuRefresh), systemImage: "arrow.clockwise")
                         }
+                        Button { loc.toggle() } label: {
+                            Label(loc.lang == .ja ? "English" : "日本語", systemImage: "globe")
+                        }
+                        Button { showAbout = true } label: {
+                            Label(loc.t(.menuAbout), systemImage: "info.circle")
+                        }
                         // Future features go here.
                     } label: {
                         Image(systemName: "line.3.horizontal")
-                    }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { loc.toggle() } label: {
-                        Label(loc.lang == .ja ? "EN" : "日本語", systemImage: "globe")
-                            .font(.subheadline)
                     }
                 }
             }
@@ -99,6 +102,7 @@ struct ContentView: View {
                     DealDetailView(deal: deal)
                 }
             }
+            .sheet(isPresented: $showAbout) { AboutView() }
         }
         .task { await dealsStore.refresh() }
         .onChange(of: scenePhase) { phase in

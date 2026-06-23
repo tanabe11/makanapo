@@ -35,6 +35,8 @@ enum L10n {
     case statusActive, statusUnverified, statusExpired, statusUnknown
     case verifyAtSource, openInMaps, tapToListen
     case dealsTitle, menuRefresh, showMap, showList
+    case menuAbout, aboutTagline, aboutDescription, aboutDataNote, aboutPrivacy
+    case aboutVersion, aboutVisitSite, aboutClose
 
     func value(_ lang: LocalizationManager.Lang) -> String {
         lang == .ja ? pair.ja : pair.en
@@ -72,6 +74,25 @@ enum L10n {
         case .menuRefresh: return ("再読み込み", "Refresh")
         case .showMap: return ("地図で見る", "Show map")
         case .showList: return ("一覧で見る", "Show list")
+        case .menuAbout: return ("このアプリについて", "About")
+        case .aboutTagline:
+            return ("ホノルルのカマアイナ割引＆ハッピーアワー", "Honolulu kama'aina discounts & happy hour")
+        case .aboutDescription:
+            return (
+                "makanapo は、ホノルルのカマアイナ割引とハッピーアワー情報をまとめたアプリです。各情報には最終確認日を表示し、鮮度を大切にしています。",
+                "Makanapo gathers Honolulu kama'aina discounts and happy-hour deals. Every listing shows when it was last verified, so you can trust it's fresh."
+            )
+        case .aboutDataNote:
+            return (
+                "情報は公式サイト等の一次情報に基づきます。ご利用前に「公式で確認」リンクで最新をご確認ください。",
+                "Info is based on primary sources (official sites). Tap “Verify at source” to confirm before you go."
+            )
+        case .aboutPrivacy:
+            return ("閲覧専用・アカウント不要。個人情報は収集しません。",
+                    "Read-only, no account, and we don't collect personal data.")
+        case .aboutVersion: return ("バージョン", "Version")
+        case .aboutVisitSite: return ("makana.fm を開く", "Visit makana.fm")
+        case .aboutClose: return ("閉じる", "Close")
         }
     }
 }
