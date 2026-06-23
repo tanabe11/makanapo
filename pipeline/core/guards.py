@@ -51,6 +51,25 @@ def denied_domain(url: str) -> str | None:
     return None
 
 
+# Oahu bounding box (rough) for sanity-checking geocoded coordinates.
+_OAHU = (21.20, 21.75, -158.32, -157.60)  # lat_min, lat_max, lng_min, lng_max
+
+
+def out_of_area(rec: dict) -> bool:
+    """True only with POSITIVE evidence the venue is NOT on Oahu — geocoded coords
+    off-island, or a non-Hawaii ZIP (HI = 967xx/968xx) in the address. Catches a
+    same-name store in another state or a chain's national page. Ambiguous (no
+    coords/zip) returns False (let probation/human catch it)."""
+    lat, lng = rec.get("lat"), rec.get("lng")
+    if isinstance(lat, (int, float)) and isinstance(lng, (int, float)):
+        if not (_OAHU[0] <= lat <= _OAHU[1] and _OAHU[2] <= lng <= _OAHU[3]):
+            return True
+    m = re.search(r"\b(\d{5})\b", rec.get("address") or "")
+    if m and m.group(1)[:3] not in ("967", "968"):
+        return True
+    return False
+
+
 def looks_spammy(rec: dict) -> bool:
     blob = " ".join(str(rec.get(k, "")) for k in ("name", "discount", "conditions"))
     return bool(_SPAM.search(blob))

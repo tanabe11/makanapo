@@ -18,7 +18,7 @@ import argparse
 import json
 from pathlib import Path
 
-from pipeline.core import guards, venue
+from pipeline.core import guards, normalize, venue
 
 SOURCES = Path(__file__).resolve().parent.parent / "data" / "sources.json"
 
@@ -65,9 +65,11 @@ def main() -> int:
     if any(s.get("url") == args.url for s in sites):
         print("Already present in sources.json — no change.")
         return 0
+    site["_added"] = normalize.today()  # starts a probation window (build keeps it unverified ~7d)
     sites.append(site)
     SOURCES.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n")
-    print(f"ADDED to data/sources.json (now {len(sites)} official_sites). Rebuild to publish.")
+    print(f"ADDED to data/sources.json (now {len(sites)} official_sites). "
+          f"Publishes as 'unverified' for ~7 days (probation), then auto-promotes if stable.")
     return 0
 
 

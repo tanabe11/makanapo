@@ -17,6 +17,7 @@ import json
 import os
 import sys
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 import jsonschema
@@ -104,10 +105,33 @@ def main() -> int:
         if guards.looks_spammy(r):
             print(f"  GUARD drop (spam markers): {r.get('name')}", file=sys.stderr)
             continue
+        if guards.out_of_area(r):
+            print(f"  GUARD drop (outside Oahu): {r.get('name')}", file=sys.stderr)
+            continue
         if r.get("discount"):
             r["discount"] = guards.clean_discount(r["discount"])
         kept.append(r)
     published = kept
+
+    # Probation: newly auto-added sources publish as unverified (verify-at-source
+    # link) until stable for PROBATION_DAYS — limits the blast radius of a wrong or
+    # closed auto-add before it shows as a confident "active" deal.
+    PROBATION_DAYS = 7
+    src_added = {
+        s["url"]: s.get("_added")
+        for s in json.loads((ROOT / "data" / "sources.json").read_text()).get("official_sites", [])
+    }
+    for r in published:
+        if r.get("status") != "active":
+            continue
+        added = src_added.get(r.get("source_url"))
+        if not added:
+            continue
+        try:
+            if (date.fromisoformat(today) - date.fromisoformat(added)).days < PROBATION_DAYS:
+                r["status"] = "unverified"
+        except ValueError:
+            pass
 
     leads, lead_per = _run(LEAD_SOURCES)
     for r in leads:
