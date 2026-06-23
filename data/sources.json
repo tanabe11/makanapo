@@ -92,6 +92,90 @@
       "neighborhood": "Ala Moana",
       "name": "Fat Cheeks",
       "address": "1200 Ala Moana Blvd, Ste B2115, Honolulu, HI 96814"
+    },
+    {
+      "url": "https://www.basaltwaikiki.com/promos/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Basalt"
+    },
+    {
+      "url": "https://www.shorefyre.com/v2/happy-hour/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "ShoreFyre"
+    },
+    {
+      "url": "https://www.honolulubeerworks.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kalihi",
+      "name": "Honolulu Beerworks"
+    },
+    {
+      "url": "https://www.mbcrestaurants.com/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Maui Brewing Co. Waikiki"
+    },
+    {
+      "url": "https://mahinaandsuns.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Mahina & Sun's"
+    },
+    {
+      "url": "https://www.heydayhawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Heyday"
+    },
+    {
+      "url": "https://buhocantina.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Buho Cocina y Cantina"
+    },
+    {
+      "url": "https://www.luluswaikiki.com/happyhour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Lulu's Waikiki"
+    },
+    {
+      "url": "https://charthousewaikiki.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "Chart House Waikiki"
+    },
+    {
+      "url": "https://restaurantsuntory.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Restaurant Suntory"
+    },
+    {
+      "url": "https://arancino-beachwalk.arancino.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Arancino on Beachwalk"
+    },
+    {
+      "url": "https://www.myhighwayinn.com/location-kakaako/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Kakaako",
+      "name": "Highway Inn"
     }
   ]
 }
