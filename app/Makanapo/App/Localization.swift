@@ -30,7 +30,7 @@ enum L10n {
     case pickerAll, pickerHappyHour, pickerKamaaina
     case loading, loadFailed, retry, noResults
     case verifiedPrefix, unverified, expired
-    case detailDiscount, detailConditions, detailRedemption, detailHours, detailAddress, detailNeighborhood
+    case detailDiscount, detailConditions, detailHours, detailAddress, detailNeighborhood
     case freshnessSection, lastVerified, statusRow
     case statusActive, statusUnverified, statusExpired, statusUnknown
     case verifyAtSource, openInMaps, tapToListen
@@ -38,7 +38,6 @@ enum L10n {
     case menuAbout, aboutTagline, aboutDescription, aboutDataNote, aboutPrivacy
     case aboutVersion, aboutVisitSite, aboutClose
     case adLabel, adHouseRadio
-    case redemptionShowID, redemptionCode, redemptionOnline
 
     func value(_ lang: LocalizationManager.Lang) -> String {
         lang == .ja ? pair.ja : pair.en
@@ -58,7 +57,6 @@ enum L10n {
         case .expired: return ("期限切れ", "Expired")
         case .detailDiscount: return ("割引", "Discount")
         case .detailConditions: return ("条件", "Conditions")
-        case .detailRedemption: return ("利用方法", "Redemption")
         case .detailHours: return ("時間", "Hours")
         case .detailAddress: return ("住所", "Address")
         case .detailNeighborhood: return ("地区", "Neighborhood")
@@ -97,9 +95,6 @@ enum L10n {
         case .aboutClose: return ("閉じる", "Close")
         case .adLabel: return ("PR", "Ad")
         case .adHouseRadio: return ("makana.fm — ハワイのラジオを聴く", "makana.fm — listen to Hawaii radio")
-        case .redemptionShowID: return ("ID提示", "Show ID")
-        case .redemptionCode: return ("コード利用", "Promo code")
-        case .redemptionOnline: return ("オンライン", "Online")
         }
     }
 }

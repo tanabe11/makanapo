@@ -10,7 +10,6 @@ struct DealDetailView: View {
             Section {
                 if let d = deal.discount { row(loc.t(.detailDiscount), d) }
                 if let c = deal.conditions { row(loc.t(.detailConditions), c) }
-                if let r = deal.redemption { row(loc.t(.detailRedemption), redemptionText(r)) }
                 if let h = deal.hours { row(loc.t(.detailHours), h) }
                 if let a = deal.address { row(loc.t(.detailAddress), a) }
                 if let n = deal.neighborhood { row(loc.t(.detailNeighborhood), n) }
@@ -39,15 +38,6 @@ struct DealDetailView: View {
             Text(k).foregroundStyle(.secondary)
             Spacer()
             Text(v).multilineTextAlignment(.trailing)
-        }
-    }
-
-    private func redemptionText(_ r: String) -> String {
-        switch r {
-        case "show_id": return loc.t(.redemptionShowID)
-        case "code": return loc.t(.redemptionCode)
-        case "online": return loc.t(.redemptionOnline)
-        default: return r
         }
     }
 
