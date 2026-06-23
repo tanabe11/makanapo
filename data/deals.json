@@ -294,10 +294,13 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "address": "2380 Kūhiō Ave., Honolulu, HI 96815",
     "discount": "10% Off Your Order with Valid Hawaii ID",
     "requires_id": true,
     "redemption": "show_id",
-    "status": "active"
+    "status": "active",
+    "lat": 21.278464,
+    "lng": -157.8244616
   },
   {
     "id": "appetito-craft-pizza-wine-bar-waikiki-7415cc",
@@ -307,10 +310,11 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "address": "150 Ka‘iulani Ave., Honolulu, HI 96815",
     "discount": "happy hour specials",
     "status": "active",
-    "lat": 21.2778478,
-    "lng": -157.8246824
+    "lat": 21.2779003,
+    "lng": -157.8250674
   },
   {
     "id": "hideout-at-the-laylow-waikiki-7a1ced",
@@ -320,8 +324,11 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "address": "2299 Kuhio Ave, Honolulu, HI 96815",
     "discount": "happy hour specials",
-    "status": "active"
+    "status": "active",
+    "lat": 21.2792525,
+    "lng": -157.8265059
   },
   {
     "id": "redfish-waikiki-85c401",
@@ -331,10 +338,13 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "address": "3536 Harding Ave., Honolulu, HI 96816",
     "discount": "10% off your order with valid Hawaii ID",
     "requires_id": true,
     "redemption": "show_id",
-    "status": "active"
+    "status": "active",
+    "lat": 21.2819849,
+    "lng": -157.8009943
   },
   {
     "id": "ban-n-waikiki-4bcd63",
@@ -356,7 +366,10 @@
     "last_verified": "2026-06-22",
     "subcategory": "happy_hour",
     "neighborhood": "Ala Moana",
-    "status": "unverified"
+    "address": "410 Atkinson Drive, Suite 1F4, Honolulu, HI 96814",
+    "status": "unverified",
+    "lat": 21.2905774,
+    "lng": -157.8396521
   },
   {
     "id": "tsurutontan-waikiki-a98146",
@@ -393,9 +406,10 @@
     "last_verified": "2026-06-22",
     "subcategory": "restaurant",
     "neighborhood": "Waikiki",
+    "address": "255 Beach Walk, Honolulu, HI 96815",
     "status": "unverified",
-    "lat": 21.2801166,
-    "lng": -157.8309164
+    "lat": 21.2800253,
+    "lng": -157.8309648
   },
   {
     "id": "fat-cheeks-ala-moana-80d0a6",

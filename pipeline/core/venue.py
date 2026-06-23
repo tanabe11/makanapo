@@ -64,6 +64,7 @@ def from_official(
     subcategory: str | None = None,
     neighborhood: str | None = None,
     name: str | None = None,
+    address: str | None = None,
 ) -> dict | None:
     html = fetch.get_text(url)
     biz = _pick_business(jsonld.extract_jsonld(html)) or {}
@@ -86,7 +87,7 @@ def from_official(
     if neighborhood:
         rec["neighborhood"] = neighborhood
 
-    addr = _flatten_address(biz.get("address"))
+    addr = _flatten_address(biz.get("address")) or extract.find_address(text) or address
     if addr:
         rec["address"] = addr
     geo = biz.get("geo")

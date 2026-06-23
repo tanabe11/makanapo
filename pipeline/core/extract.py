@@ -64,6 +64,23 @@ _MONTHS = {
 _EXPIRY_RE = re.compile(r"through\s+([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+(\d{4})", re.I)
 
 
+_ADDR_RE = re.compile(
+    r"\d{2,5}[\w .,'#&/‘’ʻ-]{3,60}?Honolulu,?\s*(?:HI|Hawai)[\w .]*?9\d{4}",
+    re.I,
+)
+
+
+def find_address(text: str | None) -> str | None:
+    """Best-effort US street address ending in 'Honolulu, HI 96xxx' from page text."""
+    m = _ADDR_RE.search(text or "")
+    if not m:
+        return None
+    a = re.sub(r"\s+", " ", m.group(0)).strip()
+    # ensure a separator before "Honolulu" (pages often run them together)
+    a = re.sub(r"\s*,?\s*Honolulu", ", Honolulu", a, count=1)
+    return a
+
+
 def find_source_expiry(text: str | None) -> str | None:
     """Return YYYY-MM-DD from phrases like 'through Aug. 31, 2025', else None."""
     m = _EXPIRY_RE.search(text or "")

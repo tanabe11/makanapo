@@ -34,8 +34,12 @@ def main() -> int:
     found = 0
     for r, q in todo:
         coords = geocode.lookup(q)
+        if not coords:
+            nq = geocode.name_query(r)
+            if nq and nq != q:
+                coords = geocode.lookup(nq)  # address failed -> try name
         if coords:
-            cache[q] = coords
+            cache[q] = coords  # store under the key build.py will look up (query_for)
             found += 1
             print(f"  OK  {r['name']} -> {coords}")
         else:

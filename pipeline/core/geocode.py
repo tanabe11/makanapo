@@ -11,7 +11,9 @@ Nominatim policy compliance: descriptive User-Agent + >= 1 request/second.
 from __future__ import annotations
 
 import json
+import re
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -32,11 +34,27 @@ def query_for(rec: dict) -> str | None:
     name = rec.get("name")
     if not name:
         return None
+    return name_query(rec)
+
+
+def name_query(rec: dict) -> str | None:
+    """Fallback query from name (+ neighborhood) — used when an address lookup fails."""
+    name = rec.get("name")
+    if not name:
+        return None
     parts = [name]
     if rec.get("neighborhood"):
         parts.append(rec["neighborhood"])
     parts += ["Honolulu", "HI"]
     return ", ".join(parts)
+
+
+def _clean_for_api(q: str) -> str:
+    """Strip ʻokina/macrons and suite/unit tokens so Nominatim matches more reliably."""
+    q = q.replace("‘", "").replace("’", "").replace("ʻ", "").replace("ʼ", "")
+    q = "".join(c for c in unicodedata.normalize("NFKD", q) if not unicodedata.combining(c))
+    q = re.sub(r",?\s*(?:suite|ste\.?|unit|bldg|building|#)\s*[\w-]+", "", q, flags=re.I)
+    return re.sub(r"\s+", " ", q).strip()
 
 
 def load_cache() -> dict:
@@ -60,7 +78,7 @@ def lookup(query: str) -> list[float] | None:
         time.sleep(wait)
     _last = time.time()
     url = "https://nominatim.openstreetmap.org/search?" + urllib.parse.urlencode(
-        {"q": query, "format": "json", "limit": 1, "countrycodes": "us"}
+        {"q": _clean_for_api(query), "format": "json", "limit": 1, "countrycodes": "us"}
     )
     req = urllib.request.Request(url, headers={"User-Agent": _UA})
     try:
