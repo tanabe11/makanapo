@@ -62,6 +62,7 @@ cd app && xcodegen generate
 **次の候補**：現在地/近く（`CLLocationWhenInUse`、同意設計必要）、検索、「期限切れ報告」ボタン、App Store 配布（Apple Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
+> **完全な手順書: [docs/MACMINI_SETUP.md](docs/MACMINI_SETUP.md)**（clone前のpush・gh認証・push衝突回復・discovery運用・jsDelivrパージまで網羅）。以下は要約。
 ### 前提
 - git / Python 3.9+（CIは3.11）/ `pip install jsonschema`（唯一の依存）
 - `gh` CLI を認証し **workflow スコープ付き**にする（ワークフローファイルを push するため）:
