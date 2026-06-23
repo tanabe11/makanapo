@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "makana_fm.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

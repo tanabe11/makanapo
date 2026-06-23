@@ -16,9 +16,11 @@ struct AboutView: View {
             List {
                 Section {
                     VStack(spacing: 8) {
-                        Image(systemName: "moon.stars.fill")
-                            .font(.system(size: 40))
-                            .foregroundStyle(.indigo)
+                        Image("AppLogo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 84, height: 84)
+                            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                         Text("makana.fm").font(.title2).bold()
                         Text(loc.t(.aboutTagline))
                             .font(.subheadline)
