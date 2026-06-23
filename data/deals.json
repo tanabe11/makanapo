@@ -112,7 +112,7 @@
     "name": "Mani Pedi Spa (Ala Moana Center)",
     "category": "service",
     "subcategory": "salon_nails",
-    "discount": "OPI nail polish for $7-8 with salon service; 20% off retail items (kamaaina rate)",
+    "discount": "OPI nail polish for $7-8 with salon service; 20% off retail items…",
     "conditions": "show valid Hawaii state photo ID",
     "redemption": "show_id",
     "requires_id": true,
@@ -195,7 +195,7 @@
     "name": "Texas de Brazil (Ala Moana Center)",
     "category": "food",
     "subcategory": "restaurant",
-    "discount": "20% off food and non-alcoholic beverages on Tuesday dinner (kamaaina rate)",
+    "discount": "20% off food and non-alcoholic beverages on Tuesday dinner (kamaaina…",
     "conditions": "show valid Hawaii state photo ID; Tuesday dinner only",
     "redemption": "show_id",
     "requires_id": true,
@@ -487,7 +487,7 @@
     "last_verified": "2026-06-23",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "discount": "$2 Off All Beers$3 Off Select Cocktails50% Off Select Apps$14 PizzaLIVE MUSIC8:00pm – 10:30pm  DAILY",
+    "discount": "$2 Off All Beers$3 Off Select Cocktails50% Off Select Apps$14…",
     "status": "active"
   },
   {

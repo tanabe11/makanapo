@@ -14,13 +14,14 @@ Fails (exit 1) without writing if any record violates the schema (CI gate).
 from __future__ import annotations
 
 import json
+import os
 import sys
 from collections import Counter
 from pathlib import Path
 
 import jsonschema
 
-from pipeline.core import geocode, normalize
+from pipeline.core import geocode, guards, normalize
 from pipeline.sources import ala_moana, honolulu_magazine, oahu_official, waikiki_beach_walk
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -93,6 +94,21 @@ def main() -> int:
                 r["lat"], r["lng"] = geo_cache[q][0], geo_cache[q][1]
                 geo_attached += 1
 
+    # Guardrails: drop non-primary (aggregator) / spammy records, clean discounts.
+    kept: list[dict] = []
+    for r in published:
+        bad = guards.denied_domain(r.get("source_url", ""))
+        if bad:
+            print(f"  GUARD drop (non-primary domain {bad}): {r.get('name')}", file=sys.stderr)
+            continue
+        if guards.looks_spammy(r):
+            print(f"  GUARD drop (spam markers): {r.get('name')}", file=sys.stderr)
+            continue
+        if r.get("discount"):
+            r["discount"] = guards.clean_discount(r["discount"])
+        kept.append(r)
+    published = kept
+
     leads, lead_per = _run(LEAD_SOURCES)
     for r in leads:
         normalize.finalize(r, today)
@@ -101,6 +117,25 @@ def main() -> int:
     if _validate(published, "deals") or _validate(leads, "leads"):
         print("FAILED: invalid record(s) — nothing written", file=sys.stderr)
         return 1
+
+    # Count-delta guard: refuse a sudden mass shrink (source breakage / poisoning).
+    if DEALS_OUT.exists() and os.environ.get("MAKANAPO_ALLOW_SHRINK") != "1":
+        try:
+            prev = json.loads(DEALS_OUT.read_text())
+        except Exception:
+            prev = []
+        prev_total = len(prev)
+        prev_active = sum(1 for r in prev if r.get("status") == "active")
+        new_total = len(published)
+        new_active = sum(1 for r in published if r.get("status") == "active")
+        if prev_total and (new_total < prev_total * 0.6 or new_active < prev_active * 0.6):
+            print(
+                f"FAILED: count-delta guard — total {prev_total}->{new_total}, "
+                f"active {prev_active}->{new_active} (>40% drop). Nothing written. "
+                f"Set MAKANAPO_ALLOW_SHRINK=1 to override if intentional.",
+                file=sys.stderr,
+            )
+            return 1
 
     DEALS_OUT.write_text(json.dumps(published, indent=2, ensure_ascii=False) + "\n")
     LEADS_OUT.write_text(json.dumps(leads, indent=2, ensure_ascii=False) + "\n")

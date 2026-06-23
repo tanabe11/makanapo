@@ -18,7 +18,7 @@ import argparse
 import json
 from pathlib import Path
 
-from pipeline.core import venue
+from pipeline.core import guards, venue
 
 SOURCES = Path(__file__).resolve().parent.parent / "data" / "sources.json"
 
@@ -32,6 +32,12 @@ def main() -> int:
     ap.add_argument("--name")
     ap.add_argument("--add", action="store_true", help="append to data/sources.json if usable")
     args = ap.parse_args()
+
+    bad = guards.denied_domain(args.url)
+    if bad:
+        print(f"REFUSED: '{bad}' is a non-primary/aggregator domain. Publish only a "
+              f"business's OWN official page (aggregators are leads-only).")
+        return 1
 
     site = {"url": args.url, "category": args.category}
     for k in ("subcategory", "neighborhood", "name"):
