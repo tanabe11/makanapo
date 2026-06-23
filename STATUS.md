@@ -31,9 +31,11 @@
 - 実装済み追加：**セグメント絞り込み**（すべて/ハッピーアワー/カマアイナ。`Deal.isHappyHour`/`isKamaaina` で分類）。
 - 実装済み追加：**EN/JA ローカライズ**（`LocalizationManager`＋`L10n` 文字列テーブル、ナビバー🌐で即切替、初回は端末言語追従）。UIラベルのみ（データ＝店名/割引文は英語のまま）。
 - 実装済み追加：**地図ビュー（Phase A）**（`DealMapView`、左上トグルでリスト⇄地図、座標ありの割引をピン表示＝現13件、ピン→詳細、絞り込み連動。iOS17+のMapKit）。
-- 実装済み追加：**地図ピン増加（Phase B・ジオコーディング）**。`pipeline/core/geocode.py`＋`pipeline/geocode_fill.py`（ローカルでNominatim、1req/秒、`data/geocode_cache.json`にキャッシュ）。`build.py` は**キャッシュ読むだけ**でlat/lng付与（cronはネット不要）。**coords 13→20/31**。
-  - 運用：座標を増やすときはローカルで `python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `data/deals.json`＋`data/geocode_cache.json` をコミット＆push。アプリは CDN 取得なので**push後にjsDelivr反映されてからピン増**（必要なら purge）。
-  - 未解決11件（店名がNominatim未収録）：spa系/Piko/Hideout/Redfish/Pint+Jigger/Fat Cheeks/Yoga Room/Tommy Bahama/Hawaii Massage Clinic。**住所が取れれば解決** → discoveryで各公式から住所抽出を足すのが次の改善。
+- 実装済み追加：**地図ピン増加（Phase B・ジオコーディング）**。`pipeline/core/geocode.py`＋`pipeline/geocode_fill.py`（ローカルでNominatim、1req/秒、`data/geocode_cache.json`にキャッシュ）。`build.py` は**キャッシュ読むだけ**でlat/lng付与（cronはネット不要）。**coords 13→29/31**。
+  - `venue.from_official` が公式ページ本文から住所を抽出（JSON-LD→本文正規表現→sources.json指定 の順）。geocoderは ʻokina/長音/Suite/Floor を正規化し、住所失敗時は店名でフォールバック。seed/sources にも住所を追記して解決を拡大。
+  - 運用：座標を増やすときはローカルで `python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `data/deals.json`＋`data/geocode_cache.json` をコミット＆push。アプリは CDN 取得なので**push後にjsDelivr反映されてからピン増**（必要なら purge）。`makanapo-discover` スキルにこの手順を内蔵済み。
+  - 未解決2件（JS描画ページで住所取れず）：**My Hawaii Spa**（my-hawaii-spa.com）/ **Royal Kaila Spa**（spa-royalkaila.com）。WebSearch上限解除後（Pacific/Honolulu 20:20）にdiscoveryで住所取得→seed追記で解決。
+- 実装済み追加：**アプリアイコン**＝`img/makana_fm.jpg`（1024²/アルファ無→PNG化）。`app/Makanapo/Assets.xcassets/AppIcon.appiconset/` ＋ `ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon`。`xcodebuild build` 成功。
 - 次：現在地/近く（位置情報許可）、検索、報告ボタン、App Store配布（Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
