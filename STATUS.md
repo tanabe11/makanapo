@@ -127,6 +127,8 @@ gh run list --workflow=build-deals # 実行履歴
 - `gh` での workflow ファイル push には **workflow スコープ**が必要。
 - CI は GitHub のデータセンターIPから取得。サイトによっては弾かれ得る（現状は全到達OK）。**件数大幅減セーフガード実装済**：`build.py` が前回 deals.json と比べ total/active が >40% 減ると**ビルド失敗（commit/push されない）**。意図的な縮小時は `MAKANAPO_ALLOW_SHRINK=1`。
 - **公開前ガードレール（`pipeline/core/guards.py`）**：アグリゲータ/レビュー/SNS ドメインは公開不可（`denied_domain`、著作権）、パーキング/スパム語を含むレコードは drop（`looks_spammy`）、割引の run-on は短縮（`clean_discount`）。`discover_add` は追加時にも denylist で拒否。→ 無審査自動公開でも汚染を弾ける。
+- **オアフ地域ガード（`guards.out_of_area`）**：座標がオアフ島外 or 住所 ZIP が Hawaii(967/968)以外なら公開しない（別州の同名店・チェーン本国ページを排除）。
+- **プロベーション（`build.py`＋`discover_add` の `_added`）**：自動追加した新ソースは **7日間 unverified**（公式リンク付き）で出し、安定後 active 昇格。誤/閉店ソースが「確定割引」になる前の被害を限定。`_added` は `_`接頭辞なので `from_official` には渡らない。
 - Python 3.9 互換のため各モジュール先頭に `from __future__ import annotations`（実装済み）。
 - IMP（International Market Place）= 接続レベルでブロック（Playwright不可）→ 対象外。RHC = テナント割引一覧頁が存在せず深追い不要。
 - `last_verified` の日付は `normalize.today()`（Honolulu時刻・UTC-10固定）で統一済み（CI/ローカルの日付ズレ対策）。
