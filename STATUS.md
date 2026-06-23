@@ -2,7 +2,7 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-22 (map + geocoding + app icon done; coords 29/31; data: active 18)
+> Last updated: 2026-06-22 (rebrand: app=makana.fm / deals=Makanapō; +menu/About/ad banner; map+geocoding; coords 29/31)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
@@ -22,6 +22,8 @@
 - アグリゲータ（Honolulu Magazine 等）は **leads-only・非公開**（著作権）。公開は一次情報/公式のみ。
 
 ## iOS アプリ（`app/` 配下）
+**ブランド（決定 2026-06-22, 詳細 SPEC.md §9）**：アプリ名＝**makana.fm**（社名 makana.fm LLC＝傘ブランド）／ディール機能＝**Makanapō** section（`last_verified` 鮮度が主役）。内部名（repo/パイプライン/Bundle ID `fm.makana.makanapo`）は **makanapo** のまま（CDN URL 維持のため改名しない）。UI：ナビ中央＝`makana.fm`、ラジオ下の見出し＝`Makanapō`＋「ハッピーアワー & カマアイナ」。左上メニュー＝再読込/言語/About。下部＝ハウス広告バナー。残務：USPTO 連邦検索（区分9/38/41/35、特に音楽の "Makana"）＋ App Store 表示名予約。
+
 **実装済み機能（ユーザー確認済み）**：
 | 機能 | 実装 |
 |---|---|
@@ -31,8 +33,10 @@
 | 折り畳みヒーロー | `onScrollGeometryChange`（iOS18+）。iOS16-17はヒーロー固定 |
 | 割引一覧 + 詳細 | CDN `deals.json` 取得・オフラインキャッシュ |
 | セグメント絞り込み | All / Happy Hour / Kama'aina（`Deal.isHappyHour`/`isKamaaina`） |
-| EN/JA 切替 | `LocalizationManager` + `L10n` テーブル、🌐ボタン即時切替、端末言語初期値 |
-| 地図ビュー | `DealMapView`（iOS17+ MapKit）。左上トグルでリスト⇄地図。ピン→詳細。絞り込み連動 |
+| EN/JA 切替 | `LocalizationManager` + `L10n` テーブル、左上メニュー内で即時切替、端末言語初期値 |
+| 地図ビュー | `DealMapView`（iOS17+ MapKit）。見出し右トグルでリスト⇄地図。ピン→詳細。絞り込み連動 |
+| 左上メニュー | `Menu`（☰）：再読込 / 言語切替 / このアプリについて（`AboutView` シート） |
+| 広告 | 下部固定のハウス広告バナー `AdBannerView`（現状 makana.fm 宣伝。後でAdMob等に差替え可能な独立枠） |
 | アプリアイコン | `img/makana_fm.jpg`→PNG化 → `Assets.xcassets/AppIcon.appiconset/` |
 
 **ラジオ URL（`Config.swift`）**：

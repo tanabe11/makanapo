@@ -4,10 +4,14 @@ This file is read automatically by Claude Code. Keep instructions concise and im
 Human-facing rationale lives in `SPEC.md`.
 
 ## What this project is
-- **makanapo**: an iOS app that aggregates **Honolulu** kama'aina discounts and happy-hour deals.
-- Differentiator: every deal shows a **`last_verified` date**. Freshness + trust beat existing stale lists.
-- Brand: house-brand `makana` (makana.fm) + `pō` (night) = "evening gift".
-- Domain / data host base: `po.makana.fm`.
+- **App = `makana.fm`** (the umbrella brand; matches `makana.fm LLC`): Hawaii internet radio + local info.
+- **`Makanapō`** = the deals **feature/section inside the app**: aggregates **Honolulu** kama'aina discounts
+  and happy-hour deals. makana (gift) + pō (night) = "evening gift".
+- Differentiator (the defensible asset): every deal shows a **`last_verified` date**. Freshness + trust
+  beat stale lists. Keep this front-and-center; don't let the radio shell bury it.
+- **Internal name** (this repo, the Python pipeline, Bundle ID `fm.makana.makanapo`) stays **`makanapo`** —
+  the CDN URL `cdn.jsdelivr.net/gh/tanabe11/makanapo@main/...` depends on it; do NOT rename the repo.
+- Domain / data host base: `po.makana.fm`. Brand decision recorded in SPEC.md §9.
 
 ## MVP scope (do NOT widen without being asked)
 - **Island**: Oahu only (Honolulu first).
@@ -118,9 +122,14 @@ Splits the unavoidable LLM/search step (discovery) from the deterministic refres
 - Log a daily summary (counts added/removed/expired) so count crashes are visible in Git diffs.
 - Don't introduce new services/dependencies without a clear need (cost + maintenance burden).
 
-## Naming / branding
-- App/display name: `Makanapo` (also "Makana Pō"). Project + repo: `makanapo`.
-- Pending (track in SPEC.md): USPTO search (classes 9/42/35), App Store Connect name, @handle.
+## Naming / branding (revised 2026-06-22)
+- **App display name**: `makana.fm` (umbrella brand = company `makana.fm LLC`).
+- **Deals feature/section**: `Makanapō` (distinctive sub-brand; carries the `last_verified` differentiator).
+- **Repo / pipeline / Bundle ID**: `makanapo` (internal; do NOT rename — CDN path depends on it).
+- Do NOT use bare `makana` as a brand: generic Hawaiian word + collides with the slack-key artist "Makana"
+  (same music/radio space) → ASO-weak and trademark-risky.
+- Pending (SPEC.md §9): USPTO federal search (classes 9/38/41/35, esp. "Makana" in music/broadcast),
+  App Store Connect display-name reservation. Hawaii DCCA name + state TM + domain: DONE.
 
 ## iOS app — implemented (2026-06-22)
 - **SwiftUI / iOS 16+**, XcodeGen (`app/project.yml` → `.xcodeproj` gitignored). Bundle ID `fm.makana.makanapo`.
