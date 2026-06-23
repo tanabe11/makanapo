@@ -25,7 +25,7 @@ struct RadioHeader: View {
 
     private var hero: some View {
         VStack(spacing: 8) {
-            Text("MAKANA.FM RADIO").font(.caption).tracking(2).foregroundStyle(.secondary)
+            Text("RADIO").font(.caption).tracking(2).foregroundStyle(.secondary)
             playButton(size: 96)
             Text(player.nowPlaying?.display ?? "♪ \(loc.t(.tapToListen))")
                 .font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
