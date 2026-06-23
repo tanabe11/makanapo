@@ -64,9 +64,12 @@
     "requires_id": true,
     "code": null,
     "neighborhood": "Waikiki",
+    "address": "334 Seaside Ave, Suite 701, Honolulu, HI 96815",
     "source_url": "https://hawaiimassageclinic.com/kamaaina-massage/",
     "last_verified": "2026-06-21",
-    "status": "expired"
+    "status": "expired",
+    "lat": 21.2796322,
+    "lng": -157.8280245
   },
   {
     "id": "hawaii-natural-therapy-564179",
@@ -419,7 +422,10 @@
     "last_verified": "2026-06-22",
     "subcategory": "restaurant",
     "neighborhood": "Ala Moana",
-    "status": "unverified"
+    "address": "1200 Ala Moana Blvd, Ste B2115, Honolulu, HI 96814",
+    "status": "unverified",
+    "lat": 21.2927531,
+    "lng": -157.8528417
   },
   {
     "id": "giovanni-pastrami-waikiki-74b645",

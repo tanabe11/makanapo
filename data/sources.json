@@ -90,7 +90,8 @@
       "category": "food",
       "subcategory": "restaurant",
       "neighborhood": "Ala Moana",
-      "name": "Fat Cheeks"
+      "name": "Fat Cheeks",
+      "address": "1200 Ala Moana Blvd, Ste B2115, Honolulu, HI 96814"
     }
   ]
 }
