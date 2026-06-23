@@ -21,7 +21,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: fm.makana.makanapo
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         GENERATE_INFOPLIST_FILE: true
-        INFOPLIST_KEY_CFBundleDisplayName: Makanapo
+        INFOPLIST_KEY_CFBundleDisplayName: makana.fm
         INFOPLIST_KEY_UILaunchScreen_Generation: true
         INFOPLIST_KEY_UIBackgroundModes: audio
         TARGETED_DEVICE_FAMILY: "1"

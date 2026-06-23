@@ -77,11 +77,11 @@ enum L10n {
         case .showList: return ("一覧で見る", "Show list")
         case .menuAbout: return ("このアプリについて", "About")
         case .aboutTagline:
-            return ("ホノルルのカマアイナ割引＆ハッピーアワー", "Honolulu kama'aina discounts & happy hour")
+            return ("ハワイのラジオと地元のお得情報", "Hawaii radio & local deals")
         case .aboutDescription:
             return (
-                "makanapo は、ホノルルのカマアイナ割引とハッピーアワー情報をまとめたアプリです。各情報には最終確認日を表示し、鮮度を大切にしています。",
-                "Makanapo gathers Honolulu kama'aina discounts and happy-hour deals. Every listing shows when it was last verified, so you can trust it's fresh."
+                "makana.fm はハワイのインターネットラジオです。アプリ内の「Makanapō」では、ホノルルのカマアイナ割引とハッピーアワー情報を、最終確認日つきでお届けします。",
+                "makana.fm is Hawaii internet radio. Inside the app, “Makanapō” brings you Honolulu kama'aina discounts and happy-hour deals — each shown with the date it was last verified."
             )
         case .aboutDataNote:
             return (

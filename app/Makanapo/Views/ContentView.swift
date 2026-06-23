@@ -38,10 +38,15 @@ struct ContentView: View {
                     .animation(.easeInOut(duration: 0.2), value: collapsed)
                 Divider()
 
-                // Page header: centered title + map/list toggle on the right (under the radio).
+                // Page header: centered Makanapō sub-brand + map/list toggle on the right.
                 ZStack {
-                    Text(loc.t(.dealsTitle))
-                        .font(.headline)
+                    VStack(spacing: 1) {
+                        Text("Makanapō")
+                            .font(.headline)
+                        Text(loc.t(.dealsTitle))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                     if #available(iOS 17.0, *) {
                         HStack {
                             Spacer()
@@ -80,7 +85,7 @@ struct ContentView: View {
                 Divider()
                 AdBannerView()  // fixed bottom banner (house ad for now)
             }
-            .navigationTitle("makanapo")
+            .navigationTitle("makana.fm")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

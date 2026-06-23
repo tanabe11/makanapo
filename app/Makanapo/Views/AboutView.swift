@@ -19,7 +19,7 @@ struct AboutView: View {
                         Image(systemName: "moon.stars.fill")
                             .font(.system(size: 40))
                             .foregroundStyle(.indigo)
-                        Text("Makanapo").font(.title2).bold()
+                        Text("makana.fm").font(.title2).bold()
                         Text(loc.t(.aboutTagline))
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
