@@ -38,6 +38,7 @@ enum L10n {
     case menuAbout, aboutTagline, aboutDescription, aboutDataNote, aboutPrivacy
     case aboutVersion, aboutVisitSite, aboutClose
     case adLabel, adHouseRadio
+    case genreFood, genreSpa, genreBeauty, genreFitness, genreOther
 
     func value(_ lang: LocalizationManager.Lang) -> String {
         lang == .ja ? pair.ja : pair.en
@@ -95,6 +96,11 @@ enum L10n {
         case .aboutClose: return ("閉じる", "Close")
         case .adLabel: return ("PR", "Ad")
         case .adHouseRadio: return ("makana.fm — ハワイのラジオを聴く", "makana.fm — listen to Hawaii radio")
+        case .genreFood: return ("飲食", "Food & Drink")
+        case .genreSpa: return ("スパ・マッサージ", "Spa & Massage")
+        case .genreBeauty: return ("美容・ネイル", "Beauty & Nails")
+        case .genreFitness: return ("フィットネス", "Fitness")
+        case .genreOther: return ("その他", "Other")
         }
     }
 }

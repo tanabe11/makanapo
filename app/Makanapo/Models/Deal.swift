@@ -56,6 +56,25 @@ extension Deal {
     }
 }
 
+/// Browse genre for grouping the list (esp. the Kama'aina view, which mixes
+/// restaurants with spas/salons/fitness).
+enum DealGenre: Int, CaseIterable, Identifiable {
+    case food, spa, beauty, fitness, other
+    var id: Int { rawValue }
+}
+
+extension Deal {
+    var genre: DealGenre {
+        if category == "food" { return .food }
+        let s = (subcategory ?? "").lowercased()
+        if s.contains("spa") || s.contains("massage") { return .spa }
+        if s.contains("salon") || s.contains("nail") || s.contains("barber")
+            || s.contains("hair") || s.contains("beauty") { return .beauty }
+        if s.contains("fitness") || s.contains("yoga") || s.contains("gym") { return .fitness }
+        return .other
+    }
+}
+
 enum DealFilter: String, CaseIterable, Identifiable {
     case all, happyHour, kamaaina
     var id: Self { self }

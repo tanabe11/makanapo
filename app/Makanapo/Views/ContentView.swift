@@ -30,6 +30,14 @@ struct ContentView: View {
     private var collapsed: Bool { !showMap && scrolledY > 60 }
     private var shownDeals: [Deal] { dealsStore.deals.filter { filter.matches($0) } }
 
+    /// shownDeals split into genre sections, in DealGenre order, skipping empties.
+    private var grouped: [(genre: DealGenre, deals: [Deal])] {
+        DealGenre.allCases.compactMap { g in
+            let ds = shownDeals.filter { $0.genre == g }
+            return ds.isEmpty ? nil : (g, ds)
+        }
+    }
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -126,19 +134,46 @@ struct ContentView: View {
         }
     }
 
+    private func genreLabel(_ g: DealGenre) -> String {
+        switch g {
+        case .food: return loc.t(.genreFood)
+        case .spa: return loc.t(.genreSpa)
+        case .beauty: return loc.t(.genreBeauty)
+        case .fitness: return loc.t(.genreFitness)
+        case .other: return loc.t(.genreOther)
+        }
+    }
+
+    private func genreHeader(_ g: DealGenre, count: Int) -> some View {
+        HStack {
+            Text(genreLabel(g)).font(.subheadline).bold()
+            Spacer()
+            Text("\(count)").font(.caption).foregroundStyle(.secondary)
+        }
+        .padding(.horizontal).padding(.vertical, 6)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.regularMaterial)
+    }
+
     @ViewBuilder private var dealsSection: some View {
         if !dealsStore.deals.isEmpty {
             if shownDeals.isEmpty {
                 Text(loc.t(.noResults))
                     .font(.subheadline).foregroundStyle(.secondary).padding(40)
             } else {
-                LazyVStack(spacing: 0) {
-                    ForEach(shownDeals) { deal in
-                        NavigationLink(value: deal.id) {
-                            DealRow(deal: deal).padding(.horizontal)
+                LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                    ForEach(grouped, id: \.genre) { group in
+                        Section {
+                            ForEach(group.deals) { deal in
+                                NavigationLink(value: deal.id) {
+                                    DealRow(deal: deal).padding(.horizontal)
+                                }
+                                .buttonStyle(.plain)
+                                Divider()
+                            }
+                        } header: {
+                            if grouped.count > 1 { genreHeader(group.genre, count: group.deals.count) }
                         }
-                        .buttonStyle(.plain)
-                        Divider()
                     }
                 }
             }
