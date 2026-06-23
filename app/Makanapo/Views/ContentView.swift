@@ -37,6 +37,24 @@ struct ContentView: View {
                     .animation(.easeInOut(duration: 0.2), value: collapsed)
                 Divider()
 
+                // Page header: what this list is + map/list toggle (under the radio).
+                HStack(spacing: 8) {
+                    Text(loc.t(.dealsTitle))
+                        .font(.headline)
+                    Spacer()
+                    if #available(iOS 17.0, *) {
+                        Button { showMap.toggle() } label: {
+                            Label(showMap ? loc.t(.showList) : loc.t(.showMap),
+                                  systemImage: showMap ? "list.bullet" : "map")
+                                .labelStyle(.iconOnly)
+                                .imageScale(.large)
+                        }
+                        .accessibilityLabel(showMap ? loc.t(.showList) : loc.t(.showMap))
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 8)
+
                 Picker("filter", selection: $filter) {
                     ForEach(DealFilter.allCases) { f in
                         Text(filterLabel(f)).tag(f)
@@ -60,10 +78,13 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    if #available(iOS 17.0, *) {
-                        Button { showMap.toggle() } label: {
-                            Image(systemName: showMap ? "list.bullet" : "map")
+                    Menu {
+                        Button { Task { await dealsStore.refresh() } } label: {
+                            Label(loc.t(.menuRefresh), systemImage: "arrow.clockwise")
                         }
+                        // Future features go here.
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {

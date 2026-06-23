@@ -34,6 +34,7 @@ enum L10n {
     case freshnessSection, lastVerified, statusRow
     case statusActive, statusUnverified, statusExpired, statusUnknown
     case verifyAtSource, openInMaps, tapToListen
+    case dealsTitle, menuRefresh, showMap, showList
 
     func value(_ lang: LocalizationManager.Lang) -> String {
         lang == .ja ? pair.ja : pair.en
@@ -67,6 +68,10 @@ enum L10n {
         case .verifyAtSource: return ("公式で確認", "Verify at source")
         case .openInMaps: return ("マップで開く", "Open in Maps")
         case .tapToListen: return ("タップで再生", "Tap to listen")
+        case .dealsTitle: return ("ハッピーアワー & カマアイナ", "Happy Hour & Kama'aina")
+        case .menuRefresh: return ("再読み込み", "Refresh")
+        case .showMap: return ("地図で見る", "Show map")
+        case .showList: return ("一覧で見る", "Show list")
         }
     }
 }
