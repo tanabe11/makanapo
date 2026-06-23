@@ -2,7 +2,7 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-22 (iOS MVP built: radio + deals + collapsing hero; data: active 18)
+> Last updated: 2026-06-22 (map + geocoding + app icon done; coords 29/31; data: active 18)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
@@ -21,22 +21,41 @@
 - 「No LLM in the pipeline」: LLMは cron の外（ローカル発見スキル）にだけ存在。
 - アグリゲータ（Honolulu Magazine 等）は **leads-only・非公開**（著作権）。公開は一次情報/公式のみ。
 
-## iOS アプリ（MVP・`app/` 配下）
-- **状態：MVP 完成（未push のコミットあり）**。ラジオ（makana.fm/AzuraCast バックグラウンド再生＋ロック画面操作＋now-playing）＋ 割引一覧＋詳細。トップは「折り畳みヒーロー」（スクロールでラジオが細バーに）。
-- 技術：SwiftUI / iOS 16+（折り畳みは `onScrollGeometryChange`＝iOS18+のみ作動、16-17はヒーロー固定）。XcodeGen。Bundle ID `fm.makana.makanapo`。データは CDN直 `deals.json`。
-- ラジオ実URL（`app/Makanapo/App/Config.swift`）：stream `https://radio.makana.fm/listen/makana.fm/radio.mp3`、now-playing `https://radio.makana.fm/api/nowplaying/makana.fm`（station shortcode = `makana.fm`）。
-- **ビルド手順（Mac）**：`brew install xcodegen` → `cd app && xcodegen generate` → Xcode で開き **iOS Simulator（例 iPhone 17）**を選んで ⌘R。`*.xcodeproj` は gitignore（毎回 generate）。テスト：⌘U（Deal/Store/NowPlaying の単体）。
-- 設計/計画：`docs/superpowers/specs/2026-06-22-makanapo-ios-app-design.md` / `docs/superpowers/plans/2026-06-22-makanapo-ios-mvp.md`。
-- 未確認（実機推奨）：ロック画面でのバックグラウンド継続（シミュレータは擬似的）。
-- 実装済み追加：**セグメント絞り込み**（すべて/ハッピーアワー/カマアイナ。`Deal.isHappyHour`/`isKamaaina` で分類）。
-- 実装済み追加：**EN/JA ローカライズ**（`LocalizationManager`＋`L10n` 文字列テーブル、ナビバー🌐で即切替、初回は端末言語追従）。UIラベルのみ（データ＝店名/割引文は英語のまま）。
-- 実装済み追加：**地図ビュー（Phase A）**（`DealMapView`、左上トグルでリスト⇄地図、座標ありの割引をピン表示＝現13件、ピン→詳細、絞り込み連動。iOS17+のMapKit）。
-- 実装済み追加：**地図ピン増加（Phase B・ジオコーディング）**。`pipeline/core/geocode.py`＋`pipeline/geocode_fill.py`（ローカルでNominatim、1req/秒、`data/geocode_cache.json`にキャッシュ）。`build.py` は**キャッシュ読むだけ**でlat/lng付与（cronはネット不要）。**coords 13→29/31**。
-  - `venue.from_official` が公式ページ本文から住所を抽出（JSON-LD→本文正規表現→sources.json指定 の順）。geocoderは ʻokina/長音/Suite/Floor を正規化し、住所失敗時は店名でフォールバック。seed/sources にも住所を追記して解決を拡大。
-  - 運用：座標を増やすときはローカルで `python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `data/deals.json`＋`data/geocode_cache.json` をコミット＆push。アプリは CDN 取得なので**push後にjsDelivr反映されてからピン増**（必要なら purge）。`makanapo-discover` スキルにこの手順を内蔵済み。
-  - 未解決2件（JS描画ページで住所取れず）：**My Hawaii Spa**（my-hawaii-spa.com）/ **Royal Kaila Spa**（spa-royalkaila.com）。WebSearch上限解除後（Pacific/Honolulu 20:20）にdiscoveryで住所取得→seed追記で解決。
-- 実装済み追加：**アプリアイコン**＝`img/makana_fm.jpg`（1024²/アルファ無→PNG化）。`app/Makanapo/Assets.xcassets/AppIcon.appiconset/` ＋ `ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon`。`xcodebuild build` 成功。
-- 次：現在地/近く（位置情報許可）、検索、報告ボタン、App Store配布（Developer Program $99/年）。
+## iOS アプリ（`app/` 配下）
+**実装済み機能（ユーザー確認済み）**：
+| 機能 | 実装 |
+|---|---|
+| ラジオ再生 | AVPlayer + AVAudioSession(.playback) + UIBackgroundModes:audio |
+| ロック画面操作 | MPNowPlayingInfoCenter / MPRemoteCommandCenter |
+| Now-Playing 取得 | AzuraCast REST 25秒ポーリング |
+| 折り畳みヒーロー | `onScrollGeometryChange`（iOS18+）。iOS16-17はヒーロー固定 |
+| 割引一覧 + 詳細 | CDN `deals.json` 取得・オフラインキャッシュ |
+| セグメント絞り込み | All / Happy Hour / Kama'aina（`Deal.isHappyHour`/`isKamaaina`） |
+| EN/JA 切替 | `LocalizationManager` + `L10n` テーブル、🌐ボタン即時切替、端末言語初期値 |
+| 地図ビュー | `DealMapView`（iOS17+ MapKit）。左上トグルでリスト⇄地図。ピン→詳細。絞り込み連動 |
+| アプリアイコン | `img/makana_fm.jpg`→PNG化 → `Assets.xcassets/AppIcon.appiconset/` |
+
+**ラジオ URL（`Config.swift`）**：
+- stream: `https://radio.makana.fm/listen/makana.fm/radio.mp3`
+- now-playing: `https://radio.makana.fm/api/nowplaying/makana.fm`（shortcode = `makana.fm`）
+
+**ビルド手順（Mac）**：
+```
+brew install xcodegen
+cd app && xcodegen generate
+# Xcode で開き iOS Simulator（iPhone 17 等）を選択 → ⌘R
+# テスト: ⌘U（DealDecoding / DealsStore / NowPlaying / DealFilter / Localization / Smoke）
+```
+`*.xcodeproj` は gitignore — 毎回 `xcodegen generate` が必要。
+
+**ジオコーディング（地図ピン）**：
+- 31件中 **29件に座標あり**（coords 13→29）。
+- 未解決2件（JSページで住所取得不可）：**My Hawaii Spa** / **Royal Kaila Spa** → seed に住所を追記すればジオコーダが解決。
+- 座標追加手順：`python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `deals.json`＋`geocode_cache.json` をコミット＆push → jsDelivr 反映でピン増（必要なら purge）。`makanapo-discover` スキルにこの手順を内蔵済み。
+
+**未確認（実機推奨）**：ロック画面バックグラウンド継続（シミュレータは擬似的）。
+
+**次の候補**：現在地/近く（`CLLocationWhenInUse`、同意設計必要）、検索、「期限切れ報告」ボタン、App Store 配布（Apple Developer Program $99/年）。
 
 ## 別マシン（Mac Mini）でのセットアップ
 ### 前提
@@ -84,8 +103,13 @@ gh run list --workflow=build-deals # 実行履歴
 | `data/seed/*.json` | 一次確認済みのキュレーション記録 | 追跡 |
 | `data/leads.json` `data/leads/` | 内部リード（アグリゲータ由来・非公開） | **ignore** |
 | `data/preview.html` | ローカル閲覧ビューア | **ignore** |
-| `pipeline/core/*` | 決定論エンジン（fetch/extract/jsonld/venue/classify/normalize/build） | 追跡 |
+| `data/geocode_cache.json` | Nominatim ジオコーディングキャッシュ（`geocode_fill` が書く / `build.py` が読む） | 追跡 |
+| `img/makana_fm.jpg` | アプリアイコン原画（1024²・PNG化してアセットカタログへ） | 追跡 |
+| `pipeline/core/*` | 決定論エンジン（fetch/extract/jsonld/venue/classify/normalize/geocode/build） | 追跡 |
+| `pipeline/geocode_fill.py` | ローカル専用 Nominatim ジオコーダ（Tier-1。cronから呼ばない） | 追跡 |
 | `pipeline/sources/*` | ソース別パーサ（ala_moana / waikiki_beach_walk / oahu_official / honolulu_magazine） | 追跡 |
+| `app/` | SwiftUI iOS アプリ（XcodeGen。`*.xcodeproj` は gitignore） | 追跡（xcodeproj除く） |
+| `app/Makanapo/Assets.xcassets/` | アプリアイコン等アセット | 追跡 |
 | `.claude/skills/makanapo-discover/` | Tier-1 発見スキル | 追跡 |
 | `.github/workflows/build.yml` | Tier-2 cron | 追跡 |
 
@@ -113,7 +137,10 @@ git push
 （対応済み 2026-06-22: `last_verified` は `normalize.today()` が **Honolulu時刻(UTC-10)固定**で付与＝CI(UTC)とローカルで日付一致。ランナーTZに非依存。）
 
 ## 次にやること（候補）
-- [ ] 発見スキルを回して active を 18 → 50 に近づける（最優先。HHある独立系=active化しやすい / カマアイナのみ=unverified+リンクになりがち）
+- [ ] 発見スキルを回して active を 18 → 50 に近づける（Go/No-Go 最優先。HHある独立系=active化しやすい / カマアイナのみ=unverified+リンク）
+- [ ] 残り2件の座標補完：My Hawaii Spa / Royal Kaila Spa の住所を調べて seed に追記 → `geocode_fill` → `build` → push
+- [ ] アプリ：現在地/近く（`CLLocationWhenInUse`・同意設計）
+- [ ] アプリ：「期限切れ報告」ボタン（Google Form 等の別エンドポイント）
 - [ ] CI セーフガード（件数大幅減で commit 抑止）
+- [ ] App Store 配布（Apple Developer Program $99/年、TestFlight → 審査）
 - [ ] README 追加
-- [ ] アプリ（SwiftUI + MapKit, v1 閲覧専用）着手は active が十分溜まってから

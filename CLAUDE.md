@@ -82,6 +82,10 @@ Human-facing rationale lives in `SPEC.md`.
   3. Open Graph / meta tags as fallback.
   4. Regex for `discount` / `conditions` / source-stated expiry (e.g. `\d+%\s*off`, `BOGO`, `Hawaii (State )?ID`).
   5. Geocoding for `lat`/`lng` via free OSM Nominatim (rate-limited, cached). No paid/keyed geocoder.
+     - **Local-only**: `python3 -m pipeline.geocode_fill` (Tier-1). Results cached in `data/geocode_cache.json`.
+     - `build.py` (Tier-2/cron) reads the cache only — never calls Nominatim.
+     - Geocoder normalizes ʻokina/macrons, Suite, Floor tokens; falls back from address query to name query.
+     - Run `geocode_fill` after discovery adds new venues; commit `geocode_cache.json` alongside `deals.json`.
 - **Do NOT write descriptions** (so no LLM "rewrite" step is needed) — store facts only; template short labels if needed.
 - **Best-effort, never fabricate.** Emit only fields confidently extracted:
   - Extracted `discount` → `status: active`.
@@ -118,22 +122,44 @@ Splits the unavoidable LLM/search step (discovery) from the deterministic refres
 - App/display name: `Makanapo` (also "Makana Pō"). Project + repo: `makanapo`.
 - Pending (track in SPEC.md): USPTO search (classes 9/42/35), App Store Connect name, @handle.
 
-## Repo layout (target)
+## iOS app — implemented (2026-06-22)
+- **SwiftUI / iOS 16+**, XcodeGen (`app/project.yml` → `.xcodeproj` gitignored). Bundle ID `fm.makana.makanapo`.
+- Features shipped: radio (AVPlayer, background + lock-screen via `AVAudioSession(.playback)` + `UIBackgroundModes:audio`, MPNowPlayingInfoCenter/MPRemoteCommandCenter, AzuraCast now-playing poll) · collapsing hero (`onScrollGeometryChange`, iOS18+ only) · deals list/detail (CDN JSON, offline cache) · segmented filter (All/Happy Hour/Kama'aina) · EN/JA toggle (device-language default) · **map view** (`DealMapView`, iOS17+ MapKit, list↔map toggle, pins for geocoded deals, tap→detail).
+- App icon: `img/makana_fm.jpg` → PNG → `app/Makanapo/Assets.xcassets/AppIcon.appiconset/`.
+- Build: `brew install xcodegen && cd app && xcodegen generate` → Xcode, pick iOS Simulator, ⌘R.
+- Data: CDN `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`. No bundled data.
+
+## Repo layout (actual)
 ```
 po/
-  SPEC.md                  # human spec (Obsidian)
-  CLAUDE.md                # this file
-  schema/deal.schema.json  # canonical data contract
-  pipeline/                # Python collectors + normalizer
-    sources/               # one module per source
-    normalize.py
-    build.py               # emits data/deals.json
-  data/deals.json          # generated artifact (committed)
-  .github/workflows/build.yml  # daily cron
-  app/                     # SwiftUI iOS app
+  SPEC.md                       # human spec (Obsidian)
+  CLAUDE.md                     # this file
+  STATUS.md                     # living handoff doc (update each session)
+  schema/deal.schema.json       # canonical data contract
+  pipeline/
+    core/                       # fetch / extract / jsonld / venue / classify / normalize / geocode / build
+    sources/                    # one module per source (oahu_official / ala_moana / waikiki_beach_walk / honolulu_magazine)
+    geocode_fill.py             # Tier-1 local Nominatim fill → data/geocode_cache.json
+    discover_add.py             # Tier-1 CLI helper (verify + append to sources.json)
+    preview.py                  # local HTML viewer (gitignored output)
+  data/
+    sources.json                # crawl targets (Tier-1 writes, Tier-2 reads)
+    deals.json                  # published artifact (CI commits)
+    geocode_cache.json          # Nominatim cache (local writes, CI reads)
+    seed/*.json                 # hand-curated records
+    leads.json / leads/         # aggregator leads (gitignored)
+    preview.html                # local viewer (gitignored)
+  img/makana_fm.jpg             # app icon source
+  app/                          # SwiftUI iOS app
+    project.yml                 # XcodeGen spec
+    Makanapo/                   # app source + Assets.xcassets
+    MakanapoTests/              # XCTest unit tests
+  .claude/skills/makanapo-discover/  # Tier-1 discovery skill
+  .github/workflows/build.yml   # Tier-2 daily cron
 ```
 
-## Immediate next actions
-1. Validation sprint: hand-collect 50 valid Honolulu food/service deals → Go/No-Go.
-2. Finalize `schema/deal.schema.json`.
-3. Stand up GitHub Actions + jsDelivr static delivery (collector stub + workflow).
+## Current status / next actions
+- **data**: 31 deals (active 18 / unverified 12 / expired 1). Goal: active 50 → Go/No-Go.
+- **coords**: 29/31 geocoded. Remaining 2 (My Hawaii Spa, Royal Kaila Spa) need address in seed.
+- **app**: MVP shipped (all features above). Pending: user-location/nearby, report-expired button, App Store.
+- **priority**: run `makanapo-discover` skill to push active count toward 50.
