@@ -76,6 +76,9 @@ struct ContentView: View {
                     }
                     .modifier(TrackScroll { scrolledY = $0 })
                 }
+
+                Divider()
+                AdBannerView()  // fixed bottom banner (house ad for now)
             }
             .navigationTitle("makanapo")
             .navigationBarTitleDisplayMode(.inline)

@@ -37,6 +37,7 @@ enum L10n {
     case dealsTitle, menuRefresh, showMap, showList
     case menuAbout, aboutTagline, aboutDescription, aboutDataNote, aboutPrivacy
     case aboutVersion, aboutVisitSite, aboutClose
+    case adLabel, adHouseRadio
 
     func value(_ lang: LocalizationManager.Lang) -> String {
         lang == .ja ? pair.ja : pair.en
@@ -93,6 +94,8 @@ enum L10n {
         case .aboutVersion: return ("バージョン", "Version")
         case .aboutVisitSite: return ("makana.fm を開く", "Visit makana.fm")
         case .aboutClose: return ("閉じる", "Close")
+        case .adLabel: return ("PR", "Ad")
+        case .adHouseRadio: return ("makana.fm — ハワイのラジオを聴く", "makana.fm — listen to Hawaii radio")
         }
     }
 }
