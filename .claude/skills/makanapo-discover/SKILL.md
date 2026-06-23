@@ -54,9 +54,33 @@ publishes from that config. **Never write `data/deals.json` here** — only conf
    Geocoding is deterministic and event-driven — it runs here (after discovery adds
    venues), never in the cron. It writes `data/geocode_cache.json`; unresolved
    venues (no address, name not in OSM) just stay pin-less until an address is found.
-7. **Present the diff** of `data/sources.json` (+ active-count / coords change) for
-   the human to approve, then commit `data/sources.json` + `data/deals.json` +
-   `data/geocode_cache.json`. Do not auto-push.
+7. **Commit & publish.**
+   - **Interactive (default):** present the diff of `data/sources.json` (+ active /
+     coords change) for the human, then commit `data/sources.json` + `data/deals.json`
+     + `data/geocode_cache.json`. Push if the human approves.
+   - **Unattended / auto-push (when the user asks, or a scheduled run):** the
+     pre-publish guardrails are the safety net, so commit **and push** automatically.
+     New sources publish as `unverified` for 7 days (probation), so an auto-push can
+     never immediately surface a wrong/closed venue as a confident `active` deal.
+
+### Unattended run (full chain, conflict-safe)
+```
+python3 -m pipeline.core.build      # GUARDRAILS run here. If it exits non-zero
+                                    # (count-delta / invalid), STOP — push nothing.
+python3 -m pipeline.geocode_fill
+python3 -m pipeline.core.build
+git add data/sources.json data/deals.json data/geocode_cache.json
+git commit -m "data: discovery batch $(date -u +%F)"
+git pull --no-edit                  # absorb the daily cron commit (pull.rebase=false)
+# If pull reports a conflict in data/deals.json (generated artifact):
+#   python3 -m pipeline.core.build && git add data/deals.json && git commit --no-edit
+git push
+curl "https://purge.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json"
+```
+Guardrails that make unattended publish safe (all deterministic, in the pipeline):
+denylist (`guards.denied_domain`), off-Oahu drop (`guards.out_of_area`), spam drop
+(`guards.looks_spammy`), discount cap (`guards.clean_discount`), count-delta guard
+(build fails on >40% drop), and 7-day probation (`_added`).
 
 ## Notes
 - `discover_add` does no LLM work — it just fetches + extracts + writes config.
