@@ -125,7 +125,8 @@ gh run list --workflow=build-deals # 実行履歴
 
 ## 既知の注意点（gotchas）
 - `gh` での workflow ファイル push には **workflow スコープ**が必要。
-- CI は GitHub のデータセンターIPから取得。サイトによっては弾かれ得る（現状は全到達OK）。あるソースがCIで0件だと deals.json が一時的に縮みコミットされ得る → 将来「件数大幅減なら commit しない」セーフガード検討。
+- CI は GitHub のデータセンターIPから取得。サイトによっては弾かれ得る（現状は全到達OK）。**件数大幅減セーフガード実装済**：`build.py` が前回 deals.json と比べ total/active が >40% 減ると**ビルド失敗（commit/push されない）**。意図的な縮小時は `MAKANAPO_ALLOW_SHRINK=1`。
+- **公開前ガードレール（`pipeline/core/guards.py`）**：アグリゲータ/レビュー/SNS ドメインは公開不可（`denied_domain`、著作権）、パーキング/スパム語を含むレコードは drop（`looks_spammy`）、割引の run-on は短縮（`clean_discount`）。`discover_add` は追加時にも denylist で拒否。→ 無審査自動公開でも汚染を弾ける。
 - Python 3.9 互換のため各モジュール先頭に `from __future__ import annotations`（実装済み）。
 - IMP（International Market Place）= 接続レベルでブロック（Playwright不可）→ 対象外。RHC = テナント割引一覧頁が存在せず深追い不要。
 - `last_verified` の日付は `normalize.today()`（Honolulu時刻・UTC-10固定）で統一済み（CI/ローカルの日付ズレ対策）。
@@ -146,6 +147,6 @@ git push
 - [ ] 残り2件の座標補完：My Hawaii Spa / Royal Kaila Spa の住所を調べて seed に追記 → `geocode_fill` → `build` → push
 - [ ] アプリ：現在地/近く（`CLLocationWhenInUse`・同意設計）
 - [ ] アプリ：「期限切れ報告」ボタン（Google Form 等の別エンドポイント）
-- [ ] CI セーフガード（件数大幅減で commit 抑止）
+- [x] CI セーフガード（件数大幅減で commit 抑止）＋公開前ガードレール（denylist/spam/discount cap）実装済
 - [ ] App Store 配布（Apple Developer Program $99/年、TestFlight → 審査）
 - [ ] README 追加
