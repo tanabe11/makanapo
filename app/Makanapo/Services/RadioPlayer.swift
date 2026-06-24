@@ -2,27 +2,64 @@ import Foundation
 import AVFoundation
 import MediaPlayer
 
+/// Drives the actual audio output. Abstracted so the player's lifecycle logic
+/// is testable without AVFoundation.
+protocol RadioEngine: AnyObject {
+    /// Start playback from a FRESH stream item — always the live edge, never a
+    /// resumed/stale buffer. Safe to call repeatedly.
+    func play(url: URL)
+    /// Stop and release the buffered item (so the next play starts clean).
+    func stop()
+}
+
+/// AVPlayer-backed engine. A live Icecast/HLS stream is non-seekable, so we never
+/// pause-and-resume the same item (that replays the stale buffer). Instead every
+/// play installs a brand-new AVPlayerItem → live edge with no leftover buffer.
+final class AVRadioEngine: RadioEngine {
+    private let player: AVPlayer = {
+        let p = AVPlayer()
+        p.automaticallyWaitsToMinimizeStalling = true // smoother recovery on flaky networks
+        return p
+    }()
+
+    func play(url: URL) {
+        player.replaceCurrentItem(with: AVPlayerItem(url: url))
+        player.play()
+    }
+
+    func stop() {
+        player.pause()
+        player.replaceCurrentItem(with: nil) // drop the buffer
+    }
+}
+
 @MainActor
 final class RadioPlayer: ObservableObject {
     @Published private(set) var isPlaying = false
     @Published private(set) var nowPlaying: NowPlaying?
 
-    private let player = AVPlayer(url: Config.radioStreamURL)
-    private let metadata = AzuraCastClient(url: Config.nowPlayingURL)
+    private let streamURL: URL
+    private let engine: RadioEngine
+    private let metadata: NowPlayingProviding
     private var pollTask: Task<Void, Never>?
 
-    init() {
+    init(streamURL: URL = Config.radioStreamURL,
+         engine: RadioEngine = AVRadioEngine(),
+         metadata: NowPlayingProviding = AzuraCastClient(url: Config.nowPlayingURL)) {
+        self.streamURL = streamURL
+        self.engine = engine
+        self.metadata = metadata
         configureSession()
         configureRemoteCommands()
     }
 
     func toggle() {
         if isPlaying {
-            player.pause()
+            engine.stop()
             isPlaying = false
         } else {
             try? AVAudioSession.sharedInstance().setActive(true)
-            player.play()
+            engine.play(url: streamURL) // fresh stream → live edge, no stale buffer
             isPlaying = true
             startMetadata()
         }
