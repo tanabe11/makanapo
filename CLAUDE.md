@@ -133,7 +133,7 @@ Splits the unavoidable LLM/search step (discovery) from the deterministic refres
 
 ## iOS app — implemented (2026-06-22)
 - **SwiftUI / iOS 16+**, XcodeGen (`app/project.yml` → `.xcodeproj` gitignored). Bundle ID `fm.makana.makanapo`.
-- Features shipped: radio (AVPlayer, background + lock-screen via `AVAudioSession(.playback)` + `UIBackgroundModes:audio`, MPNowPlayingInfoCenter/MPRemoteCommandCenter, AzuraCast now-playing poll) · collapsing hero (`onScrollGeometryChange`, iOS18+ only) · deals list/detail (CDN JSON, offline cache) · segmented filter (All/Happy Hour/Kama'aina) · EN/JA toggle (device-language default) · **map view** (`DealMapView`, iOS17+ MapKit, list↔map toggle, pins for geocoded deals, tap→detail).
+- Features shipped: radio (AVPlayer over **HLS** `live.m3u8`; background + lock-screen via `AVAudioSession(.playback)` + `UIBackgroundModes:audio` — the key lives in a partial `app/Makanapo/Info.plist` via `INFOPLIST_FILE`, NOT `INFOPLIST_KEY_*` which Xcode silently drops; stop tears down the item and play installs a fresh `AVPlayerItem` for live-edge, via the testable `RadioEngine`; MPNowPlayingInfoCenter/MPRemoteCommandCenter, AzuraCast now-playing poll) · collapsing hero (`onScrollGeometryChange`, iOS18+ only) · deals list/detail (CDN JSON, offline cache) · **shows verified (`status==active`) deals only** (`DealsStore.visible`; unverified/expired stay in the feed but are hidden) · segmented filter (All/Happy Hour/Kama'aina) · EN/JA toggle (device-language default) · **map view** (`DealMapView`, iOS17+ MapKit, list↔map toggle, pins for geocoded deals, tap→detail).
 - App icon: `img/makana_fm.jpg` → PNG → `app/Makanapo/Assets.xcassets/AppIcon.appiconset/`.
 - Build: `brew install xcodegen && cd app && xcodegen generate` → Xcode, pick iOS Simulator, ⌘R.
 - Data: CDN `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`. No bundled data.
@@ -151,6 +151,7 @@ po/
     geocode_fill.py             # Tier-1 local Nominatim fill → data/geocode_cache.json
     discover_add.py             # Tier-1 CLI helper (verify + append to sources.json)
     preview.py                  # local HTML viewer (gitignored output)
+    tests/                      # stdlib unittest (HH window extraction, venue wiring)
   data/
     sources.json                # crawl targets (Tier-1 writes, Tier-2 reads)
     deals.json                  # published artifact (CI commits)
@@ -168,7 +169,8 @@ po/
 ```
 
 ## Current status / next actions
-- **data**: 43 deals (active 27 / unverified 15 / expired 1). Goal: active 50 → Go/No-Go.
-- **coords**: 38/43 geocoded. Missing: My Hawaii Spa, Royal Kaila Spa, Maui Brewing Waikiki, Restaurant Suntory, Arancino (need address / cleaner extraction).
-- **app**: MVP shipped (all features above). Pending: user-location/nearby, report-expired button, App Store.
-- **priority**: run `makanapo-discover` skill to push active count toward 50.
+- **data**: 49 deals (active 27 / unverified 21 / expired 1). Goal: active 50 → Go/No-Go. App shows active only (27 visible).
+- **coords**: 41/49 geocoded. Missing (need address / cleaner extraction): My Hawaii Spa, Royal Kaila Spa, Maui Brewing Waikiki, Restaurant Suntory, Arancino on Beachwalk, Plumeria Beach House, Wicked Maine Lobster, 206 BCE.
+- **happy-hour windows**: `hours` now carries the extracted HH time window (deterministic, recall 10/21). Misses are JS-rendered pages (window not in static text) → needs Playwright, NOT an LLM. HH deals never show general opening hours.
+- **app**: MVP shipped (radio HLS + lock-screen audio verified on device; verified-only list). Pending: user-location/nearby, report-expired button, App Store.
+- **priority**: `git push` this session's commits (not yet pushed); then run `makanapo-discover` to push active 27 → 50.

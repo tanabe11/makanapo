@@ -2,16 +2,23 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-22 (rebrand: app=makana.fm / deals=Makanapō; +menu/About/ad banner; map+geocoding; coords 29/31)
+> Last updated: 2026-06-23 (radio: HLS + fresh-stream-on-play, lock-screen audio fixed; app shows verified/active only; HH time windows extracted into hours)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **43件**（active 27 / unverified 15 / expired 1）一次情報・公式のみ。coords 38/43。
-- `data/sources.json` の official_sites: **25件**（発見スキルが追記していく）
+- 公開 `data/deals.json`: **49件**（active 27 / unverified 21 / expired 1）一次情報・公式のみ。coords 41/49。
+- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ ユーザーに見えるのは 27件。
+- `data/sources.json` の official_sites: **31件**（発見スキルが追記していく）
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
-- **Go 基準: active 50件。現在 27件**（あと23）。未push のローカルコミットあり → `git push` 必要。
+- **Go 基準: active 50件。現在 27件**（あと23）。**未push のローカルコミット多数 → `git push` 必要**（push まで本番/アプリに反映されない）。
+
+## 直近の変更（2026-06-23）
+- **ラジオ安定化**：ストリームを生MP3→**HLS**（`live.m3u8`、適応AAC）に変更（AVPlayerはHLS向け、生Icecast MP3は不安定）。停止時にバッファ破棄＋再生時に毎回新規 `AVPlayerItem`＝常にライブ先端（停止→再生でキャッシュ再生する問題を解消）。`RadioEngine`/`NowPlayingProviding` をDIしてユニットテスト追加。**実機で安定確認済み**。
+- **ロック画面バックグラウンド再生 修正**：`UIBackgroundModes:audio` が `INFOPLIST_KEY_*` ではビルド済みInfo.plistに注入されず欠落していた → 部分Info.plist（`app/Makanapo/Info.plist`）＋`INFOPLIST_FILE` で注入（`GENERATE_INFOPLIST_FILE` は維持）。**実機で継続再生を確認済み**。
+- **検証済みのみ表示**：`DealsStore.visible` で `status==active` のみ表示。unverified/expired は `deals.json` に残すが非表示。
+- **HH 時間帯の抽出**：HH deal の公式ページから時間帯を決定論抽出し `hours` に格納（例 `12-6 PM`、`3:30pm-6:00pm`）。recall **10/21**。窓が取れないHH dealは一般営業時間を出さない（「HH=終日」と誤読される問題を排除）。残り11件は静的テキストに窓が無い（JS描画）＝**Playwright描画が必要、LLM案は無効と判断**。Pythonパイプラインテスト（stdlib unittest, `pipeline/tests/`）を新設。
 
 ## アーキテクチャ（二層）
 ```
@@ -27,8 +34,8 @@
 **実装済み機能（ユーザー確認済み）**：
 | 機能 | 実装 |
 |---|---|
-| ラジオ再生 | AVPlayer + AVAudioSession(.playback) + UIBackgroundModes:audio |
-| ロック画面操作 | MPNowPlayingInfoCenter / MPRemoteCommandCenter |
+| ラジオ再生 | AVPlayer(**HLS**) + AVAudioSession(.playback) + UIBackgroundModes:audio。停止時バッファ破棄→再生時に毎回新規 `AVPlayerItem`（常にライブ先端）。`RadioEngine` をDIしてテスト可能化 |
+| ロック画面操作/継続再生 | MPNowPlayingInfoCenter / MPRemoteCommandCenter。背景継続は部分Info.plistの`UIBackgroundModes:audio`で**実機確認済み** |
 | Now-Playing 取得 | AzuraCast REST 25秒ポーリング |
 | 折り畳みヒーロー | `onScrollGeometryChange`（iOS18+）。iOS16-17はヒーロー固定 |
 | 割引一覧 + 詳細 | CDN `deals.json` 取得・オフラインキャッシュ |
@@ -40,7 +47,7 @@
 | アプリアイコン | `img/makana_fm.jpg`→PNG化 → `Assets.xcassets/AppIcon.appiconset/` |
 
 **ラジオ URL（`Config.swift`）**：
-- stream: `https://radio.makana.fm/listen/makana.fm/radio.mp3`
+- stream: `https://radio.makana.fm/hls/makana.fm/live.m3u8`（**HLS** 適応AAC。AVPlayerが安定。MP3 mount `…/listen/makana.fm/radio.mp3` はフォールバック）
 - now-playing: `https://radio.makana.fm/api/nowplaying/makana.fm`（shortcode = `makana.fm`）
 
 **ビルド手順（Mac）**：
@@ -48,16 +55,17 @@
 brew install xcodegen
 cd app && xcodegen generate
 # Xcode で開き iOS Simulator（iPhone 17 等）を選択 → ⌘R
-# テスト: ⌘U（DealDecoding / DealsStore / NowPlaying / DealFilter / Localization / Smoke）
+# テスト: ⌘U（DealDecoding / DealsStore / NowPlaying / DealFilter / Localization / RadioPlayer / Smoke）
+# パイプライン: python3 -m unittest discover -s pipeline/tests（HH窓抽出・venue配線）
 ```
 `*.xcodeproj` は gitignore — 毎回 `xcodegen generate` が必要。
 
 **ジオコーディング（地図ピン）**：
-- 31件中 **29件に座標あり**（coords 13→29）。
-- 未解決2件（JSページで住所取得不可）：**My Hawaii Spa** / **Royal Kaila Spa** → seed に住所を追記すればジオコーダが解決。
+- 49件中 **41件に座標あり**。
+- 未解決8件（JS頁で住所取得不可 or 抽出未整形）：My Hawaii Spa / Royal Kaila Spa / Maui Brewing Waikiki / Restaurant Suntory / Arancino on Beachwalk / Plumeria Beach House / Wicked Maine Lobster / 206 BCE → seed に住所を追記すればジオコーダが解決。
 - 座標追加手順：`python3 -m pipeline.geocode_fill` → `python3 -m pipeline.core.build` → `deals.json`＋`geocode_cache.json` をコミット＆push → jsDelivr 反映でピン増（必要なら purge）。`makanapo-discover` スキルにこの手順を内蔵済み。
 
-**未確認（実機推奨）**：ロック画面バックグラウンド継続（シミュレータは擬似的）。
+**実機確認済み**：ロック画面バックグラウンド継続・停止/再生のライブ先端復帰・通常再生の安定（HLS化）。
 
 **次の候補**：現在地/近く（`CLLocationWhenInUse`、同意設計必要）、検索、「期限切れ報告」ボタン、App Store 配布（Apple Developer Program $99/年）。
 
@@ -145,10 +153,15 @@ git push
 （対応済み 2026-06-22: `last_verified` は `normalize.today()` が **Honolulu時刻(UTC-10)固定**で付与＝CI(UTC)とローカルで日付一致。ランナーTZに非依存。）
 
 ## 次にやること（候補）
-- [ ] 発見スキルを回して active を 18 → 50 に近づける（Go/No-Go 最優先。HHある独立系=active化しやすい / カマアイナのみ=unverified+リンク）
-- [ ] 残り2件の座標補完：My Hawaii Spa / Royal Kaila Spa の住所を調べて seed に追記 → `geocode_fill` → `build` → push
+- [ ] **このセッションのコミットを push**（ラジオ修正・検証済みのみ表示・HH窓。push まで本番/アプリ未反映）
+- [ ] 発見スキルを回して active を **27 → 50** に近づける（Go/No-Go 最優先。検証済みのみ表示にしたので active 件数が実質ゲート）
+- [ ] 残り8件の座標補完：上記未解決の住所を seed に追記 → `geocode_fill` → `build` → push
+- [ ] HH 時間帯カバレッジ向上（現状 10/21）：**Playwright 描画**で JS頁の窓を取得（別タスク）。LLM案は今回の miss には無効と判断済み。
 - [ ] アプリ：現在地/近く（`CLLocationWhenInUse`・同意設計）
 - [ ] アプリ：「期限切れ報告」ボタン（Google Form 等の別エンドポイント）
+- [x] ラジオ：ロック画面背景再生 / 停止→再生のライブ先端 / HLS安定化（実機確認済み）
+- [x] アプリ：検証済み（active）のみ表示
+- [x] パイプライン：HH時間帯を `hours` に抽出（+ Python unittest 新設）
 - [x] CI セーフガード（件数大幅減で commit 抑止）＋公開前ガードレール（denylist/spam/discount cap）実装済
 - [ ] App Store 配布（Apple Developer Program $99/年、TestFlight → 審査）
 - [ ] README 追加
