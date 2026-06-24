@@ -176,6 +176,51 @@
       "subcategory": "restaurant",
       "neighborhood": "Kakaako",
       "name": "Highway Inn"
+    },
+    {
+      "url": "https://www.kaimana.com/dine/hau-tree/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Hau Tree",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://www.kahalaresort.com/dining/plumeria-beach-house/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Kahala",
+      "name": "Plumeria Beach House",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://solerawaikiki.com/afterglow/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Solera",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://wickedmainelobster.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Wicked Maine Lobster"
+    },
+    {
+      "url": "https://junbishop.com/",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Waikiki",
+      "name": "Junbi"
+    },
+    {
+      "url": "https://206bcehawaii.square.site/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "206 BCE"
     }
   ]
 }

@@ -385,21 +385,6 @@
     "lng": -157.8396521
   },
   {
-    "id": "tsurutontan-waikiki-a98146",
-    "name": "Tsurutontan",
-    "category": "food",
-    "source_url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
-    "last_verified": "2026-06-23",
-    "subcategory": "happy_hour",
-    "neighborhood": "Waikiki",
-    "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
-    "hours": "Su 11:30-21:30; Mo 11:30-21:30; Tu 11:30-21:30; We 11:30-21:30; Th 11:30-21:30; Fr 11:30-21:30; Sa 11:30-21:30",
-    "discount": "happy hour specials",
-    "status": "active",
-    "lat": 21.278721,
-    "lng": -157.8294248
-  },
-  {
     "id": "noi-thai-cuisine-waikiki-ba08f6",
     "name": "Noi Thai Cuisine",
     "category": "food",
@@ -593,6 +578,77 @@
     "status": "unverified",
     "lat": 21.297622,
     "lng": -157.8614668
+  },
+  {
+    "id": "hau-tree-waikiki-47e097",
+    "name": "Hau Tree",
+    "category": "food",
+    "source_url": "https://www.kaimana.com/dine/hau-tree/",
+    "last_verified": "2026-06-23",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "123 Beachfront Avenue, Honolulu, HI, 96815",
+    "lat": 21.276776,
+    "lng": -157.827169,
+    "status": "unverified"
+  },
+  {
+    "id": "plumeria-beach-house-kahala-293f7f",
+    "name": "Plumeria Beach House",
+    "category": "food",
+    "source_url": "https://www.kahalaresort.com/dining/plumeria-beach-house/",
+    "last_verified": "2026-06-23",
+    "subcategory": "restaurant",
+    "neighborhood": "Kahala",
+    "requires_id": true,
+    "redemption": "show_id",
+    "status": "unverified"
+  },
+  {
+    "id": "solera-waikiki-90d2e7",
+    "name": "Solera",
+    "category": "food",
+    "source_url": "https://solerawaikiki.com/afterglow/",
+    "last_verified": "2026-06-23",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "383 Kalaimoku St, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2826223,
+    "lng": -157.8298755
+  },
+  {
+    "id": "wicked-maine-lobster-waikiki-1ff397",
+    "name": "Wicked Maine Lobster",
+    "category": "food",
+    "source_url": "https://wickedmainelobster.com/",
+    "last_verified": "2026-06-23",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "status": "unverified"
+  },
+  {
+    "id": "junbi-waikiki-04c28f",
+    "name": "Junbi",
+    "category": "food",
+    "source_url": "https://junbishop.com/",
+    "last_verified": "2026-06-23",
+    "subcategory": "cafe",
+    "neighborhood": "Waikiki",
+    "address": "2301 Kalakaua Ave Building C, Space 102AB, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2783485,
+    "lng": -157.8286924
+  },
+  {
+    "id": "206-bce-waikiki-6d54fe",
+    "name": "206 BCE",
+    "category": "food",
+    "source_url": "https://206bcehawaii.square.site/",
+    "last_verified": "2026-06-23",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "status": "unverified"
   },
   {
     "id": "giovanni-pastrami-waikiki-74b645",

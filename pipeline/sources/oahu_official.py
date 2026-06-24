@@ -28,6 +28,11 @@ def collect() -> list[dict]:
     out: list[dict] = []
     for site in _load_sites():
         site = {k: v for k, v in site.items() if not k.startswith("_")}
+        # Reviewer override: when the deterministic discount regex only catches a
+        # non-deal perk (e.g. "complimentary valet parking"), a human can set
+        # "force_status": "unverified" in sources.json to publish the venue as a
+        # link-only record instead of a false "active" deal.
+        force_status = site.pop("force_status", None)
         try:
             rec = venue.from_official(**site)
         except PermissionError as e:
@@ -37,5 +42,9 @@ def collect() -> list[dict]:
             print(f"  SKIP {site.get('url')}: {type(e).__name__}: {e}")
             continue
         if rec:
+            if force_status:
+                rec["status"] = force_status
+                if force_status == "unverified":
+                    rec.pop("discount", None)
             out.append(rec)
     return out
