@@ -25,6 +25,21 @@ class HappyHourWindowWiring(unittest.TestCase):
         self.assertEqual(rec["hours"], "Mon-Fri 3-6pm")
         self.assertEqual(rec["status"], "active")
 
+    def test_hh_deal_does_not_inherit_general_opening_hours(self):
+        # JSON-LD has all-week open hours but the page states no HH window.
+        # Those general hours must NOT land in `hours` (would read as "HH all day").
+        self._stub(
+            '<html><head><script type="application/ld+json">'
+            '{"@type":"Restaurant","name":"All Day Bar",'
+            '"address":"2233 Kalakaua Ave, Honolulu, HI 96815",'
+            '"openingHours":["Mo-Su 11:30-22:00"]}'
+            "</script></head><body><p>Join us for happy hour specials!</p></body></html>")
+        rec = venue.from_official(
+            "https://example.com", category="food",
+            subcategory="happy_hour", neighborhood="Waikiki", name="All Day Bar")
+        self.assertNotIn("hours", rec)
+        self.assertEqual(rec["status"], "active")  # still active via specials fallback
+
     def test_no_window_still_active_via_specials_fallback(self):
         self._stub("<html><body><p>We offer happy hour specials.</p></body></html>")
         rec = venue.from_official(
