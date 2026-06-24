@@ -25,7 +25,7 @@
     {
       "url": "https://www.pikowaikikihawaii.com/",
       "category": "food",
-      "subcategory": "happy_hour",
+      "subcategory": "restaurant",
       "neighborhood": "Waikiki",
       "name": "Piko Kitchen + Bar"
     },
@@ -46,7 +46,7 @@
     {
       "url": "https://www.redfishpoke.com/",
       "category": "food",
-      "subcategory": "happy_hour",
+      "subcategory": "poke",
       "neighborhood": "Waikiki",
       "name": "Redfish"
     },
