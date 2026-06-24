@@ -27,17 +27,24 @@ final class DealsStore: ObservableObject {
             let data = try await loader.load()
             let decoded = try JSONDecoder().decode([Deal].self, from: data)
             try? data.write(to: cacheURL, options: .atomic)
-            deals = Self.sorted(decoded)
+            deals = Self.visible(decoded)
             state = .loaded
         } catch {
             if let cached = try? Data(contentsOf: cacheURL),
                let decoded = try? JSONDecoder().decode([Deal].self, from: cached) {
-                deals = Self.sorted(decoded)
+                deals = Self.visible(decoded)
                 state = .offline
             } else {
                 state = .error(error.localizedDescription)
             }
         }
+    }
+
+    /// What the app surfaces in v1: verified (`active`) deals only.
+    /// Trust (the `last_verified` differentiator) is the whole value prop, so
+    /// `unverified` / `expired` records stay in the data feed but are not shown.
+    static func visible(_ input: [Deal]) -> [Deal] {
+        sorted(input.filter { $0.status == .active })
     }
 
     static func sorted(_ input: [Deal]) -> [Deal] {
