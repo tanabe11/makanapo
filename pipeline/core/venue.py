@@ -100,6 +100,12 @@ def from_official(
     hrs = _hours(biz)
     if hrs:
         rec["hours"] = hrs
+    # Happy-hour deals: prefer the stated HH time window over general opening hours,
+    # so a verified HH deal shows "when" instead of just "happy hour specials".
+    if subcategory == "happy_hour":
+        window = extract.find_happy_hour_window(text)
+        if window:
+            rec["hours"] = window
 
     discount = extract.find_discount(text)
     # Happy-hour fallback: the official page advertises a happy hour but no % is
