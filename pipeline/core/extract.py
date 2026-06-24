@@ -16,8 +16,9 @@ def strip_html(s: str | None) -> str:
     return _html.unescape(_TAG.sub("", s or "")).strip()
 
 
-# Stop the capture at sentence/clause boundaries and exclamation spam.
-_STOP = r"[^.<|()!\n\r]*"
+# Stop the capture at sentence/clause boundaries, exclamation spam, and the next
+# "$" offer (so concatenated menu offers don't merge into one run-on discount).
+_STOP = r"[^.<|()!$\n\r]*"
 _DISCOUNT_RE = re.compile(
     r"(\d+%\s*off" + _STOP
     + r"|BOGO"
