@@ -8,7 +8,10 @@ struct DealDetailView: View {
     var body: some View {
         List {
             Section {
-                if let d = deal.discount { row(loc.t(.detailDiscount), d) }
+                // Skip generic "happy hour specials" labels — the Hours row carries the value.
+                if let d = deal.discount, !Deal.isGenericHappyHourDiscount(d) {
+                    row(loc.t(.detailDiscount), d)
+                }
                 if let c = deal.conditions { row(loc.t(.detailConditions), c) }
                 if let h = deal.hours { row(loc.t(.detailHours), h) }
                 if let a = deal.address { row(loc.t(.detailAddress), a) }

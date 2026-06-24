@@ -7,9 +7,7 @@ struct DealRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
             Text(deal.name).font(.headline)
-            if let d = deal.discount {
-                Text(d).font(.subheadline).foregroundStyle(.orange)
-            }
+            highlight
             HStack(spacing: 8) {
                 if let n = deal.neighborhood {
                     Text(n).font(.caption).foregroundStyle(.secondary)
@@ -19,6 +17,20 @@ struct DealRow: View {
             }
         }
         .padding(.vertical, 4)
+    }
+
+    /// Headline line: a specific discount, else the happy-hour time, else a tag.
+    @ViewBuilder private var highlight: some View {
+        switch deal.highlight {
+        case .discount(let d):
+            Text(d).font(.subheadline).foregroundStyle(.orange)
+        case .time(let t):
+            Label(t, systemImage: "clock").font(.subheadline).foregroundStyle(.orange)
+        case .happyHourTag:
+            Text(loc.t(.pickerHappyHour)).font(.subheadline).foregroundStyle(.orange)
+        case .none:
+            EmptyView()
+        }
     }
 
     @ViewBuilder private var freshness: some View {

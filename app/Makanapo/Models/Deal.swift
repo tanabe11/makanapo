@@ -40,6 +40,33 @@ struct Deal: Identifiable, Codable, Equatable {
     }
 }
 
+/// The single most useful one-line highlight to surface for a deal.
+enum DealHighlight: Equatable {
+    case discount(String)   // a specific, informative discount
+    case time(String)       // the happy-hour time window
+    case happyHourTag       // generic happy-hour deal with no time → a clean tag
+    case none
+}
+
+extension Deal {
+    /// Generic happy-hour labels carry no real information ("happy hour specials",
+    /// "happy hour pricing on select food and drinks") — we prefer the time instead.
+    static func isGenericHappyHourDiscount(_ d: String) -> Bool {
+        let s = d.lowercased()
+        return s.contains("happy hour special") || s.contains("happy hour pricing")
+    }
+
+    /// What to show as the deal's headline: a specific discount wins; otherwise the
+    /// happy-hour time window; otherwise a clean Happy Hour tag.
+    var highlight: DealHighlight {
+        if let d = discount, !Self.isGenericHappyHourDiscount(d) { return .discount(d) }
+        if let h = hours, !h.isEmpty { return .time(h) }
+        if isHappyHour { return .happyHourTag }
+        if let d = discount { return .discount(d) }
+        return .none
+    }
+}
+
 extension Deal {
     /// Time-window discount (subcategory happy_hour, or text mentions happy hour / pau hana).
     var isHappyHour: Bool {
