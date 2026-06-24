@@ -43,7 +43,7 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 RadioHeader(player: radio, collapsed: collapsed)
                     .background(.ultraThinMaterial)
-                    .animation(.easeInOut(duration: 0.2), value: collapsed)
+                    .animation(.spring(response: 0.38, dampingFraction: 0.9), value: collapsed)
                 Divider()
 
                 // Page header: centered Makanapō sub-brand + map/list toggle on the right.
