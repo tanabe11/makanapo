@@ -324,6 +324,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "150 Ka‘iulani Ave., Honolulu, HI 96815",
+    "hours": "3:00pm – 6:00pm",
     "discount": "happy hour specials",
     "status": "active",
     "lat": 21.2779003,
@@ -338,6 +339,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "2299 Kuhio Ave, Honolulu, HI 96815",
+    "hours": "Daily 1:00 PM - 5:00 PM",
     "discount": "happy hour specials",
     "status": "active",
     "lat": 21.2792525,
@@ -352,6 +354,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "3536 Harding Ave., Honolulu, HI 96816",
+    "hours": "5:00 PM - 6:30 PM",
     "discount": "10% off your order with valid Hawaii ID",
     "requires_id": true,
     "redemption": "show_id",
@@ -383,6 +386,20 @@
     "status": "unverified",
     "lat": 21.2905774,
     "lng": -157.8396521
+  },
+  {
+    "id": "tsurutontan-waikiki-a98146",
+    "name": "Tsurutontan",
+    "category": "food",
+    "source_url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
+    "last_verified": "2026-06-23",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.278721,
+    "lng": -157.8294248
   },
   {
     "id": "noi-thai-cuisine-waikiki-ba08f6",
@@ -447,6 +464,7 @@
     "address": "2446 Koa Ave, Honolulu, HI, 96815",
     "lat": 21.2763,
     "lng": -157.8222,
+    "hours": "3PM – 6PM",
     "discount": "happy hour specials",
     "status": "active"
   },
@@ -459,6 +477,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Kalihi",
     "address": "1632 Hart St., Honolulu, HI 96817",
+    "hours": "1:00 PM – 5:00 PM",
     "discount": "happy hour specials",
     "status": "active",
     "lat": 21.3242599,
@@ -472,6 +491,7 @@
     "last_verified": "2026-06-23",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "hours": "Mon - Fri 3:30-4:30PM",
     "discount": "$2 Off All Beers$3 Off Select Cocktails50% Off Select Apps$14…",
     "status": "active"
   },
@@ -484,6 +504,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "412 Lewers Street, Honolulu, HI 96815",
+    "hours": "12pm – 5:30pm",
     "discount": "happy hour specials",
     "status": "active",
     "lat": 21.2820881,
@@ -498,6 +519,7 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "431 Nohonani St, Honolulu Hi 96815",
+    "hours": "12-6 PM",
     "discount": "happy hour specials",
     "status": "active",
     "lat": 21.2800825,
@@ -541,6 +563,7 @@
     "address": "1765 Ala Moana Boulevard, Honolulu, Hawaii, 96815",
     "lat": 21.2852752,
     "lng": -157.8397623,
+    "hours": "3:30pm - 6:00pm",
     "discount": "happy hour specials",
     "status": "active"
   },
@@ -553,7 +576,6 @@
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
     "address": "2233 Kalakaua Ave. B307, Honolulu, Hawaii, 96815",
-    "hours": "Mo 11:30-22:00 Tu 11:30-22:00 We 11:30-22:00 Th 11:30-22:00 Fr 11:30-22:00 Sa 11:30-22:00 Su 11:30-22:00",
     "status": "unverified"
   },
   {
@@ -590,6 +612,7 @@
     "address": "123 Beachfront Avenue, Honolulu, HI, 96815",
     "lat": 21.276776,
     "lng": -157.827169,
+    "hours": "2:00 pm to 5:00 pm",
     "status": "unverified"
   },
   {
