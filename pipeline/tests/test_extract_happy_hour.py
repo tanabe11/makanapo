@@ -18,6 +18,18 @@ class FindHappyHourWindow(unittest.TestCase):
         t = "Pau Hana 2 to 5 pm. Mahalo!"
         self.assertEqual(extract.find_happy_hour_window(t), "2 to 5 pm")
 
+    def test_prefers_range_closest_to_a_keyword(self):
+        # A loose "Happy Hour Menus" header sits near the pool bar's OPEN hours;
+        # the specific "Happy Hour" right before the real range must win.
+        t = ("All Day + Happy Hour Menus. Pool Bar 12-10 PM. "
+             "Daily Happy Hour 12-6 PM. Restaurant 12-9 PM.")
+        self.assertEqual(extract.find_happy_hour_window(t), "12-6 PM")
+
+    def test_does_not_treat_sunset_as_a_weekday(self):
+        # "Sunset" must not be misread as "Sun" (Sunday) and prepended.
+        t = "Happy Hour Sunset 3:30pm - 6:00pm"
+        self.assertEqual(extract.find_happy_hour_window(t), "3:30pm - 6:00pm")
+
     def test_none_when_no_explicit_range(self):
         # "happy hour specials" with no time window -> nothing to add.
         self.assertIsNone(extract.find_happy_hour_window("Happy hour specials available daily."))

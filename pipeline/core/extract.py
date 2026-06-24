@@ -67,11 +67,14 @@ _RANGE_RE = re.compile(
     re.I,
 )
 # Day / frequency phrase: "Mon", "Mon-Fri", "Monday through Friday", "daily", "weekdays".
+# Day tokens are bounded (\b) so "Sun" doesn't match inside "Sunset".
+_DAY = (
+    r"(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|thu(?:rs?)?(?:day)?"
+    r"|fri(?:day)?|sat(?:urday)?|sun(?:day)?)"
+)
 _DAYS_RE = re.compile(
-    r"(?:mon|tue|tues|wed|weds|thu|thur|thurs|fri|sat|sun)[a-z]*"
-    r"(?:\s*(?:-|–|—|through|thru|to|&|/|,|and)\s*"
-    r"(?:mon|tue|tues|wed|weds|thu|thur|thurs|fri|sat|sun)[a-z]*)?"
-    r"|daily|every\s*day|weekdays?",
+    r"\b(?:" + _DAY + r"(?:\s*(?:-|–|—|through|thru|to|&|/|,|and)\s*" + _DAY + r")?"
+    r"|daily|every\s*day|weekdays?)\b",
     re.I,
 )
 # Only trust a time range that sits close to the happy-hour mention.
@@ -86,22 +89,23 @@ def find_happy_hour_window(text: str | None) -> str | None:
     — recall is intentionally limited rather than guessing.
     """
     t = text or ""
-    kw = _HH_RE.search(t)
-    if not kw:
-        return None
-    window = t[kw.start() : kw.end() + _HH_NEAR]
-    rng = _RANGE_RE.search(window)
-    if not rng:
-        return None
-    time_str = re.sub(r"\s+", " ", rng.group(0)).strip()
-    before = window[: rng.start()]
-    last_day = None
-    for m in _DAYS_RE.finditer(before):
-        last_day = m
-    if last_day and rng.start() - last_day.end() <= 3:  # directly precedes the range
-        day_str = re.sub(r"\s+", " ", last_day.group(0)).strip()
-        return f"{day_str} {time_str}"
-    return time_str
+    best: tuple[int, str] | None = None  # (gap to keyword, rendered window)
+    for kw in _HH_RE.finditer(t):
+        tail = t[kw.end() : kw.end() + _HH_NEAR]  # text right after this mention
+        rng = _RANGE_RE.search(tail)
+        if not rng:
+            continue
+        gap = rng.start()  # distance from the keyword to the range
+        time_str = re.sub(r"\s+", " ", rng.group(0)).strip()
+        before = tail[: rng.start()]
+        last_day = None
+        for m in _DAYS_RE.finditer(before):
+            last_day = m
+        if last_day and rng.start() - last_day.end() <= 3:  # directly precedes the range
+            time_str = re.sub(r"\s+", " ", last_day.group(0)).strip() + " " + time_str
+        if best is None or gap < best[0]:
+            best = (gap, time_str)
+    return best[1] if best else None
 
 
 _MONTHS = {
