@@ -25,7 +25,7 @@
     {
       "url": "https://www.pikowaikikihawaii.com/",
       "category": "food",
-      "subcategory": "happy_hour",
+      "subcategory": "restaurant",
       "neighborhood": "Waikiki",
       "name": "Piko Kitchen + Bar"
     },
@@ -46,7 +46,7 @@
     {
       "url": "https://www.redfishpoke.com/",
       "category": "food",
-      "subcategory": "happy_hour",
+      "subcategory": "poke",
       "neighborhood": "Waikiki",
       "name": "Redfish"
     },
@@ -223,11 +223,60 @@
       "name": "206 BCE"
     },
     {
-      "url": "https://www.islandvintagewinebar.com/",
+      "url": "https://timhowanusa.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Tim Ho Wan",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.matchacafe-maiko.com/eng/store/index.html?country=usa&region=hi&target=hi-honolulu-main-store",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Waikiki",
+      "name": "Matcha Cafe Maiko",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://daseafoodcartel.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Aiea",
+      "name": "Da Seafood Cartel",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.deandeluca-hawaii.com/location/the-ritz-carlton-residences-waikiki-beach/",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Waikiki",
+      "name": "Dean & DeLuca Hawaii",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.jaxwoodfiredpizza.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Haleiwa",
+      "name": "Jax Wood Fired Pizza",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://konosnorthshore.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Waikiki",
+      "name": "Kono's",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://sidestreetinn.com/happy-hour-wine-music/",
       "category": "food",
       "subcategory": "happy_hour",
-      "neighborhood": "Waikiki",
-      "name": "Island Vintage Wine Bar"
+      "neighborhood": "Ala Moana",
+      "name": "Side Street Inn",
+      "_added": "2026-06-29"
     },
     {
       "url": "https://www.gyu-kaku.com/waikiki/",
@@ -237,11 +286,58 @@
       "name": "Gyu-Kaku Waikiki"
     },
     {
+      "url": "https://alohabeer.com/pages/locations",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kakaako",
+      "name": "Aloha Beer Co.",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://nicospier38.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Iwilei",
+      "name": "Nico's Pier 38",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.stripsteak.com/location/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "STRIPSTEAK Waikiki",
+      "force_status": "unverified",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://waikikishokudo.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Waikiki Shokudo",
+      "_added": "2026-06-29"
+    },
+    {
       "url": "https://aokigroup.com/herringbonewaikiki/",
       "category": "food",
       "subcategory": "happy_hour",
       "neighborhood": "Waikiki",
       "name": "Herringbone Waikiki"
+    },
+    {
+      "url": "https://www.signatureprimesteak.com/happy-hour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "The Signature Prime Steak & Seafood"
+    },
+    {
+      "url": "https://www.islandvintagewinebar.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Island Vintage Wine Bar"
     },
     {
       "url": "https://www.wolfgangssteakhousehawaii.com/waikiki",
@@ -251,12 +347,34 @@
       "name": "Wolfgang's Steakhouse Waikiki"
     },
     {
-      "url": "https://www.stripsteak.com/location/waikiki/",
+      "url": "https://www.waikikibrewing.com/location/waikiki-brewing-kalakaua/",
       "category": "food",
       "subcategory": "happy_hour",
       "neighborhood": "Waikiki",
-      "name": "STRIPSTEAK Waikiki",
-      "force_status": "unverified",
+      "name": "Waikiki Brewing Co. (Kalakaua)",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.hanakoabrewing.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kakaako",
+      "name": "Hana Koa Brewing Co.",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.maitaishawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "Mai Tai Bar"
+    },
+    {
+      "url": "https://kelleyoneils.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Kelley O'Neil's",
       "_added": "2026-06-29"
     },
     {
@@ -282,20 +400,6 @@
       "neighborhood": "Waikiki",
       "name": "Tiki's Grill & Bar",
       "_added": "2026-06-29"
-    },
-    {
-      "url": "https://www.maitaishawaii.com/",
-      "category": "food",
-      "subcategory": "happy_hour",
-      "neighborhood": "Ala Moana",
-      "name": "Mai Tai Bar"
-    },
-    {
-      "url": "https://www.signatureprimesteak.com/happy-hour",
-      "category": "food",
-      "subcategory": "happy_hour",
-      "neighborhood": "Ala Moana",
-      "name": "The Signature Prime Steak & Seafood"
     }
   ]
 }

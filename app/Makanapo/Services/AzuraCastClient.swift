@@ -1,6 +1,11 @@
 import Foundation
 
-struct AzuraCastClient {
+/// Source of now-playing metadata (seam for testing the player without the network).
+protocol NowPlayingProviding {
+    func fetch() async throws -> NowPlaying
+}
+
+struct AzuraCastClient: NowPlayingProviding {
     let url: URL
     var session: URLSession = .shared
 

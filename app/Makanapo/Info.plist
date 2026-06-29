@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Keep radio audio alive when the screen locks / app is backgrounded.
+         INFOPLIST_KEY_UIBackgroundModes is NOT on Apple's auto-injected allowlist,
+         so this key must live in a real Info.plist. GENERATE_INFOPLIST_FILE=YES
+         still layers the other INFOPLIST_KEY_* values on top of this file. -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+    </array>
+</dict>
+</plist>

@@ -26,9 +26,25 @@ final class DealsStoreTests: XCTestCase {
                                      cacheURL: tmpCacheURL())
         await store.refresh()
         let deals = await store.deals
-        XCTAssertEqual(deals.map(\.id), ["b", "a", "c"]) // active(Kakaako,Waikiki) then unverified
+        XCTAssertEqual(deals.map(\.id), ["b", "a"]) // active only, sorted by neighborhood (Kakaako, Waikiki)
         let state = await store.state
         XCTAssertEqual(state, .loaded)
+    }
+
+    func test_refresh_keepsOnlyActive_dropsUnverifiedAndExpired() async throws {
+        let mixed = """
+        [{"id":"act","name":"Active","category":"food","source_url":"https://e.com",
+          "last_verified":"2026-06-22","status":"active"},
+         {"id":"unv","name":"Unverified","category":"food","source_url":"https://e.com",
+          "last_verified":"2026-06-22","status":"unverified"},
+         {"id":"exp","name":"Expired","category":"food","source_url":"https://e.com",
+          "last_verified":"2026-06-22","status":"expired"}]
+        """.data(using: .utf8)!
+        let store = await DealsStore(loader: StubLoader(result: .success(mixed)),
+                                     cacheURL: tmpCacheURL())
+        await store.refresh()
+        let ids = await store.deals.map(\.id)
+        XCTAssertEqual(ids, ["act"]) // trust-first: only verified deals surface in v1
     }
 
     func test_refresh_writesCache_andOfflineReadsIt() async throws {
@@ -39,7 +55,7 @@ final class DealsStoreTests: XCTestCase {
         let offline = await DealsStore(loader: StubLoader(result: .failure(StubError())), cacheURL: cache)
         await offline.refresh()
         let deals = await offline.deals
-        XCTAssertEqual(deals.count, 3)
+        XCTAssertEqual(deals.count, 2) // sample has 2 active + 1 unverified; unverified dropped
         let state = await offline.state
         XCTAssertEqual(state, .offline)
     }

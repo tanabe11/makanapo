@@ -97,9 +97,18 @@ def from_official(
             rec["lng"] = float(geo["longitude"])
         except (TypeError, ValueError):
             pass
-    hrs = _hours(biz)
-    if hrs:
-        rec["hours"] = hrs
+    # On a happy-hour deal, `hours` means the HH window only — general opening
+    # hours would misleadingly read as "happy hour all day". So for HH deals use
+    # the extracted window if found, else leave hours unset; other deals keep
+    # the venue's stated opening hours.
+    if subcategory == "happy_hour":
+        window = extract.find_happy_hour_window(text)
+        if window:
+            rec["hours"] = window
+    else:
+        hrs = _hours(biz)
+        if hrs:
+            rec["hours"] = hrs
 
     discount = extract.find_discount(text)
     # Happy-hour fallback: the official page advertises a happy hour but no % is

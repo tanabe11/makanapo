@@ -16,8 +16,9 @@ def strip_html(s: str | None) -> str:
     return _html.unescape(_TAG.sub("", s or "")).strip()
 
 
-# Stop the capture at sentence/clause boundaries and exclamation spam.
-_STOP = r"[^.<|()!\n\r]*"
+# Stop the capture at sentence/clause boundaries, exclamation spam, and the next
+# "$" offer (so concatenated menu offers don't merge into one run-on discount).
+_STOP = r"[^.<|()!$\n\r]*"
 _DISCOUNT_RE = re.compile(
     r"(\d+%\s*off" + _STOP
     + r"|BOGO"
@@ -53,6 +54,59 @@ _HH_RE = re.compile(r"happy hour|pau hana|aloha hour", re.I)
 
 def has_happy_hour(text: str | None) -> bool:
     return bool(_HH_RE.search(text or ""))
+
+
+# am/pm with dots only as a paired abbreviation ("pm" or "p.m."), never a stray
+# trailing sentence period (so "5 pm." yields "5 pm", not "5 pm.").
+_AMPM = r"(?:[ap]m|[ap]\.m\.)"
+# A clock time: "3", "3:30", "3pm", "3:30 p.m." — am/pm optional.
+_TIME = r"\d{1,2}(?::\d{2})?\s*" + _AMPM + r"?"
+# A time range whose END carries am/pm (so we don't grab bare number ranges like a street range).
+_RANGE_RE = re.compile(
+    _TIME + r"\s*(?:-|–|—|to|until|till|til)\s*"
+    + r"\d{1,2}(?::\d{2})?\s*" + _AMPM,
+    re.I,
+)
+# Day / frequency phrase: "Mon", "Mon-Fri", "Monday through Friday", "daily", "weekdays".
+# Day tokens are bounded (\b) so "Sun" doesn't match inside "Sunset".
+_DAY = (
+    r"(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|thu(?:rs?)?(?:day)?"
+    r"|fri(?:day)?|sat(?:urday)?|sun(?:day)?)"
+)
+_DAYS_RE = re.compile(
+    r"\b(?:" + _DAY + r"(?:\s*(?:-|–|—|through|thru|to|&|/|,|and)\s*" + _DAY + r")?"
+    r"|daily|every\s*day|weekdays?)\b",
+    re.I,
+)
+# Only trust a time range that sits close to the happy-hour mention.
+_HH_NEAR = 100
+
+
+def find_happy_hour_window(text: str | None) -> str | None:
+    """The happy-hour time window stated near a HH mention, e.g. 'Mon-Fri 3-6pm'.
+
+    Fact-only: returns the time range (plus an immediately-leading day/frequency
+    phrase when present). Returns None if no explicit range sits near the keyword
+    — recall is intentionally limited rather than guessing.
+    """
+    t = text or ""
+    best: tuple[int, str] | None = None  # (gap to keyword, rendered window)
+    for kw in _HH_RE.finditer(t):
+        tail = t[kw.end() : kw.end() + _HH_NEAR]  # text right after this mention
+        rng = _RANGE_RE.search(tail)
+        if not rng:
+            continue
+        gap = rng.start()  # distance from the keyword to the range
+        time_str = re.sub(r"\s+", " ", rng.group(0)).strip()
+        before = tail[: rng.start()]
+        last_day = None
+        for m in _DAYS_RE.finditer(before):
+            last_day = m
+        if last_day and rng.start() - last_day.end() <= 3:  # directly precedes the range
+            time_str = re.sub(r"\s+", " ", last_day.group(0)).strip() + " " + time_str
+        if best is None or gap < best[0]:
+            best = (gap, time_str)
+    return best[1] if best else None
 
 
 _MONTHS = {
