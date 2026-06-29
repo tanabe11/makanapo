@@ -3,6 +3,10 @@
     21.2815985,
     -157.7995746
   ],
+  "1129 North Nimitz Highway, Honolulu, HI 96817": [
+    21.3176737,
+    -157.8767338
+  ],
   "1200 Ala Moana Blvd, Ste B2115, Honolulu, HI 96814": [
     21.2927531,
     -157.8528417
@@ -14,6 +18,14 @@
   "1632 Hart St., Honolulu, HI 96817": [
     21.3242599,
     -157.8806806
+  ],
+  "1945 Kalakaua Avenue, Honolulu, HI, 96815": [
+    21.285921,
+    -157.8329576
+  ],
+  "22301 Kalakaua Avenue, Honolulu, HI 96815": [
+    21.2777781,
+    -157.8274648
   ],
   "2233 Kalakaua Avenue B310, Honolulu, HI, 96815": [
     21.278721,
@@ -30,6 +42,22 @@
   "2301 Kalakaua Ave Building C, Space 102AB, Honolulu, HI 96815": [
     21.2783485,
     -157.8286924
+  ],
+  "2301 Kalakaua Ave.,Building C, Level 3, Honolulu, HI 96815": [
+    21.2783261,
+    -157.8284086
+  ],
+  "2310 Kuhio Ave. #143, Honolulu, HI 96815": [
+    21.2795054,
+    -157.8257137
+  ],
+  "2310 Kūhiō Ave. #1-A, Honolulu, HI 96815": [
+    21.2795054,
+    -157.8257137
+  ],
+  "2330 Kalākaua Ave #330, Honolulu, HI, 96815": [
+    21.2783385,
+    -157.8260782
   ],
   "2365 Kalakaua Ave, Honolulu, HI 96815": [
     21.276499,
@@ -51,6 +79,10 @@
     21.2811161,
     -157.8307366
   ],
+  "311 Lewers Street, Honolulu, HI, 96815": [
+    21.2802786,
+    -157.829442
+  ],
   "334 Seaside Ave, Suite 701, Honolulu, HI 96815": [
     21.2796322,
     -157.8280245
@@ -58,6 +90,10 @@
   "3536 Harding Ave., Honolulu, HI 96816": [
     21.2819849,
     -157.8009943
+  ],
+  "383 KALAIMOKU ST., 1F, HONOLULU, HI 96815": [
+    21.2785981,
+    -157.8295222
   ],
   "383 Kalaimoku St, Honolulu, HI 96815": [
     21.2826223,
@@ -75,6 +111,10 @@
     21.2800825,
     -157.825519
   ],
+  "700 Queen St., Honolulu, HI 96813": [
+    21.3008185,
+    -157.8568287
+  ],
   "Appetito Craft Pizza & Wine Bar, Waikiki, Honolulu, HI": [
     21.2778478,
     -157.8246824
@@ -91,6 +131,10 @@
     21.2768421,
     -157.8277917
   ],
+  "Gyu-Kaku Waikiki, Waikiki, Honolulu, HI": [
+    21.280458,
+    -157.8292466
+  ],
   "Highway Inn, Kakaako, Honolulu, HI": [
     21.297622,
     -157.8614668
@@ -99,12 +143,28 @@
     21.2769825,
     -157.8277491
   ],
+  "Jax Wood Fired Pizza, Haleiwa, Honolulu, HI": [
+    21.5883953,
+    -158.1031468
+  ],
   "Noi Thai Cuisine, Waikiki, Honolulu, HI": [
     21.2779061,
     -157.827948
   ],
+  "Side Street Inn, Ala Moana, Honolulu, HI": [
+    21.2943239,
+    -157.8474074
+  ],
+  "Tim Ho Wan, Waikiki, Honolulu, HI": [
+    21.279121,
+    -157.829616
+  ],
   "Tonkatsu Ginza Bairin, Waikiki, Honolulu, HI": [
     21.2801166,
     -157.8309164
+  ],
+  "Waikiki Shokudo, Waikiki, Honolulu, HI": [
+    21.2805377,
+    -157.8278334
   ]
 }

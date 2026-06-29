@@ -2,17 +2,26 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-23 (radio: HLS + fresh-stream-on-play, lock-screen audio fixed; app shows verified/active only; HH time windows extracted into hours)
+> Last updated: 2026-06-29 (discovery batch: sources 31→51, deals 48→68; +13 HH venues queued via probation → active ~2026-07-06; out_of_area guard bug fixed)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **49件**（active 27 / unverified 21 / expired 1）一次情報・公式のみ。coords 41/49。
-- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ ユーザーに見えるのは 27件。
-- `data/sources.json` の official_sites: **31件**（発見スキルが追記していく）
+- 公開 `data/deals.json`: **68件**（active 27 / unverified 40 / expired 1）一次情報・公式のみ。coords 56/68。
+- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ いま見えるのは 27件。
+- `data/sources.json` の official_sites: **51件**（発見スキルが追記していく）
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
-- **Go 基準: active 50件。現在 27件**（あと23）。**未push のローカルコミット多数 → `git push` 必要**（push まで本番/アプリに反映されない）。
+- **Go 基準: active 50件。現在 27件**。今セッションで **13件のHH店を追加**（probation中・unverified）→ **~2026-07-06 に自動 active 昇格**して **約40件** になる見込み（cronが処理、追加作業不要）。
+
+## 直近の変更（2026-06-29）— discovery バッチ
+- **発見スキルで sources 31→51（+20）**。うち **13件は公式にHHページがある飲食店**＝`discover_add` で `happy hour specials` 等を抽出 → probation で7日 unverified、`~2026-07-06` に自動 active（cron処理）。
+  - Side Street Inn / Gyu-Kaku Waikiki / Aloha Beer Co. / Nico's Pier 38 / Waikiki Shokudo / Herringbone Waikiki / Signature Prime Steak / Island Vintage Wine Bar / Wolfgang's Steakhouse / Waikiki Brewing(Kalakaua) / Hana Koa Brewing / Mai Tai Bar / Kelley O'Neil's
+- **6件は実在するが公式に機械可読な deal 無し**＝unverified のまま（発見補助・アプリ非表示）：Tim Ho Wan / Matcha Cafe Maiko / Da Seafood Cartel / Dean & DeLuca / Jax Wood Fired Pizza / Kono's。
+- **バグ修正 `guards.out_of_area`**：住所の誤抽出（先頭番号 "22301…HI 96815"）を ZIP 誤認してオアフ店を弾いていた → **住所内のいずれかの5桁が 967/968 なら域内**と判定（末尾ZIP優先）。`pipeline/tests/test_guards_out_of_area.py`（6件）追加、全21テスト green。
+- **STRIPSTEAK Waikiki**：抽出 discount が "complimentary dining credit…"（リワード特典の誤抽出）だったため `sources.json` に `force_status: unverified` を設定＝誠実にリンクのみ表示。
+- 閉店/到達不可/品質でスキップ多数：Crackin' Kitchen・'Olili・Square Barrels・Piggy Smalls・Sansei・Chibo・Moani・Mariposa・Vino・REAL Gastropub・Cattleya・Da Big Kahuna、Roy's/Kona Brewing（従業員割引等の誤抽出）、SKY/J.Dolan's/Cheeseburger/Tiki's（HHがJS描画でunverified）。
+- coords 41→56/68（`geocode_fill` で新店補完。Hana Koa/Herringbone/Signature/Da Seafood Cartel 等は住所未取得でピン無し）。
 
 ## 直近の変更（2026-06-23）
 - **ラジオ安定化**：ストリームを生MP3→**HLS**（`live.m3u8`、適応AAC）に変更（AVPlayerはHLS向け、生Icecast MP3は不安定）。停止時にバッファ破棄＋再生時に毎回新規 `AVPlayerItem`＝常にライブ先端（停止→再生でキャッシュ再生する問題を解消）。`RadioEngine`/`NowPlayingProviding` をDIしてユニットテスト追加。**実機で安定確認済み**。
@@ -135,7 +144,7 @@ gh run list --workflow=build-deals # 実行履歴
 - `gh` での workflow ファイル push には **workflow スコープ**が必要。
 - CI は GitHub のデータセンターIPから取得。サイトによっては弾かれ得る（現状は全到達OK）。**件数大幅減セーフガード実装済**：`build.py` が前回 deals.json と比べ total/active が >40% 減ると**ビルド失敗（commit/push されない）**。意図的な縮小時は `MAKANAPO_ALLOW_SHRINK=1`。
 - **公開前ガードレール（`pipeline/core/guards.py`）**：アグリゲータ/レビュー/SNS ドメインは公開不可（`denied_domain`、著作権）、パーキング/スパム語を含むレコードは drop（`looks_spammy`）、割引の run-on は短縮（`clean_discount`）。`discover_add` は追加時にも denylist で拒否。→ 無審査自動公開でも汚染を弾ける。
-- **オアフ地域ガード（`guards.out_of_area`）**：座標がオアフ島外 or 住所 ZIP が Hawaii(967/968)以外なら公開しない（別州の同名店・チェーン本国ページを排除）。
+- **オアフ地域ガード（`guards.out_of_area`）**：座標がオアフ島外 or 住所の5桁が全て Hawaii(967/968)以外なら公開しない（別州の同名店・チェーン本国ページを排除）。住所内の**いずれかの5桁**が 967/968 なら域内扱い＝先頭番号の誤抽出（例 "22301 Kalakaua Ave … 96815"）でオアフ店を誤って弾かない（2026-06-29 修正、回帰テスト有）。
 - **プロベーション（`build.py`＋`discover_add` の `_added`）**：自動追加した新ソースは **7日間 unverified**（公式リンク付き）で出し、安定後 active 昇格。誤/閉店ソースが「確定割引」になる前の被害を限定。`_added` は `_`接頭辞なので `from_official` には渡らない。
 - Python 3.9 互換のため各モジュール先頭に `from __future__ import annotations`（実装済み）。
 - IMP（International Market Place）= 接続レベルでブロック（Playwright不可）→ 対象外。RHC = テナント割引一覧頁が存在せず深追い不要。
@@ -153,8 +162,9 @@ git push
 （対応済み 2026-06-22: `last_verified` は `normalize.today()` が **Honolulu時刻(UTC-10)固定**で付与＝CI(UTC)とローカルで日付一致。ランナーTZに非依存。）
 
 ## 次にやること（候補）
-- [ ] **このセッションのコミットを push**（ラジオ修正・検証済みのみ表示・HH窓。push まで本番/アプリ未反映）
-- [ ] 発見スキルを回して active を **27 → 50** に近づける（Go/No-Go 最優先。検証済みのみ表示にしたので active 件数が実質ゲート）
+- [ ] **~2026-07-06 に probation の13件が active 昇格するか確認**（cronビルド後 `python3 -m pipeline.stats` で active 27→~40）。
+- [ ] 発見スキルを継続して active を **~40 → 50** に（残り約10件。HHページがある飲食店が高歩留まり）。
+- [x] 発見バッチ（2026-06-29）: sources 31→51、HH店13をprobation投入、out_of_area バグ修正。
 - [ ] 残り8件の座標補完：上記未解決の住所を seed に追記 → `geocode_fill` → `build` → push
 - [ ] HH 時間帯カバレッジ向上（現状 10/21）：**Playwright 描画**で JS頁の窓を取得（別タスク）。LLM案は今回の miss には無効と判断済み。
 - [ ] アプリ：現在地/近く（`CLLocationWhenInUse`・同意設計）
