@@ -221,6 +221,81 @@
       "subcategory": "restaurant",
       "neighborhood": "Waikiki",
       "name": "206 BCE"
+    },
+    {
+      "url": "https://www.islandvintagewinebar.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Island Vintage Wine Bar"
+    },
+    {
+      "url": "https://www.gyu-kaku.com/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Gyu-Kaku Waikiki"
+    },
+    {
+      "url": "https://aokigroup.com/herringbonewaikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Herringbone Waikiki"
+    },
+    {
+      "url": "https://www.wolfgangssteakhousehawaii.com/waikiki",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Wolfgang's Steakhouse Waikiki"
+    },
+    {
+      "url": "https://www.stripsteak.com/location/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "STRIPSTEAK Waikiki",
+      "force_status": "unverified",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://skywaikiki.com/happy-hour/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Sky Waikiki",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.royyamaguchi.com/eatinghouse1849-waikiki",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Eating House 1849",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.tikis.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Tiki's Grill & Bar",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.maitaishawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "Mai Tai Bar"
+    },
+    {
+      "url": "https://www.signatureprimesteak.com/happy-hour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Ala Moana",
+      "name": "The Signature Prime Steak & Seafood"
     }
   ]
 }

@@ -64,8 +64,11 @@ def out_of_area(rec: dict) -> bool:
     if isinstance(lat, (int, float)) and isinstance(lng, (int, float)):
         if not (_OAHU[0] <= lat <= _OAHU[1] and _OAHU[2] <= lng <= _OAHU[3]):
             return True
-    m = re.search(r"\b(\d{5})\b", rec.get("address") or "")
-    if m and m.group(1)[:3] not in ("967", "968"):
+    # Use the LAST 5-digit group as the ZIP — it trails the address. Matching the
+    # first one misreads a 5-digit street number (e.g. a malformed "22301 Kalakaua
+    # Avenue") as a non-Hawaii ZIP and wrongly drops a real Oahu venue.
+    zips = re.findall(r"\b(\d{5})\b", rec.get("address") or "")
+    if zips and zips[-1][:3] not in ("967", "968"):
         return True
     return False
 

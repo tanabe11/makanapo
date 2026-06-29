@@ -1,4 +1,8 @@
 {
+  "00amEach day, every dayOur Address2570 Kalakaua Ave., Honolulu, HI 96815": [
+    21.2722354,
+    -157.8230022
+  ],
   "1120 12th Avenue, 2nd Floor, Honolulu, HI 96816": [
     21.2815985,
     -157.7995746
@@ -15,6 +19,10 @@
     21.3242599,
     -157.8806806
   ],
+  "22301 Kalakaua Avenue, Honolulu, HI 96815": [
+    21.2749385,
+    -157.8245636
+  ],
   "2233 Kalakaua Avenue B310, Honolulu, HI, 96815": [
     21.278721,
     -157.8294248
@@ -30,6 +38,14 @@
   "2301 Kalakaua Ave Building C, Space 102AB, Honolulu, HI 96815": [
     21.2783485,
     -157.8286924
+  ],
+  "2301 Kalakaua Ave.,Building C, Level 3, Honolulu, HI 96815": [
+    21.2783261,
+    -157.8284086
+  ],
+  "2330 Kalākaua Ave #330, Honolulu, HI, 96815": [
+    21.2783385,
+    -157.8260782
   ],
   "2365 Kalakaua Ave, Honolulu, HI 96815": [
     21.276499,
@@ -90,6 +106,10 @@
   "Duke's Waikiki, Waikiki, Honolulu, HI": [
     21.2768421,
     -157.8277917
+  ],
+  "Gyu-Kaku Waikiki, Waikiki, Honolulu, HI": [
+    21.280458,
+    -157.8292466
   ],
   "Highway Inn, Kakaako, Honolulu, HI": [
     21.297622,
