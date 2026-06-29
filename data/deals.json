@@ -733,6 +733,19 @@
     "lng": -158.1031468
   },
   {
+    "id": "konos-waikiki-5ab976",
+    "name": "Kono's",
+    "category": "food",
+    "source_url": "https://konosnorthshore.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "address": "2310 Kūhiō Ave. #1-A, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2795054,
+    "lng": -157.8257137
+  },
+  {
     "id": "side-street-inn-ala-moana-3f89fd",
     "name": "Side Street Inn",
     "category": "food",
