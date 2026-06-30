@@ -472,6 +472,44 @@
       "neighborhood": "Chinatown",
       "name": "Bar 35",
       "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.skullandcrowntrading.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Chinatown",
+      "name": "Skull & Crown Trading Co."
+    },
+    {
+      "url": "https://www.heavenly-waikiki.com/happyhour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Heavenly Island Lifestyle"
+    },
+    {
+      "url": "https://livestocktavern.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Chinatown",
+      "name": "Livestock Tavern",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.murphyshawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Downtown",
+      "name": "Murphy's Bar & Grill",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.mudhenwater.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kaimuki",
+      "name": "Mud Hen Water",
+      "_added": "2026-06-29"
     }
   ]
 }

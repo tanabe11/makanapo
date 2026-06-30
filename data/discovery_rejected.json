@@ -16,6 +16,9 @@
     {"name": "Cuckoo Coconuts Waikiki", "url": "https://www.cuckoococonutswaikiki.com/", "reason": "js_no_deal", "note": "daily HH 4-7pm but JS-rendered; revisit with local Playwright", "date": "2026-06-29"},
     {"name": "Hard Rock Cafe Honolulu", "url": "https://cafe.hardrock.com/honolulu/", "reason": "non_consumer_deal", "note": "only a promo merch perk extractable, not the HH deal", "date": "2026-06-29"},
     {"name": "Kona Brewing Hawai'i Kai", "url": "https://konabrewinghawaii.com/locations/hawaii-kai", "reason": "non_consumer_deal", "note": "extracted deal is industry/employee-only (blue card / food handler), not a general consumer deal", "date": "2026-06-29"},
-    {"name": "Roy's Waikiki", "url": "https://www.royyamaguchi.com/roys-waikiki-oahu", "reason": "non_consumer_deal", "note": "only complimentary valet parking extractable; likely already covered by waikiki_beach_walk source", "date": "2026-06-29"}
+    {"name": "Roy's Waikiki", "url": "https://www.royyamaguchi.com/roys-waikiki-oahu", "reason": "non_consumer_deal", "note": "only complimentary valet parking extractable; likely already covered by waikiki_beach_walk source", "date": "2026-06-29"},
+    {"name": "Encore Saloon", "url": "https://www.encoresaloon.com/", "reason": "closed", "note": "Yelp marks closed (10 N Hotel St, Chinatown); official site still live — recheck before re-adding", "date": "2026-06-29"},
+    {"name": "The Black Cat Salon + Spa", "url": "https://theblackcatsalon.com/", "reason": "closed", "note": "Yelp marks both Kaimuki + Kailua locations closed (Aveda salon)", "date": "2026-06-29"},
+    {"name": "Bar Leather Apron", "url": "https://www.barleatherapron.com/", "reason": "no_deal", "note": "high-end cocktail bar, no happy hour / kamaaina advertised (Downtown TOPA Center)", "date": "2026-06-29"}
   ]
 }

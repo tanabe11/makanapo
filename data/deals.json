@@ -387,20 +387,6 @@
     "lng": -157.8396521
   },
   {
-    "id": "tsurutontan-waikiki-a98146",
-    "name": "Tsurutontan",
-    "category": "food",
-    "source_url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
-    "last_verified": "2026-06-29",
-    "subcategory": "happy_hour",
-    "neighborhood": "Waikiki",
-    "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
-    "discount": "happy hour specials",
-    "status": "active",
-    "lat": 21.278721,
-    "lng": -157.8294248
-  },
-  {
     "id": "noi-thai-cuisine-waikiki-ba08f6",
     "name": "Noi Thai Cuisine",
     "category": "food",
@@ -722,19 +708,6 @@
     "lng": -158.1031468
   },
   {
-    "id": "konos-waikiki-5ab976",
-    "name": "Kono's",
-    "category": "food",
-    "source_url": "https://konosnorthshore.com/",
-    "last_verified": "2026-06-29",
-    "subcategory": "restaurant",
-    "neighborhood": "Waikiki",
-    "address": "2310 Kūhiō Ave. #1-A, Honolulu, HI 96815",
-    "status": "unverified",
-    "lat": 21.2795054,
-    "lng": -157.8257137
-  },
-  {
     "id": "side-street-inn-ala-moana-3f89fd",
     "name": "Side Street Inn",
     "category": "food",
@@ -914,20 +887,6 @@
     "status": "active"
   },
   {
-    "id": "kelley-oneils-waikiki-9e0d76",
-    "name": "Kelley O'Neil's",
-    "category": "food",
-    "source_url": "https://kelleyoneils.com/",
-    "last_verified": "2026-06-29",
-    "subcategory": "happy_hour",
-    "neighborhood": "Waikiki",
-    "address": "311 Lewers Street, Honolulu, HI, 96815",
-    "discount": "happy hour specials",
-    "status": "unverified",
-    "lat": 21.2802786,
-    "lng": -157.829442
-  },
-  {
     "id": "sky-waikiki-waikiki-a650c3",
     "name": "Sky Waikiki",
     "category": "food",
@@ -1080,6 +1039,73 @@
     "status": "unverified",
     "lat": 21.311453,
     "lng": -157.8624324
+  },
+  {
+    "id": "skull-crown-trading-co-chinatown-73b695",
+    "name": "Skull & Crown Trading Co.",
+    "category": "food",
+    "source_url": "https://www.skullandcrowntrading.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Chinatown",
+    "address": "HONOLULU, HI 96817, USA",
+    "discount": "$20 off",
+    "status": "active",
+    "lat": 21.304547,
+    "lng": -157.855676
+  },
+  {
+    "id": "heavenly-island-lifestyle-waikiki-b9a9f5",
+    "name": "Heavenly Island Lifestyle",
+    "category": "food",
+    "source_url": "https://www.heavenly-waikiki.com/happyhour",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "342 Seaside Ave, Honolulu, HI 96815",
+    "hours": "2:00pm-4:00pm",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.2798525,
+    "lng": -157.8278189
+  },
+  {
+    "id": "livestock-tavern-chinatown-9058fc",
+    "name": "Livestock Tavern",
+    "category": "food",
+    "source_url": "https://livestocktavern.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Chinatown",
+    "address": "49 North Hotel St, Honolulu, HI 96817",
+    "status": "unverified",
+    "lat": 21.311598,
+    "lng": -157.862532
+  },
+  {
+    "id": "murphys-bar-grill-downtown-93ee9a",
+    "name": "Murphy's Bar & Grill",
+    "category": "food",
+    "source_url": "https://www.murphyshawaii.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Downtown",
+    "status": "unverified",
+    "lat": 21.3101668,
+    "lng": -157.8635185
+  },
+  {
+    "id": "mud-hen-water-kaimuki-fe983f",
+    "name": "Mud Hen Water",
+    "category": "food",
+    "source_url": "https://www.mudhenwater.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kaimuki",
+    "address": "3452 Waialae Avenue, Honolulu, HI 96816",
+    "status": "unverified",
+    "lat": 21.2845034,
+    "lng": -157.8021695
   },
   {
     "id": "giovanni-pastrami-waikiki-74b645",
