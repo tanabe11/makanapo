@@ -987,6 +987,46 @@
     "status": "unverified"
   },
   {
+    "id": "merrimans-honolulu-kakaako-3e91dd",
+    "name": "Merriman's Honolulu",
+    "category": "food",
+    "source_url": "https://www.merrimanshawaii.com/location/honolulu/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kakaako",
+    "address": "1108 Auahi Street, Honolulu, HI, 96814",
+    "hours": "3:00 pm – 5:30 pm",
+    "discount": "$2 OFF",
+    "status": "unverified",
+    "lat": 21.2937886,
+    "lng": -157.8522387
+  },
+  {
+    "id": "the-counter-hawaii-kahala-b8949e",
+    "name": "The Counter Hawaii",
+    "category": "food",
+    "source_url": "https://thecounterhawaii.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kahala",
+    "address": "4211 Waialae Ave, E-1, Honolulu, HI, 96816",
+    "discount": "$3 off all mules and margaritas",
+    "status": "unverified",
+    "lat": 21.2774954,
+    "lng": -157.7864165
+  },
+  {
+    "id": "honolulu-burger-co-kaimuki-7831c5",
+    "name": "Honolulu Burger Co.",
+    "category": "food",
+    "source_url": "https://honoluluburgerco.com/specials",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kaimuki",
+    "discount": "happy hour specials",
+    "status": "unverified"
+  },
+  {
     "id": "giovanni-pastrami-waikiki-74b645",
     "name": "Giovanni Pastrami",
     "category": "food",

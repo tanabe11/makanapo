@@ -416,6 +416,30 @@
       "neighborhood": "Waikiki",
       "name": "COCOLOMI Massage",
       "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.merrimanshawaii.com/location/honolulu/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kakaako",
+      "name": "Merriman's Honolulu",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://thecounterhawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kahala",
+      "name": "The Counter Hawaii",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://honoluluburgerco.com/specials",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kaimuki",
+      "name": "Honolulu Burger Co.",
+      "_added": "2026-06-29"
     }
   ]
 }
