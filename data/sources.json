@@ -440,6 +440,38 @@
       "neighborhood": "Kaimuki",
       "name": "Honolulu Burger Co.",
       "_added": "2026-06-29"
+    },
+    {
+      "url": "https://nicoskailua.com/happy-hour/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kailua",
+      "name": "Nico's Kailua",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.mbcrestaurants.com/kailua/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Kailua",
+      "name": "Maui Brewing Co. Kailua",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.thesmithandkings.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Chinatown",
+      "name": "Smith & Kings",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.bar35hawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Chinatown",
+      "name": "Bar 35",
+      "_added": "2026-06-29"
     }
   ]
 }

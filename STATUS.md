@@ -6,9 +6,9 @@
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **76件**（active 33 / unverified 42 / expired 1）一次情報・公式のみ。coords 60/76。
-- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ いま見えるのは 33件。probation 明け(~07-06)で **約45〜50件** に伸びる見込み（cron処理）。
-- `data/sources.json` の official_sites: **59件**（うち service 2件: Alexander Day Spa, COCOLOMI Massage）。発見スキルが追記していく。
+- 公開 `data/deals.json`: **80件**（active 33 / unverified 46 / expired 1）一次情報・公式のみ。coords 63/80。
+- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ いま見えるのは 33件。probation 明け(~07-06)で **約49〜52件** に伸びる見込み（cron処理）＝Go基準50到達見込み。
+- `data/sources.json` の official_sites: **63件**（うち service 2件: Alexander Day Spa, COCOLOMI Massage）。発見スキルが追記していく。
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
@@ -23,6 +23,7 @@
 - 閉店/到達不可/品質でスキップ多数：Crackin' Kitchen・'Olili・Square Barrels・Piggy Smalls・Sansei・Chibo・Moani・Mariposa・Vino・REAL Gastropub・Cattleya・Da Big Kahuna、Roy's/Kona Brewing（従業員割引等の誤抽出）、SKY/J.Dolan's/Cheeseburger/Tiki's（HHがJS描画でunverified）。
 - coords 41→58/73（`geocode_fill` で新店補完。Hana Koa/Herringbone/Signature/Alexander/COCOLOMI 等は住所未取得でピン無し）。
 - **追加の飲食HH**（3ラウンド目）：Merriman's Honolulu（$2 OFF / 3–5:30pm）・The Counter Hawaii（Kahala, $3 off mules&margaritas / 3–6pm）・Honolulu Burger Co.（Kaimuki）を active 追加。Livestock Tavern・Tchin Tchin・53 By The Sea・Mud Hen Water・Beer Lab HI・Inu Island Ales は静的HTMLにHH文が無く unverified（スキップ）。
+- **追加の飲食HH**（4ラウンド目・ウィンドワード/西/ダウンタウン）：Nico's Kailua（4–5pm）・Maui Brewing Co. Kailua（$2 off beers / 3:30–5:30pm）・Smith & Kings（Chinatown, 3–6pm）・Bar 35（Chinatown）を active 追加。Monkeypod Kitchen・Kapa Hale・Uahi Island Grill・Jade Dynasty は静的にHH文取れず unverified、12th Ave Grill・Aloha Table・Just Tacos・Buzz's Pearl City・Stewbum は閉店でスキップ。
 - **サービス系開拓**：歩留まりは低い（大手/JS系の CorePower・Ho'ala・Paul Brown・Na Ho'ola・UFC Gym・AlohaTherapy は静的HTMLに割引文が無く unverified）。**専用 `/kamaaina` ページを持つ独立系スパ**だけが active 化：**Alexander Day Spa**（20% off + Hawaii ID）と **COCOLOMI Massage**（10% off）を追加。サービスを増やすなら「`/kamaaina` 専用ページ＋`% off`/`kama'aina rate` 明記」の独立系を狙うのが鍵。
 
 ## 直近の変更（2026-06-23）
