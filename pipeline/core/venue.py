@@ -93,8 +93,16 @@ def from_official(
     geo = biz.get("geo")
     if isinstance(geo, dict) and geo.get("latitude") and geo.get("longitude"):
         try:
-            rec["lat"] = float(geo["latitude"])
-            rec["lng"] = float(geo["longitude"])
+            lat = float(geo["latitude"])
+            lng = float(geo["longitude"])
+            # Some Hawaii sites publish a sign-flipped longitude in JSON-LD (e.g.
+            # +157.83 instead of -157.83), which lands the venue in the western
+            # Pacific and trips the off-Oahu guard. Hawaii is at negative longitude,
+            # so flip a positive Pacific longitude paired with a Hawaii latitude.
+            if 18.0 <= lat <= 23.0 and 154.0 <= lng <= 161.0:
+                lng = -lng
+            rec["lat"] = lat
+            rec["lng"] = lng
         except (TypeError, ValueError):
             pass
     # On a happy-hour deal, `hours` means the HH window only — general opening

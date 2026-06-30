@@ -553,6 +553,19 @@
     "status": "active"
   },
   {
+    "id": "restaurant-suntory-waikiki-f30b43",
+    "name": "Restaurant Suntory",
+    "category": "food",
+    "source_url": "https://restaurantsuntory.com/",
+    "last_verified": "2026-06-30",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2233 Kalakaua Ave, Building B, Level 3, Honolulu, HI, 96815",
+    "lat": 21.27868968867536,
+    "lng": -157.82926933754993,
+    "status": "unverified"
+  },
+  {
     "id": "arancino-on-beachwalk-waikiki-a58246",
     "name": "Arancino on Beachwalk",
     "category": "food",
