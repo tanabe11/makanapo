@@ -387,6 +387,20 @@
     "lng": -157.8396521
   },
   {
+    "id": "tsurutontan-waikiki-a98146",
+    "name": "Tsurutontan",
+    "category": "food",
+    "source_url": "https://www.tsurutontan.com/menus/hawaii-happy-hour",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2233 Kalakaua Avenue B310, Honolulu, HI, 96815",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.278721,
+    "lng": -157.8294248
+  },
+  {
     "id": "noi-thai-cuisine-waikiki-ba08f6",
     "name": "Noi Thai Cuisine",
     "category": "food",
@@ -553,17 +567,6 @@
     "status": "active"
   },
   {
-    "id": "restaurant-suntory-waikiki-f30b43",
-    "name": "Restaurant Suntory",
-    "category": "food",
-    "source_url": "https://restaurantsuntory.com/",
-    "last_verified": "2026-06-29",
-    "subcategory": "happy_hour",
-    "neighborhood": "Waikiki",
-    "address": "2233 Kalakaua Ave. B307, Honolulu, Hawaii, 96815",
-    "status": "unverified"
-  },
-  {
     "id": "arancino-on-beachwalk-waikiki-a58246",
     "name": "Arancino on Beachwalk",
     "category": "food",
@@ -717,6 +720,19 @@
     "status": "unverified",
     "lat": 21.5883953,
     "lng": -158.1031468
+  },
+  {
+    "id": "konos-waikiki-5ab976",
+    "name": "Kono's",
+    "category": "food",
+    "source_url": "https://konosnorthshore.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
+    "address": "2310 Kūhiō Ave. #1-A, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2795054,
+    "lng": -157.8257137
   },
   {
     "id": "side-street-inn-ala-moana-3f89fd",
@@ -898,6 +914,20 @@
     "status": "active"
   },
   {
+    "id": "kelley-oneils-waikiki-9e0d76",
+    "name": "Kelley O'Neil's",
+    "category": "food",
+    "source_url": "https://kelleyoneils.com/",
+    "last_verified": "2026-06-29",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "311 Lewers Street, Honolulu, HI, 96815",
+    "discount": "happy hour specials",
+    "status": "unverified",
+    "lat": 21.2802786,
+    "lng": -157.829442
+  },
+  {
     "id": "sky-waikiki-waikiki-a650c3",
     "name": "Sky Waikiki",
     "category": "food",
@@ -929,6 +959,32 @@
     "status": "unverified",
     "lat": 21.2722354,
     "lng": -157.8230022
+  },
+  {
+    "id": "alexander-day-spa-and-salon-waikiki-eafcfd",
+    "name": "Alexander Day Spa and Salon",
+    "category": "service",
+    "source_url": "https://alexanderspa.com/kamaaina/",
+    "last_verified": "2026-06-29",
+    "subcategory": "spa_massage",
+    "neighborhood": "Waikiki",
+    "discount": "20% Off Show valid Hawaii ID",
+    "requires_id": true,
+    "redemption": "show_id",
+    "status": "unverified"
+  },
+  {
+    "id": "cocolomi-massage-waikiki-607489",
+    "name": "COCOLOMI Massage",
+    "category": "service",
+    "source_url": "https://cocolomi-hawaii.com/en/kamaaina-group-discounts-waikiki-hi/",
+    "last_verified": "2026-06-29",
+    "subcategory": "spa_massage",
+    "neighborhood": "Waikiki",
+    "discount": "10% off for couples massages",
+    "requires_id": true,
+    "redemption": "show_id",
+    "status": "unverified"
   },
   {
     "id": "giovanni-pastrami-waikiki-74b645",

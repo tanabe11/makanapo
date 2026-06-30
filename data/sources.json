@@ -400,6 +400,22 @@
       "neighborhood": "Waikiki",
       "name": "Tiki's Grill & Bar",
       "_added": "2026-06-29"
+    },
+    {
+      "url": "https://alexanderspa.com/kamaaina/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Waikiki",
+      "name": "Alexander Day Spa and Salon",
+      "_added": "2026-06-29"
+    },
+    {
+      "url": "https://cocolomi-hawaii.com/en/kamaaina-group-discounts-waikiki-hi/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Waikiki",
+      "name": "COCOLOMI Massage",
+      "_added": "2026-06-29"
     }
   ]
 }

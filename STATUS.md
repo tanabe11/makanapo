@@ -2,13 +2,13 @@
 
 > 別マシン（Mac Mini）でローカル作業（特に Tier-1 発見スキル）を続けるための引き継ぎ文書。
 > **状態が変わるたびに更新する。** 背景は [SPEC.md] / 規約は [CLAUDE.md] / 経緯は [KICKOFF.md]。
-> Last updated: 2026-06-29 (discovery batch: sources 31→51, deals 48→68; +13 HH venues queued via probation → active ~2026-07-06; out_of_area guard bug fixed)
+> Last updated: 2026-06-29 (discovery batch: sources →56, deals →73, active →33; +13 HH food + 2 service(Alexander Day Spa, COCOLOMI) queued via probation → active ~07-06; out_of_area guard bug fixed; merged Mac Mini batch)
 
 ## 現在地（TL;DR）
 - リポジトリ: https://github.com/tanabe11/makanapo （public, main）
-- 公開 `data/deals.json`: **68件**（active 27 / unverified 40 / expired 1）一次情報・公式のみ。coords 56/68。
-- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ いま見えるのは 27件。
-- `data/sources.json` の official_sites: **51件**（発見スキルが追記していく）
+- 公開 `data/deals.json`: **73件**（active 33 / unverified 39 / expired 1）一次情報・公式のみ。coords 58/73。
+- **アプリ表示は active のみ**（unverified/expired は data に残すが非表示。trust優先）→ いま見えるのは 33件。
+- `data/sources.json` の official_sites: **56件**（うち service 2件: Alexander Day Spa, COCOLOMI Massage）。発見スキルが追記していく。
 - CDN: `https://cdn.jsdelivr.net/gh/tanabe11/makanapo@main/data/deals.json`
 - Tier-2 cron（GitHub Actions `build-deals`）: **手動runで緑を確認済み**（毎日 15:17 UTC ≒ HST 05:17 自動実行）
 - Tier-1 発見（`makanapo-discover` スキル）: ローカル運用（要 WebSearch = Claude Code）
@@ -21,7 +21,8 @@
 - **バグ修正 `guards.out_of_area`**：住所の誤抽出（先頭番号 "22301…HI 96815"）を ZIP 誤認してオアフ店を弾いていた → **住所内のいずれかの5桁が 967/968 なら域内**と判定（末尾ZIP優先）。`pipeline/tests/test_guards_out_of_area.py`（6件）追加、全21テスト green。
 - **STRIPSTEAK Waikiki**：抽出 discount が "complimentary dining credit…"（リワード特典の誤抽出）だったため `sources.json` に `force_status: unverified` を設定＝誠実にリンクのみ表示。
 - 閉店/到達不可/品質でスキップ多数：Crackin' Kitchen・'Olili・Square Barrels・Piggy Smalls・Sansei・Chibo・Moani・Mariposa・Vino・REAL Gastropub・Cattleya・Da Big Kahuna、Roy's/Kona Brewing（従業員割引等の誤抽出）、SKY/J.Dolan's/Cheeseburger/Tiki's（HHがJS描画でunverified）。
-- coords 41→56/68（`geocode_fill` で新店補完。Hana Koa/Herringbone/Signature/Da Seafood Cartel 等は住所未取得でピン無し）。
+- coords 41→58/73（`geocode_fill` で新店補完。Hana Koa/Herringbone/Signature/Alexander/COCOLOMI 等は住所未取得でピン無し）。
+- **サービス系開拓**：歩留まりは低い（大手/JS系の CorePower・Ho'ala・Paul Brown・Na Ho'ola は静的HTMLに割引文が無く unverified）。**専用 `/kamaaina` ページを持つ独立系スパ**だけが active 化：**Alexander Day Spa**（20% off + Hawaii ID）と **COCOLOMI Massage**（10% off）を追加。サービスを増やすなら「`/kamaaina` 専用ページ＋`% off`/`kama'aina rate` 明記」の独立系を狙うのが鍵。
 
 ## 直近の変更（2026-06-23）
 - **ラジオ安定化**：ストリームを生MP3→**HLS**（`live.m3u8`、適応AAC）に変更（AVPlayerはHLS向け、生Icecast MP3は不安定）。停止時にバッファ破棄＋再生時に毎回新規 `AVPlayerItem`＝常にライブ先端（停止→再生でキャッシュ再生する問題を解消）。`RadioEngine`/`NowPlayingProviding` をDIしてユニットテスト追加。**実機で安定確認済み**。
