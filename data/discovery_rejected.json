@@ -1,0 +1,21 @@
+{
+  "_comment": "Anti-revisit memory for Tier-1 discovery (LLM aid, NOT read by the deterministic pipeline). Candidates already verified as dead-ends so future discovery runs do not re-spend search budget on them. Skip any candidate whose name or url appears here. 'reason' codes: closed | fetch_403 | ssl_expired | dns_fail | off_scope | js_no_deal (page is JS-rendered with no machine-readable deal — revisit only with local Playwright, not the unattended cron) | non_consumer_deal (only an industry/employee or non-deal perk was extractable). Prune an entry if a venue reopens or gets a crawlable official page.",
+  "rejected": [
+    {"name": "Crackin' Kitchen", "url": "https://crackinkitchen.com/", "reason": "dns_fail", "note": "domain does not resolve + Yelp closed", "date": "2026-06-29"},
+    {"name": "Hoku's", "url": "https://www.kahalaresort.com/dining/hokus/", "reason": "closed", "note": "Yelp permanently closed", "date": "2026-06-29"},
+    {"name": "'Olili", "url": "https://www.oliliwaikikihawaii.com/", "reason": "closed", "note": "temporarily closed", "date": "2026-06-29"},
+    {"name": "Pho Factory", "url": "https://phofactoryusa.com/", "reason": "closed", "note": "Yelp closed", "date": "2026-06-29"},
+    {"name": "Square Barrels", "url": "http://squarebarrels.com/", "reason": "closed", "note": "Yelp closed (Bishop Square downtown)", "date": "2026-06-29"},
+    {"name": "Cheeseburger Waikiki", "url": "https://www.cheeseburgernation.com/", "reason": "closed", "note": "Kalakaua location closed", "date": "2026-06-29"},
+    {"name": "Mariposa", "url": "https://www.neimanmarcus.com/", "reason": "closed", "note": "Neiman Marcus Ala Moana; closed end of May 2026", "date": "2026-06-29"},
+    {"name": "Sansei Seafood Restaurant & Sushi Bar (Waikiki)", "url": "https://dk-sanseiwaikiki.com/", "reason": "closed", "note": "Waikiki Beach Marriott location permanently closed (Maui/Big Island still open)", "date": "2026-06-29"},
+    {"name": "Kono's", "url": "https://konosnorthshore.com/", "reason": "fetch_403", "note": "official site returns 403 to logged-out crawler", "date": "2026-06-29"},
+    {"name": "RumFire Waikiki", "url": "https://www.rumfirewaikiki.com/", "reason": "fetch_403", "note": "403; Aloha Hour exists but page not crawlable", "date": "2026-06-29"},
+    {"name": "Bevy", "url": "https://bevyhawaii.com/", "reason": "ssl_expired", "note": "TLS certificate expired; fetch layer rejects (Kakaako)", "date": "2026-06-29"},
+    {"name": "Morimoto Asia Waikiki", "url": "https://morimotoasiawaikiki.com/", "reason": "js_no_deal", "note": "real 5-7pm HH but JS-rendered; revisit with local Playwright", "date": "2026-06-29"},
+    {"name": "Cuckoo Coconuts Waikiki", "url": "https://www.cuckoococonutswaikiki.com/", "reason": "js_no_deal", "note": "daily HH 4-7pm but JS-rendered; revisit with local Playwright", "date": "2026-06-29"},
+    {"name": "Hard Rock Cafe Honolulu", "url": "https://cafe.hardrock.com/honolulu/", "reason": "non_consumer_deal", "note": "only a promo merch perk extractable, not the HH deal", "date": "2026-06-29"},
+    {"name": "Kona Brewing Hawai'i Kai", "url": "https://konabrewinghawaii.com/locations/hawaii-kai", "reason": "non_consumer_deal", "note": "extracted deal is industry/employee-only (blue card / food handler), not a general consumer deal", "date": "2026-06-29"},
+    {"name": "Roy's Waikiki", "url": "https://www.royyamaguchi.com/roys-waikiki-oahu", "reason": "non_consumer_deal", "note": "only complimentary valet parking extractable; likely already covered by waikiki_beach_walk source", "date": "2026-06-29"}
+  ]
+}

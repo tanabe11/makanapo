@@ -24,10 +24,20 @@ publishes from that config. **Never write `data/deals.json` here** — only conf
    - `data/deals.json` → venues already published (names).
    - `data/leads.json` → candidate venue **names** harvested from aggregators
      (Honolulu Magazine). These are the primary worklist.
-2. **Pick a batch** of candidate venues (from leads, or new ideas) not already
-   covered. Prefer happy-hour and kamaaina spots likely to state the deal on
-   their own site (independent / Squarespace sites convert best; large WordPress
-   chains often hide deals in PDFs and won't verify → that's fine).
+   - `data/discovery_rejected.json` → known dead-ends (closed / 403 / SSL / DNS /
+     off-scope / JS-only-no-deal / non-consumer-deal). **Skip any candidate whose
+     name or url is listed here**, and **append new dead-ends** you hit this run
+     (the unattended weekly task and you share this memory to avoid re-treading).
+2. **Pick a batch** of candidate venues not already covered. Local + the weekly
+   cron converge on the same famous Waikiki HH spots, so **bias toward coverage
+   gaps**: run a quick `neighborhood × category/subcategory` tally of `deals.json`
+   and target the thin cells — **service** (salon·barber / spa·massage / fitness /
+   auto / pet grooming) and **non-Waikiki** (Kaimuki, Chinatown, Kapahulu, Mānoa,
+   Kailua, Hawaii Kai, Aiea/Pearl City…) and **non-HH food** (cafe/bakery/poke/
+   plate lunch). **But keep a slice (~1/3) for genuinely NEW Waikiki happy-hour
+   venues** — it stays a first-class target; the daily Tier-2 cron only refreshes
+   EXISTING venues, it doesn't find new ones. Independent / Squarespace sites
+   convert best; large WordPress chains often hide deals in PDFs and won't verify.
 3. For each candidate, **WebSearch** for its official site, e.g.
    `"<name>" Honolulu official website happy hour` or `... kamaaina`.
    Take the business's OWN domain (not Yelp/OpenTable/Instagram/aggregators).
