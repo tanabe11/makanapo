@@ -3,9 +3,17 @@
     21.2722354,
     -157.8230022
   ],
+  "100 Holomoana Street, Honolulu, HI 96815": [
+    21.2861716,
+    -157.8400203
+  ],
   "1108 Auahi Street, Honolulu, HI, 96814": [
     21.2937886,
     -157.8522387
+  ],
+  "1113 Kapahulu Ave, Honolulu, HI 96816": [
+    21.2883463,
+    -157.8126895
   ],
   "1120 12th Avenue, 2nd Floor, Honolulu, HI 96816": [
     21.2815985,
@@ -18,6 +26,10 @@
   "1200 Ala Moana Blvd, Ste B2115, Honolulu, HI 96814": [
     21.2927531,
     -157.8528417
+  ],
+  "1350 S King Street #117, Honolulu, Hi 96814": [
+    21.2993288,
+    -157.8407473
   ],
   "150 Ka‘iulani Ave., Honolulu, HI 96815": [
     21.2779003,
@@ -83,6 +95,10 @@
     21.2719973,
     -157.822408
   ],
+  "2804 East Manoa road, Honolulu, HI 96822": [
+    21.3091879,
+    -157.8115296
+  ],
   "298 Beach Walk, Honolulu, HI 96815": [
     21.2811161,
     -157.8307366
@@ -94,6 +110,18 @@
   "334 Seaside Ave, Suite 701, Honolulu, HI 96815": [
     21.2796322,
     -157.8280245
+  ],
+  "342 Seaside Ave, Honolulu, HI 96815": [
+    21.2798525,
+    -157.8278189
+  ],
+  "3435 Waialae Avenue, Honolulu, HI, 96816": [
+    21.284284,
+    -157.802214
+  ],
+  "3452 Waialae Avenue, Honolulu, HI 96816": [
+    21.2845034,
+    -157.8021695
   ],
   "35 N HOTEL STREET, HONOLULU, HI 96817": [
     21.311453,
@@ -127,6 +155,10 @@
     21.2800825,
     -157.825519
   ],
+  "49 North Hotel St, Honolulu, HI 96817": [
+    21.311598,
+    -157.862532
+  ],
   "700 Queen St., Honolulu, HI 96813": [
     21.3008185,
     -157.8568287
@@ -151,6 +183,10 @@
     21.280458,
     -157.8292466
   ],
+  "HONOLULU, HI 96817, USA": [
+    21.304547,
+    -157.855676
+  ],
   "Highway Inn, Kakaako, Honolulu, HI": [
     21.297622,
     -157.8614668
@@ -162,6 +198,10 @@
   "Jax Wood Fired Pizza, Haleiwa, Honolulu, HI": [
     21.5883953,
     -158.1031468
+  ],
+  "Murphy's Bar & Grill, Downtown, Honolulu, HI": [
+    21.3101668,
+    -157.8635185
   ],
   "Nico's Kailua, Kailua, Honolulu, HI": [
     21.4202073,
@@ -190,25 +230,5 @@
   "Waikiki Shokudo, Waikiki, Honolulu, HI": [
     21.2805377,
     -157.8278334
-  ],
-  "342 Seaside Ave, Honolulu, HI 96815": [
-    21.2798525,
-    -157.8278189
-  ],
-  "3452 Waialae Avenue, Honolulu, HI 96816": [
-    21.2845034,
-    -157.8021695
-  ],
-  "49 North Hotel St, Honolulu, HI 96817": [
-    21.311598,
-    -157.862532
-  ],
-  "HONOLULU, HI 96817, USA": [
-    21.304547,
-    -157.855676
-  ],
-  "Murphy's Bar & Grill, Downtown, Honolulu, HI": [
-    21.3101668,
-    -157.8635185
   ]
 }

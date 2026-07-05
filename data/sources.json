@@ -510,6 +510,87 @@
       "neighborhood": "Kaimuki",
       "name": "Mud Hen Water",
       "_added": "2026-06-29"
+    },
+    {
+      "url": "https://www.princewaikiki.com/dine/100-sails/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "100 Sails Restaurant & Bar",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://earls.ca/locations/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Earls Waikiki",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.yardhouse.com/happy-hour/hi/honolulu-restaurant/8316",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Yard House Waikiki",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.thecutleryhnl.com/",
+      "category": "service",
+      "subcategory": "salon_barber",
+      "neighborhood": "Kaimuki",
+      "name": "The Cutlery Barbershop",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://wailanadayspa.com/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Kailua",
+      "name": "Wailana Day Spa",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.lomilomihanalima.com/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Kailua",
+      "name": "Lomilomi Hana Lima Spa & Boutique",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.fitmanoa.com/",
+      "category": "service",
+      "subcategory": "fitness",
+      "neighborhood": "Manoa",
+      "name": "FIT MANOA",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.pearlcityauto.com/",
+      "category": "service",
+      "subcategory": "auto",
+      "neighborhood": "Aiea",
+      "name": "Pearl City Auto Works",
+      "_added": "2026-07-04",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://www.petsinthecityhawaii.com/dog-grooming/",
+      "category": "service",
+      "subcategory": "pet_grooming",
+      "neighborhood": "Moiliili",
+      "name": "Pets In The City",
+      "_added": "2026-07-04"
+    },
+    {
+      "url": "https://www.freshcatch808.com/",
+      "category": "food",
+      "subcategory": "poke",
+      "neighborhood": "Kapahulu",
+      "name": "Fresh Catch",
+      "_added": "2026-07-04"
     }
   ]
 }

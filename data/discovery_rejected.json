@@ -19,6 +19,9 @@
     {"name": "Roy's Waikiki", "url": "https://www.royyamaguchi.com/roys-waikiki-oahu", "reason": "non_consumer_deal", "note": "only complimentary valet parking extractable; likely already covered by waikiki_beach_walk source", "date": "2026-06-29"},
     {"name": "Encore Saloon", "url": "https://www.encoresaloon.com/", "reason": "closed", "note": "Yelp marks closed (10 N Hotel St, Chinatown); official site still live — recheck before re-adding", "date": "2026-06-29"},
     {"name": "The Black Cat Salon + Spa", "url": "https://theblackcatsalon.com/", "reason": "closed", "note": "Yelp marks both Kaimuki + Kailua locations closed (Aveda salon)", "date": "2026-06-29"},
-    {"name": "Bar Leather Apron", "url": "https://www.barleatherapron.com/", "reason": "no_deal", "note": "high-end cocktail bar, no happy hour / kamaaina advertised (Downtown TOPA Center)", "date": "2026-06-29"}
+    {"name": "Bar Leather Apron", "url": "https://www.barleatherapron.com/", "reason": "no_deal", "note": "high-end cocktail bar, no happy hour / kamaaina advertised (Downtown TOPA Center)", "date": "2026-06-29"},
+    {"name": "Splash Bar Waikiki", "url": "https://www.splashbarwaikiki.com/specials", "reason": "fetch_403", "note": "403 to logged-out crawler; daily 3-5pm HH exists but page not crawlable", "date": "2026-07-04"},
+    {"name": "Kani Ka Pila Grille", "url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/food-drinks/kani-ka-pila-grille", "reason": "fetch_403", "note": "403; Outrigger Reef HH 3-5pm exists but official page not crawlable", "date": "2026-07-04"},
+    {"name": "Moose McGillycuddy's Waikiki", "url": "https://moosemcgillycuddyswaikiki.com/", "reason": "closed", "note": "Waikiki (Lewers St) location permanently closed; Maui/Kihei location still operating", "date": "2026-07-04"}
   ]
 }
