@@ -622,7 +622,10 @@
     "last_verified": "2026-07-04",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "address": "383 Kalaimoku St, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2826223,
+    "lng": -157.8298755
   },
   {
     "id": "wicked-maine-lobster-waikiki-1ff397",
@@ -738,7 +741,9 @@
     "last_verified": "2026-07-04",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified",
+    "hours": "TUES–SUN 11:30AM–6:30PM",
+    "discount": "happy hour specials",
+    "status": "active",
     "lat": 21.280458,
     "lng": -157.8292466
   },
@@ -976,7 +981,11 @@
     "last_verified": "2026-07-04",
     "subcategory": "happy_hour",
     "neighborhood": "Kahala",
-    "status": "unverified"
+    "address": "4211 Waialae Ave, E-1, Honolulu, HI, 96816",
+    "discount": "$3 off all mules and margaritas",
+    "status": "unverified",
+    "lat": 21.2774954,
+    "lng": -157.7864165
   },
   {
     "id": "honolulu-burger-co-kaimuki-7831c5",
