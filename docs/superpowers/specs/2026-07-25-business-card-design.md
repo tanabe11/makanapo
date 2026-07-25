@@ -2,7 +2,7 @@
 
 日付: 2026-07-25
 状態: 承認済み(ブレインストーミング完了)
-対象: makana.fm LLC / Johnny Tanabe の名刺。版下は `tools/render_card.py` が直接生成する(Canva は使わない)。
+対象: makana.fm LLC の名刺 **2 名分**(Johnny Tanabe / Colleen Ogura)。**裏面は共通**。版下は `tools/render_card.py` が直接生成する(Canva は使わない)。
 
 ## 1. 背景と役割分担
 
@@ -87,6 +87,20 @@
 
 **氏名はカードの左右中央**(x=258〜792)。肩書きは中央揃えにせず、**氏名の左端に揃える**。中央から任意の px だけずらす案(40 px / 80 px も試作)は、位置が何の根拠も持たず「中央合わせを失敗した」ように見えるため不採用。氏名と QR は**インク同士で 3.9 mm** 空いている(§3 の「氏名と QR の距離」)。
 
+### 2 名分の差分
+
+人物ごとの内容は `tools/render_card.py` の `PEOPLE` にまとまっている。ロゴ・肩書き・氏名・QR の座標と、四辺のマージンは**両者で完全に同一**。違うのは連絡先の行数だけ。
+
+| | Johnny | Colleen |
+|---|---|---|
+| 肩書き | `Founder & CEO` | `Co-Founder & President` |
+| 連絡先 | メール / Instagram(**2 行**) | メール / **電話** / Instagram(**3 行**) |
+| 前面 QR | `instagram.com/johnny_makana.fm` | `instagram.com/hawaii_dj_colleen` |
+
+連絡先は**最下行を y=502 に固定**して上へ積む。こうすると 2 行と 3 行のカードを並べても最下行が揃う。ただし 3 行を 62 px 間隔で積むと先頭行が氏名の 3.5 mm 下まで上がってしまうため、**3 行のときだけ行間を 56 px に詰める**(氏名との間隔 4.5 mm)。Johnny は 8.7 mm。
+
+電話アイコンは受話器型ではなく**本体型**。受話器の輪郭は 32 px(2.7 mm)では潰れて判別できない。
+
 ### 改訂前からの変更
 
 1. QR の行き先を `makana.fm` のURL → **Johnny 個人の Instagram** に変更。
@@ -167,10 +181,12 @@ Canva を経由せず、`tools/render_card.py` が設計値どおりの印刷用
 
 | ファイル(`img/card/print/`) | 用途 | 寸法 |
 |---|---|---|
-| `card_front_trim_600dpi.png` | 表・仕上がりサイズ | 2102 × 1204 px = 89 × 51 mm |
-| `card_back_trim_600dpi.png` | 裏・仕上がりサイズ | 同上 |
-| `card_front_bleed3mm_600dpi.png` | 表・**塗り足し込み(入稿用)** | 2244 × 1346 px = 95 × 57 mm |
-| `card_back_bleed3mm_600dpi.png` | 裏・**塗り足し込み(入稿用)** | 同上 |
+| `card_johnny_front_trim_600dpi.png` | Johnny 表・仕上がり | 2102 × 1204 px = 89 × 51 mm |
+| `card_colleen_front_trim_600dpi.png` | Colleen 表・仕上がり | 同上 |
+| `card_back_trim_600dpi.png` | 裏・仕上がり(**2 名共通**) | 同上 |
+| `card_johnny_front_bleed3mm_600dpi.png` | Johnny 表・**入稿用** | 2244 × 1346 px = 95 × 57 mm |
+| `card_colleen_front_bleed3mm_600dpi.png` | Colleen 表・**入稿用** | 同上 |
+| `card_back_bleed3mm_600dpi.png` | 裏・**入稿用**(2 名共通) | 同上 |
 
 - **600 dpi**。7.2 pt の小さい文字と QR のモジュール境界を保つため、300 dpi ではなくこちらを採る。
 - QR は `segno` で生成し、**モジュールを 1 個ずつ矩形で描いてピクセル境界に乗せている**。画像を拡大縮小してエッジが甘くなるのを避けるため。
