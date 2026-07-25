@@ -17,6 +17,7 @@ DPI = 600
 
 BLUE = (0x23, 0x84, 0xCB)
 INK = (0x3A, 0x3A, 0x3A)
+NAME_INK = (0x1A, 0x1A, 0x1A)           # darker than the contacts, so the name leads
 GRAY = (0x6E, 0x6E, 0x6E)
 WHITE = (255, 255, 255)
 
@@ -124,14 +125,16 @@ def render_front(canvas, ox, oy):
     def Y(v):
         return oy + px(v)
 
-    lg = logo(f"{REPO}/img/card/logo_blue.png", 150)
-    canvas.paste(lg, (X(74), Y(65)), lg)
+    # mark only, no wordmark: at 9.3mm the wordmark inside the full logo would
+    # be 1.2mm cap height and print as a smudge. The symbol alone stays crisp.
+    lg = logo(f"{REPO}/img/card/mark_blue.png", 110)
+    canvas.paste(lg, (X(74), Y(76)), lg)
 
-    f_t, f_n, f_c = font(SERIF, 30), font(SERIF, 56), font(SERIF, 31)
-    nw = tracked_w(d, NAME, f_n, px(7))
+    f_t, f_n, f_c = font(SERIF, 28), font(SERIF, 82), font(SERIF, 31)
+    nw = tracked_w(d, NAME, f_n, px(9))
     nx = ox + (px(DESIGN_W) - nw) / 2                       # name centred on the card
-    d.text((nx, Y(262)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
-    tracked(d, nx, Y(309), NAME, f_n, px(7), INK)
+    d.text((nx, Y(208)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
+    tracked(d, nx, Y(252), NAME, f_n, px(9), NAME_INK)
 
     icon, w = px(32), max(1, px(3))
     for i, (drawer, txt) in enumerate([(mail_icon, MAIL), (ig_icon, IG_FRONT)]):
