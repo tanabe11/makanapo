@@ -125,16 +125,16 @@ def render_front(canvas, ox, oy):
     def Y(v):
         return oy + px(v)
 
-    # mark only, no wordmark: at 9.3mm the wordmark inside the full logo would
-    # be 1.2mm cap height and print as a smudge. The symbol alone stays crisp.
-    lg = logo(f"{REPO}/img/card/mark_blue.png", 110)
-    canvas.paste(lg, (X(74), Y(76)), lg)
+    # Full logo, wordmark included. 12.7mm is the smallest width at which the
+    # wordmark inside it still reads (1.68mm cap height); below that it smudges.
+    lg = logo(f"{REPO}/img/card/logo_blue.png", 150)
+    canvas.paste(lg, (X(74), Y(58)), lg)
 
-    f_t, f_n, f_c = font(SERIF, 28), font(SERIF, 82), font(SERIF, 31)
-    nw = tracked_w(d, NAME, f_n, px(9))
+    f_t, f_n, f_c = font(SERIF, 28), font(SERIF, 63), font(SERIF, 31)
+    nw = tracked_w(d, NAME, f_n, px(7))
     nx = ox + (px(DESIGN_W) - nw) / 2                       # name centred on the card
-    d.text((nx, Y(208)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
-    tracked(d, nx, Y(252), NAME, f_n, px(9), NAME_INK)
+    d.text((nx, Y(249)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
+    tracked(d, nx, Y(293), NAME, f_n, px(7), NAME_INK)
 
     icon, w = px(32), max(1, px(3))
     for i, (drawer, txt) in enumerate([(mail_icon, MAIL), (ig_icon, IG_FRONT)]):
