@@ -125,16 +125,17 @@ def render_front(canvas, ox, oy):
     def Y(v):
         return oy + px(v)
 
-    # Full logo, wordmark included. 12.7mm is the smallest width at which the
-    # wordmark inside it still reads (1.68mm cap height); below that it smudges.
-    lg = logo(f"{REPO}/img/card/logo_blue.png", 150)
-    canvas.paste(lg, (X(74), Y(58)), lg)
+    # Horizontal lockup from the original card: mark, the small wordmark beneath
+    # it, and the script wordmark. The script one reads at ~5mm; the small one is
+    # 1.27mm here, under the print floor, and is kept at the user's request.
+    lg = logo(f"{REPO}/img/card/logo_h_blue.png", 354)      # 30.0 x 11.8 mm
+    canvas.paste(lg, (X(74), Y(55)), lg)
 
-    f_t, f_n, f_c = font(SERIF, 28), font(SERIF, 63), font(SERIF, 31)
-    nw = tracked_w(d, NAME, f_n, px(7))
+    f_t, f_n, f_c = font(SERIF, 28), font(SERIF, 72), font(SERIF, 31)
+    nw = tracked_w(d, NAME, f_n, px(8))
     nx = ox + (px(DESIGN_W) - nw) / 2                       # name centred on the card
-    d.text((nx, Y(249)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
-    tracked(d, nx, Y(293), NAME, f_n, px(7), NAME_INK)
+    d.text((nx, Y(228)), TITLE, font=f_t, fill=GRAY)        # title on the name's left edge
+    tracked(d, nx, Y(272), NAME, f_n, px(8), INK)
 
     icon, w = px(32), max(1, px(3))
     for i, (drawer, txt) in enumerate([(mail_icon, MAIL), (ig_icon, IG_FRONT)]):
@@ -142,7 +143,9 @@ def render_front(canvas, ox, oy):
         drawer(d, X(74), yy + (th(d, txt, f_c) - icon) / 2 + px(4), icon, w)
         d.text((X(132), yy), txt, font=f_c, fill=INK)
 
-    draw_qr(canvas, X(803), Y(364), px(172), *QR_FRONT, border_modules=0)
+    # shifted right to a 4.7mm margin and trimmed to 14.0mm so the name clears it;
+    # ink-to-ink separation from the name is 3.9mm
+    draw_qr(canvas, X(829), Y(364), px(165), *QR_FRONT, border_modules=0)
 
 
 def render_back(canvas, ox, oy):
