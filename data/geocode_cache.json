@@ -19,6 +19,10 @@
     21.2815985,
     -157.7995746
   ],
+  "1127-A 12th Ave, Honolulu, HI 96816": [
+    21.2818885,
+    -157.7992926
+  ],
   "1129 North Nimitz Highway, Honolulu, HI 96817": [
     21.3176737,
     -157.8767338
@@ -43,6 +47,10 @@
     21.285921,
     -157.8329576
   ],
+  "1960 Kapiolani Boulevard, STE 103 Honolulu, HI, 96826": [
+    21.2900448,
+    -157.8327205
+  ],
   "22301 Kalakaua Avenue, Honolulu, HI 96815": [
     21.2749385,
     -157.8245636
@@ -50,6 +58,10 @@
   "2233 Kalakaua Avenue B310, Honolulu, HI, 96815": [
     21.278721,
     -157.8294248
+  ],
+  "2255 Kuhio Ave, Honolulu, HI 96815": [
+    21.2794303,
+    -157.8269253
   ],
   "2255 Kuhio Ave., Honolulu, HI, 96815": [
     21.2794303,
@@ -131,6 +143,10 @@
     21.2819849,
     -157.8009943
   ],
+  "3574 Waialae ave, Honolulu, HI 96816": [
+    21.283145,
+    -157.7996246
+  ],
   "383 KALAIMOKU ST., 1F, HONOLULU, HI 96815": [
     21.2785981,
     -157.8295222
@@ -159,9 +175,17 @@
     21.311598,
     -157.862532
   ],
+  "6700 Kalanianaole Hwy Suite 101, Honolulu, HI 96825": [
+    21.3756708,
+    -157.7800878
+  ],
   "700 Queen St., Honolulu, HI 96813": [
     21.3008185,
     -157.8568287
+  ],
+  "962 Kawaiaha‘o St, Honolulu, HI 96814": [
+    21.2971672,
+    -157.852923
   ],
   "Appetito Craft Pizza & Wine Bar, Waikiki, Honolulu, HI": [
     21.2778478,
@@ -211,6 +235,10 @@
     21.2779061,
     -157.827948
   ],
+  "SWELL Restaurant & Pool Bar, Waikiki, Honolulu, HI": [
+    21.2747842,
+    -157.8233174
+  ],
   "Side Street Inn, Ala Moana, Honolulu, HI": [
     21.2943239,
     -157.8474074
@@ -230,5 +258,9 @@
   "Waikiki Shokudo, Waikiki, Honolulu, HI": [
     21.2805377,
     -157.8278334
+  ],
+  "Zigu, Waikiki, Honolulu, HI": [
+    21.2803511,
+    -157.8268388
   ]
 }

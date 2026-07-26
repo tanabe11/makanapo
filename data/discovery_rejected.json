@@ -22,6 +22,9 @@
     {"name": "Bar Leather Apron", "url": "https://www.barleatherapron.com/", "reason": "no_deal", "note": "high-end cocktail bar, no happy hour / kamaaina advertised (Downtown TOPA Center)", "date": "2026-06-29"},
     {"name": "Splash Bar Waikiki", "url": "https://www.splashbarwaikiki.com/specials", "reason": "fetch_403", "note": "403 to logged-out crawler; daily 3-5pm HH exists but page not crawlable", "date": "2026-07-04"},
     {"name": "Kani Ka Pila Grille", "url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/food-drinks/kani-ka-pila-grille", "reason": "fetch_403", "note": "403; Outrigger Reef HH 3-5pm exists but official page not crawlable", "date": "2026-07-04"},
-    {"name": "Moose McGillycuddy's Waikiki", "url": "https://moosemcgillycuddyswaikiki.com/", "reason": "closed", "note": "Waikiki (Lewers St) location permanently closed; Maui/Kihei location still operating", "date": "2026-07-04"}
+    {"name": "Moose McGillycuddy's Waikiki", "url": "https://moosemcgillycuddyswaikiki.com/", "reason": "closed", "note": "Waikiki (Lewers St) location permanently closed; Maui/Kihei location still operating", "date": "2026-07-04"},
+    {"name": "Deck. (Queen Kapiolani Hotel)", "url": "https://www.queenkapiolani.com/dining", "reason": "fetch_403", "note": "403 to logged-out crawler on both /dining and /deck-waikiki.htm; real daily 2-6pm HH exists but official site not crawlable", "date": "2026-07-25"},
+    {"name": "Moani Waikiki", "url": "https://www.moaniwaikiki.com/", "reason": "closed", "note": "Yelp marks CLOSED (2330 Kalakaua Ave); Instagram/site still look live so recheck before re-adding", "date": "2026-07-25"},
+    {"name": "Ka'ala Kitchen", "url": "https://www.instagram.com/kaalakitchen808/", "reason": "off_scope", "note": "Waialua food truck, no crawlable official website (Instagram/Facebook only); also North Shore not Honolulu", "date": "2026-07-25"}
   ]
 }

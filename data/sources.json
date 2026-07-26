@@ -591,6 +591,87 @@
       "neighborhood": "Kapahulu",
       "name": "Fresh Catch",
       "_added": "2026-07-04"
+    },
+    {
+      "url": "https://noribarhawaii.com/waikiki/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Nori Bar Waikiki",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.alohilaniresort.com/dining/swell-bar/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "SWELL Restaurant & Pool Bar",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.zigu.us/happy-hour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Zigu",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.fghonolulu.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Moiliili",
+      "name": "Fig & Ginger",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.lilihabakery.com/waikikilanding",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Waikiki",
+      "name": "Liliha Bakery (Beach Walk)",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.hawaiikaisalon.com/",
+      "category": "service",
+      "subcategory": "salon_nails",
+      "neighborhood": "Hawaii Kai",
+      "name": "Hawaii Kai Salon & Day Spa",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://vickisbarberandhairstylinghonolulu.com/",
+      "category": "service",
+      "subcategory": "salon_barber",
+      "neighborhood": "Kaimuki",
+      "name": "Vicki's Barber & Hairstyling",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://lavishspaandnailspearlridge.com/",
+      "category": "service",
+      "subcategory": "salon_nails",
+      "neighborhood": "Aiea",
+      "name": "Lavish Spa & Nails",
+      "_added": "2026-07-25",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://hotyogabythesea.com/",
+      "category": "service",
+      "subcategory": "fitness",
+      "neighborhood": "Kailua",
+      "name": "Hot Yoga by the Sea",
+      "_added": "2026-07-25"
+    },
+    {
+      "url": "https://yogaunderthepalms.com/kaimuki-yoga-studio/",
+      "category": "service",
+      "subcategory": "fitness",
+      "neighborhood": "Kaimuki",
+      "name": "Yoga Under the Palms (Kaimuki)",
+      "_added": "2026-07-25"
     }
   ]
 }
