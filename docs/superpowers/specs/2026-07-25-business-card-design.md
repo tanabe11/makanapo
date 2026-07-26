@@ -19,9 +19,9 @@
 
 **両面で構造が違うのは意図的**。役割が違うので最適な組み方が違う。両面の統一は共通のロゴ・ブルー・セリフ書体が担う。
 
-参照画像: `img/card/front_v1.png` / `img/card/back_v1.png`
+参照画像: `backup/img/card/front_v1.png` / `backup/img/card/back_v1.png`
 
-> **参照画像の QR はダミー柄で、スキャンしても何も読み取れない。** 寸法感の確認用に乱数で描いたもので、版下には使えない。実物は `img/card/qr/*.svg`(§5)を使うこと。裏面右のマス目数も、参照画像では 25×25 だが実際は 29×29。
+> **参照画像の QR はダミー柄で、スキャンしても何も読み取れない。** 寸法感の確認用に乱数で描いたもので、版下には使えない。実物は §6 の入稿 PDF を使うこと。裏面右のマス目数も、参照画像では 25×25 だが実際は 29×29。
 
 ## 2. 共通仕様
 
@@ -56,7 +56,7 @@
 ### ロゴは元の名刺と同じ**横並びロックアップ**
 
 原本は `img/logo.png`(ユーザー提供)。**マーク＋マーク下の小さいワードマーク＋手書き風ワードマーク**の3要素。
-抽出は `tools/`(スクラッチ)で行い、成果物を `img/card/logo_h_{blue,white,native}.png` に置いている。
+抽出は `tools/`(スクラッチ)で行い、成果物は `img/card/logo_h_blue.png`(版下が使う)と `backup/img/card/logo_h_{white,native}.png`。
 
 抽出時の注意が2つある。
 
@@ -139,7 +139,7 @@
 
 ## 5. QR 仕様
 
-生成済みファイル: `img/card/qr/*.svg`(4モジュールの余白を内蔵、ベクター)。**3つとも実際にデコードして URL と一致することを検証済み**。
+生成済みファイル: `backup/img/card/qr/*.svg`(4モジュールの余白を内蔵、ベクター)。**版下には使わない** — `tools/render_card.py` が URL から直接 QR を描く。Canva 経由で作り直す場合の予備。**3つとも実際にデコードして URL と一致することを検証済み**。
 
 | | 表面 | 裏面 左 | 裏面 右 |
 |---|---|---|---|
@@ -179,14 +179,16 @@ segno.make(url, error="m", mode="byte").save("out.svg", scale=10, border=4)
 Canva を経由せず、`tools/render_card.py` が設計値どおりの印刷用 PNG を直接生成する。
 再生成するには `segno` と `Pillow` が要る(`pip install segno pillow` → `python3 tools/render_card.py`)。
 
-| ファイル(`img/card/print/`) | 用途 | 寸法 |
+**`img/card/print/` には入稿する 3 つの PDF だけを置く。** 仕上がりサイズ版と PNG 版は見る用なので `backup/img/card/print/` に出力する(再実行しても混ざらない)。詳細は `img/card/print/README.md` と `backup/README.md`。
+
+| ファイル | 用途 | 寸法 |
 |---|---|---|
-| `card_johnny_front_trim_600dpi.*` | Johnny 表・仕上がり | 2100 × 1200 px = 3.5 × 2 in |
-| `card_colleen_front_trim_600dpi.*` | Colleen 表・仕上がり | 同上 |
-| `card_back_trim_600dpi.*` | 裏・仕上がり(**2 名共通**) | 同上 |
-| `card_johnny_front_bleed_600dpi.*` | Johnny 表・**入稿用** | 2250 × 1350 px = 3.75 × 2.25 in |
-| `card_colleen_front_bleed_600dpi.*` | Colleen 表・**入稿用** | 同上 |
-| `card_back_bleed_600dpi.*` | 裏・**入稿用**(2 名共通) | 同上 |
+| `backup/…/card_johnny_front_trim_600dpi.*` | Johnny 表・仕上がり(確認用) | 2100 × 1200 px = 3.5 × 2 in |
+| `backup/…/card_colleen_front_trim_600dpi.*` | Colleen 表・仕上がり(確認用) | 同上 |
+| `backup/…/card_back_trim_600dpi.*` | 裏・仕上がり(確認用、2 名共通) | 同上 |
+| **`print/card_johnny_front_bleed_600dpi.pdf`** | Johnny 表・**入稿** | 2250 × 1350 px = 3.75 × 2.25 in |
+| **`print/card_colleen_front_bleed_600dpi.pdf`** | Colleen 表・**入稿** | 同上 |
+| **`print/card_back_bleed_600dpi.pdf`** | 裏・**入稿**(2 名共通) | 同上 |
 
 **PNG と PDF を両方出力している。** FedEx Office は高解像度 PDF を推奨しているため、入稿は PDF を使う。
 

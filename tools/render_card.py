@@ -24,7 +24,11 @@ GRAY = (0x6E, 0x6E, 0x6E)
 WHITE = (255, 255, 255)
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# img/card/print holds only what actually gets uploaded — the three bleed PDFs.
+# Trim sizes and PNG copies are for looking at, so they go to backup/ and stay
+# out of the way even when this is re-run.
 OUT = f"{REPO}/img/card/print"
+OUT_AUX = f"{REPO}/backup/img/card/print"
 SERIF = "/System/Library/Fonts/Supplemental/Times New Roman.ttf"
 SANS = "/System/Library/Fonts/Supplemental/Arial.ttf"
 
@@ -226,6 +230,7 @@ def build(side, bleed, who=None):
 
 
 os.makedirs(OUT, exist_ok=True)
+os.makedirs(OUT_AUX, exist_ok=True)
 print(f"output {DPI} dpi   scale {S:.4f}x from the {DESIGN_W}x{DESIGN_H} spec space\n")
 jobs = [("front", who) for who in PEOPLE] + [("back", None)]
 for side, who in jobs:
@@ -234,8 +239,14 @@ for side, who in jobs:
         tag = "bleed" if bleed else "trim"
         stem = f"card_{who}_front" if side == "front" else "card_back"
         name = f"{stem}_{tag}_{DPI}dpi.png"
-        im.save(f"{OUT}/{name}", dpi=(DPI, DPI))
-        im.save(f"{OUT}/{name[:-4]}.pdf", "PDF", resolution=DPI)
-        print(f"{name[:-4]:<40} {im.width}x{im.height}px = "
-              f"{im.width/DPI:.3f} x {im.height/DPI:.3f} in "
-              f"({im.width/DPI*25.4:.2f} x {im.height/DPI*25.4:.2f} mm)   png + pdf")
+        stem_full = name[:-4]
+        if bleed:                       # the upload file, and only it, lands in OUT
+            im.save(f"{OUT}/{stem_full}.pdf", "PDF", resolution=DPI)
+            im.save(f"{OUT_AUX}/{stem_full}.png", dpi=(DPI, DPI))
+            where = f"print/{stem_full}.pdf  (+ png in backup/)"
+        else:
+            im.save(f"{OUT_AUX}/{stem_full}.png", dpi=(DPI, DPI))
+            im.save(f"{OUT_AUX}/{stem_full}.pdf", "PDF", resolution=DPI)
+            where = f"backup/… {stem_full}.png + .pdf"
+        print(f"{stem_full:<40} {im.width}x{im.height}px = "
+              f"{im.width/DPI:.3f} x {im.height/DPI:.3f} in   {where}")
