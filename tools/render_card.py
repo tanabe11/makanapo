@@ -14,8 +14,8 @@ from PIL import Image, ImageDraw, ImageFont
 from functools import lru_cache
 
 DESIGN_W, DESIGN_H = 1049, 601          # spec coordinate space
-CARD_W_MM, CARD_H_MM = 89.0, 51.0
-BLEED_MM = 3.0
+CARD_W_MM, CARD_H_MM = 25.4 * 3.5, 25.4 * 2.0      # exact US card, 88.90 x 50.80 mm
+BLEED_MM = 25.4 / 8                                # FedEx Office wants 3.75" x 2.25"
 DPI = 600
 
 BLUE = (0x23, 0x84, 0xCB)
@@ -210,9 +210,13 @@ def render_back(canvas, ox, oy):
 
 
 def build(side, bleed, who=None):
-    bleed_px = px(BLEED_MM / CARD_W_MM * DESIGN_W) if bleed else 0
-    w = px(DESIGN_W) + bleed_px * 2
-    h = px(DESIGN_H) + bleed_px * 2
+    # Canvas comes straight from the physical size, not from the design space:
+    # 1049x601 has an aspect of 1.7454 against the card's 1.75, so deriving the
+    # height from DESIGN_H would land 3px (0.13mm) tall. Content is laid out from
+    # the top on the width-derived scale, and the extra falls in the bottom margin.
+    bleed_px = round(BLEED_MM / 25.4 * DPI) if bleed else 0
+    w = round(CARD_W_MM / 25.4 * DPI) + bleed_px * 2
+    h = round(CARD_H_MM / 25.4 * DPI) + bleed_px * 2
     canvas = Image.new("RGB", (w, h), WHITE if side == "front" else BLUE)
     if side == "front":
         render_front(canvas, bleed_px, bleed_px, who)
@@ -227,9 +231,11 @@ jobs = [("front", who) for who in PEOPLE] + [("back", None)]
 for side, who in jobs:
     for bleed in (False, True):
         im = build(side, bleed, who)
-        tag = "bleed3mm" if bleed else "trim"
+        tag = "bleed" if bleed else "trim"
         stem = f"card_{who}_front" if side == "front" else "card_back"
         name = f"{stem}_{tag}_{DPI}dpi.png"
         im.save(f"{OUT}/{name}", dpi=(DPI, DPI))
-        print(f"{name:<42} {im.width}x{im.height}px = "
-              f"{im.width/DPI*25.4:.1f}x{im.height/DPI*25.4:.1f}mm")
+        im.save(f"{OUT}/{name[:-4]}.pdf", "PDF", resolution=DPI)
+        print(f"{name[:-4]:<40} {im.width}x{im.height}px = "
+              f"{im.width/DPI:.3f} x {im.height/DPI:.3f} in "
+              f"({im.width/DPI*25.4:.2f} x {im.height/DPI*25.4:.2f} mm)   png + pdf")
