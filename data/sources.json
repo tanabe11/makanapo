@@ -672,6 +672,79 @@
       "neighborhood": "Kaimuki",
       "name": "Yoga Under the Palms (Kaimuki)",
       "_added": "2026-07-25"
+    },
+    {
+      "url": "https://www.ardenwaikiki.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Arden Waikiki",
+      "_added": "2026-08-02",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://geniusloungehawaiiusa.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Genius Lounge",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://www.monkeypodkitchen.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Monkeypod Kitchen Waikiki",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://www.hawaiikaibarber.com/",
+      "category": "service",
+      "subcategory": "salon_barber",
+      "neighborhood": "Hawaii Kai",
+      "name": "Hawaii-Kai Barber & Styling",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://f45training.com/studio/hawaiikai/",
+      "category": "service",
+      "subcategory": "fitness",
+      "neighborhood": "Hawaii Kai",
+      "name": "F45 Training Hawaii Kai",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://rnsautomotive.com/",
+      "category": "service",
+      "subcategory": "auto",
+      "neighborhood": "Kailua",
+      "name": "RNS Automotive",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://waiolikitchen.com/",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Manoa",
+      "name": "Waioli Kitchen & Bake Shop",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://www.sweetmanoa.com/",
+      "category": "food",
+      "subcategory": "cafe",
+      "neighborhood": "Downtown",
+      "name": "Sweet Manoa Café & Bistro",
+      "_added": "2026-08-02"
+    },
+    {
+      "url": "https://www.upscalehi.com/",
+      "category": "food",
+      "subcategory": "restaurant",
+      "neighborhood": "Kalihi",
+      "name": "Upscale Hawaii",
+      "_added": "2026-08-02"
     }
   ]
 }

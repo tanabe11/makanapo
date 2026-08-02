@@ -509,6 +509,20 @@
     "lng": -157.82868
   },
   {
+    "id": "lulus-waikiki-waikiki-2707fb",
+    "name": "Lulu's Waikiki",
+    "category": "food",
+    "source_url": "https://www.luluswaikiki.com/happyhour",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2586 Kalākaua Ave, Honolulu, HI 96815",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.2719973,
+    "lng": -157.822408
+  },
+  {
     "id": "chart-house-waikiki-ala-moana-8d80e0",
     "name": "Chart House Waikiki",
     "category": "food",
@@ -593,6 +607,19 @@
     "last_verified": "2026-08-02",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
+    "address": "383 Kalaimoku St, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2826223,
+    "lng": -157.8298755
+  },
+  {
+    "id": "wicked-maine-lobster-waikiki-1ff397",
+    "name": "Wicked Maine Lobster",
+    "category": "food",
+    "source_url": "https://wickedmainelobster.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "restaurant",
+    "neighborhood": "Waikiki",
     "status": "unverified"
   },
   {
@@ -651,7 +678,9 @@
     "last_verified": "2026-08-02",
     "subcategory": "restaurant",
     "neighborhood": "Aiea",
-    "status": "unverified"
+    "status": "unverified",
+    "lat": 21.3787684,
+    "lng": -157.9359609
   },
   {
     "id": "dean-deluca-hawaii-waikiki-86b24d",
@@ -699,7 +728,9 @@
     "last_verified": "2026-08-02",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified",
+    "hours": "TUES–SUN 11:30AM–6:30PM",
+    "discount": "happy hour specials",
+    "status": "active",
     "lat": 21.280458,
     "lng": -157.8292466
   },
@@ -771,6 +802,18 @@
     "status": "active"
   },
   {
+    "id": "the-signature-prime-steak-seafood-ala-moana-f95cc9",
+    "name": "The Signature Prime Steak & Seafood",
+    "category": "food",
+    "source_url": "https://www.signatureprimesteak.com/happy-hour",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Ala Moana",
+    "hours": "4:30 - 6:30 PM",
+    "discount": "happy hour specials",
+    "status": "active"
+  },
+  {
     "id": "island-vintage-wine-bar-waikiki-2aa16d",
     "name": "Island Vintage Wine Bar",
     "category": "food",
@@ -814,6 +857,19 @@
     "status": "active",
     "lat": 21.285921,
     "lng": -157.8329576
+  },
+  {
+    "id": "hana-koa-brewing-co-kakaako-c5529b",
+    "name": "Hana Koa Brewing Co.",
+    "category": "food",
+    "source_url": "https://www.hanakoabrewing.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kakaako",
+    "address": "00 PMHana Koa Brewing Co., 962 Kawaiaha‘o St, Honolulu, HI 96814",
+    "hours": "Tuesday-Friday 3pm-6pm",
+    "discount": "happy hour specials",
+    "status": "active"
   },
   {
     "id": "mai-tai-bar-ala-moana-e0ed57",
@@ -912,7 +968,11 @@
     "last_verified": "2026-08-02",
     "subcategory": "happy_hour",
     "neighborhood": "Kahala",
-    "status": "unverified"
+    "address": "4211 Waialae Ave, E-1, Honolulu, HI, 96816",
+    "lat": 21.2778625,
+    "lng": -157.7860605,
+    "discount": "$3 off all mules and margaritas",
+    "status": "active"
   },
   {
     "id": "honolulu-burger-co-kaimuki-7831c5",
@@ -964,6 +1024,21 @@
     "status": "active",
     "lat": 21.3113317,
     "lng": -157.8634757
+  },
+  {
+    "id": "bar-35-chinatown-1450cd",
+    "name": "Bar 35",
+    "category": "food",
+    "source_url": "https://www.bar35hawaii.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Chinatown",
+    "address": "35 N HOTEL STREET, HONOLULU, HI 96817",
+    "hours": "Thursday & Friday 4pm-2am",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.311453,
+    "lng": -157.8624324
   },
   {
     "id": "skull-crown-trading-co-chinatown-73b695",
@@ -1204,6 +1279,19 @@
     "lng": -157.8327205
   },
   {
+    "id": "liliha-bakery-beach-walk-waikiki-541cc1",
+    "name": "Liliha Bakery (Beach Walk)",
+    "category": "food",
+    "source_url": "https://www.lilihabakery.com/waikikilanding",
+    "last_verified": "2026-08-02",
+    "subcategory": "cafe",
+    "neighborhood": "Waikiki",
+    "address": "226 Lewers Street, 2nd Floor, Honolulu, HI, 96815",
+    "status": "unverified",
+    "lat": 21.2792095,
+    "lng": -157.8310517
+  },
+  {
     "id": "hawaii-kai-salon-day-spa-hawaii-kai-050a9b",
     "name": "Hawaii Kai Salon & Day Spa",
     "category": "service",
@@ -1261,6 +1349,121 @@
     "status": "unverified",
     "lat": 21.283145,
     "lng": -157.7996246
+  },
+  {
+    "id": "arden-waikiki-waikiki-6b38d7",
+    "name": "Arden Waikiki",
+    "category": "food",
+    "source_url": "https://www.ardenwaikiki.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2885 Kalakaua Ave, Honolulu, HI, 96815",
+    "lat": 21.263070530801716,
+    "lng": -157.82012249133365,
+    "hours": "5-6pm",
+    "status": "unverified"
+  },
+  {
+    "id": "genius-lounge-waikiki-2da68e",
+    "name": "Genius Lounge",
+    "category": "food",
+    "source_url": "https://geniusloungehawaiiusa.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "346 Lewers Street, Honolulu, HI, 96815",
+    "discount": "happy hour specials",
+    "status": "unverified",
+    "lat": 21.2812462,
+    "lng": -157.8289092
+  },
+  {
+    "id": "monkeypod-kitchen-waikiki-waikiki-ad2aff",
+    "name": "Monkeypod Kitchen Waikiki",
+    "category": "food",
+    "source_url": "https://www.monkeypodkitchen.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "status": "unverified",
+    "lat": 21.2777786,
+    "lng": -157.833186
+  },
+  {
+    "id": "hawaii-kai-barber-styling-hawaii-kai-02c4ac",
+    "name": "Hawaii-Kai Barber & Styling",
+    "category": "service",
+    "source_url": "https://www.hawaiikaibarber.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "salon_barber",
+    "neighborhood": "Hawaii Kai",
+    "address": "377 Keahole St. Ste. D9, Honolulu, HI 96825",
+    "status": "unverified",
+    "lat": 21.2849444,
+    "lng": -157.7074779
+  },
+  {
+    "id": "f45-training-hawaii-kai-hawaii-kai-5fd013",
+    "name": "F45 Training Hawaii Kai",
+    "category": "service",
+    "source_url": "https://f45training.com/studio/hawaiikai/",
+    "last_verified": "2026-08-02",
+    "subcategory": "fitness",
+    "neighborhood": "Hawaii Kai",
+    "address": "377 Keahole St, Honolulu, HI, 96825",
+    "discount": "Bogo",
+    "status": "unverified",
+    "lat": 21.2849444,
+    "lng": -157.7074779
+  },
+  {
+    "id": "rns-automotive-kailua-970698",
+    "name": "RNS Automotive",
+    "category": "service",
+    "source_url": "https://rnsautomotive.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "auto",
+    "neighborhood": "Kailua",
+    "status": "unverified"
+  },
+  {
+    "id": "waioli-kitchen-bake-shop-manoa-562175",
+    "name": "Waioli Kitchen & Bake Shop",
+    "category": "food",
+    "source_url": "https://waiolikitchen.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "cafe",
+    "neighborhood": "Manoa",
+    "status": "unverified",
+    "lat": 21.3161324,
+    "lng": -157.812277
+  },
+  {
+    "id": "sweet-manoa-caf-bistro-downtown-344fe5",
+    "name": "Sweet Manoa Café & Bistro",
+    "category": "food",
+    "source_url": "https://www.sweetmanoa.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "cafe",
+    "neighborhood": "Downtown",
+    "address": "1102 Bishop Street, Honolulu, HI 96813",
+    "status": "unverified",
+    "lat": 21.3095448,
+    "lng": -157.8603655
+  },
+  {
+    "id": "upscale-hawaii-kalihi-1f0a04",
+    "name": "Upscale Hawaii",
+    "category": "food",
+    "source_url": "https://www.upscalehi.com/",
+    "last_verified": "2026-08-02",
+    "subcategory": "restaurant",
+    "neighborhood": "Kalihi",
+    "address": "1333 N. King St., Honolulu, Hi. 96819",
+    "status": "unverified",
+    "lat": 21.327729,
+    "lng": -157.8709244
   },
   {
     "id": "giovanni-pastrami-waikiki-74b645",

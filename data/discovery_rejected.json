@@ -25,6 +25,9 @@
     {"name": "Moose McGillycuddy's Waikiki", "url": "https://moosemcgillycuddyswaikiki.com/", "reason": "closed", "note": "Waikiki (Lewers St) location permanently closed; Maui/Kihei location still operating", "date": "2026-07-04"},
     {"name": "Deck. (Queen Kapiolani Hotel)", "url": "https://www.queenkapiolani.com/dining", "reason": "fetch_403", "note": "403 to logged-out crawler on both /dining and /deck-waikiki.htm; real daily 2-6pm HH exists but official site not crawlable", "date": "2026-07-25"},
     {"name": "Moani Waikiki", "url": "https://www.moaniwaikiki.com/", "reason": "closed", "note": "Yelp marks CLOSED (2330 Kalakaua Ave); Instagram/site still look live so recheck before re-adding", "date": "2026-07-25"},
-    {"name": "Ka'ala Kitchen", "url": "https://www.instagram.com/kaalakitchen808/", "reason": "off_scope", "note": "Waialua food truck, no crawlable official website (Instagram/Facebook only); also North Shore not Honolulu", "date": "2026-07-25"}
+    {"name": "Ka'ala Kitchen", "url": "https://www.instagram.com/kaalakitchen808/", "reason": "off_scope", "note": "Waialua food truck, no crawlable official website (Instagram/Facebook only); also North Shore not Honolulu", "date": "2026-07-25"},
+    {"name": "Izakaya Pau Hana Base", "url": "https://izakaya-pau-hana-base.weeblyte.com/", "reason": "off_scope", "note": "no genuine official site found; only third-party listing aggregator/spam-looking domains (weeblyte.com, .store) plus Instagram/OpenTable", "date": "2026-08-02"},
+    {"name": "Apple Puppy Animal Pet Grooming", "url": "", "reason": "off_scope", "note": "Kaimuki pet groomer with no standalone official website found, only directory listings (kaimukihawaii.com)", "date": "2026-08-02"},
+    {"name": "Pet Konnektion", "url": "https://www.petkonnektion.com/", "reason": "off_scope", "note": "mobile-only grooming service, no fixed storefront address to geocode/neighborhood-tag", "date": "2026-08-02"}
   ]
 }
