@@ -745,6 +745,78 @@
       "neighborhood": "Kalihi",
       "name": "Upscale Hawaii",
       "_added": "2026-08-02"
+    },
+    {
+      "url": "https://www.ruthschris.com/happy-hour/hi/waikiki-restaurant/7361",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Ruth's Chris Steak House Waikiki",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://taorminarestaurant.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Taormina Sicilian Cuisine",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://www.oliliwaikikihawaii.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "'Olili",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://www.heavenly-hawaiikai.com/happyhour",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Hawaii Kai",
+      "name": "Heavenly Island Lifestyle Hawaii Kai",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://www.tropicshikai.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Hawaii Kai",
+      "name": "Tropics Hawaii Kai",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://www.bodymind-spa.com/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Aiea",
+      "name": "Body & Mind Spa",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://www.indulgexhi.com/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Aiea",
+      "name": "Indulge Spa Hawaii",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://lilywaxlounge.com/",
+      "category": "service",
+      "subcategory": "spa_massage",
+      "neighborhood": "Kahala",
+      "name": "Lily Wax Lounge & Spa",
+      "_added": "2026-08-08"
+    },
+    {
+      "url": "https://miosdesignsbarbershop.com/",
+      "category": "service",
+      "subcategory": "salon_barber",
+      "neighborhood": "Kalihi",
+      "name": "Mio's Designs Barbershop",
+      "_added": "2026-08-08"
     }
   ]
 }

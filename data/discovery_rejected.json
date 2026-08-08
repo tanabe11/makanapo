@@ -3,7 +3,6 @@
   "rejected": [
     {"name": "Crackin' Kitchen", "url": "https://crackinkitchen.com/", "reason": "dns_fail", "note": "domain does not resolve + Yelp closed", "date": "2026-06-29"},
     {"name": "Hoku's", "url": "https://www.kahalaresort.com/dining/hokus/", "reason": "closed", "note": "Yelp permanently closed", "date": "2026-06-29"},
-    {"name": "'Olili", "url": "https://www.oliliwaikikihawaii.com/", "reason": "closed", "note": "temporarily closed", "date": "2026-06-29"},
     {"name": "Pho Factory", "url": "https://phofactoryusa.com/", "reason": "closed", "note": "Yelp closed", "date": "2026-06-29"},
     {"name": "Square Barrels", "url": "http://squarebarrels.com/", "reason": "closed", "note": "Yelp closed (Bishop Square downtown)", "date": "2026-06-29"},
     {"name": "Cheeseburger Waikiki", "url": "https://www.cheeseburgernation.com/", "reason": "closed", "note": "Kalakaua location closed", "date": "2026-06-29"},
@@ -28,6 +27,10 @@
     {"name": "Ka'ala Kitchen", "url": "https://www.instagram.com/kaalakitchen808/", "reason": "off_scope", "note": "Waialua food truck, no crawlable official website (Instagram/Facebook only); also North Shore not Honolulu", "date": "2026-07-25"},
     {"name": "Izakaya Pau Hana Base", "url": "https://izakaya-pau-hana-base.weeblyte.com/", "reason": "off_scope", "note": "no genuine official site found; only third-party listing aggregator/spam-looking domains (weeblyte.com, .store) plus Instagram/OpenTable", "date": "2026-08-02"},
     {"name": "Apple Puppy Animal Pet Grooming", "url": "", "reason": "off_scope", "note": "Kaimuki pet groomer with no standalone official website found, only directory listings (kaimukihawaii.com)", "date": "2026-08-02"},
-    {"name": "Pet Konnektion", "url": "https://www.petkonnektion.com/", "reason": "off_scope", "note": "mobile-only grooming service, no fixed storefront address to geocode/neighborhood-tag", "date": "2026-08-02"}
+    {"name": "Pet Konnektion", "url": "https://www.petkonnektion.com/", "reason": "off_scope", "note": "mobile-only grooming service, no fixed storefront address to geocode/neighborhood-tag", "date": "2026-08-02"},
+    {"name": "Wai'olu Ocean Cuisine", "url": "https://www.hilton.com/en/hotels/hnlwiol-ka-lai-waikiki-beach/dining/waiolu-ocean-cuisine/", "reason": "fetch_403", "note": "403 to logged-out crawler on Hilton hotel dining page; real Sunset/Late-Night HH exists but page not crawlable", "date": "2026-08-08"},
+    {"name": "Haili's Hawaiian Food", "url": "https://www.hailishawaiianfood.com/", "reason": "closed", "note": "Kapahulu (Palani Ave) location closed; last day of operation reported June 30 2026 (Yelp CLOSED)", "date": "2026-08-08"},
+    {"name": "Aloha K9 Kuts", "url": "https://alohak9kuts.com/", "reason": "dns_fail", "note": "domain does not resolve (Kalihi pet groomer, N King St)", "date": "2026-08-08"},
+    {"name": "Monarch Poke", "url": "https://monarchpoke.com/", "reason": "ssl_fail", "note": "TLS cert hostname mismatch (Pearl Kai Shopping Center, Aiea); domain resolves but not crawlable", "date": "2026-08-08"}
   ]
 }

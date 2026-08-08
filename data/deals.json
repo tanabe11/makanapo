@@ -474,7 +474,9 @@
     "last_verified": "2026-08-08",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified"
+    "hours": "Mon - Fri 3:30-4:30PM",
+    "discount": "$2 Off All Beers",
+    "status": "active"
   },
   {
     "id": "mahina-suns-waikiki-ceab31",
@@ -514,7 +516,8 @@
     "last_verified": "2026-08-08",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified",
+    "discount": "happy hour specials",
+    "status": "active",
     "lat": 21.2793548,
     "lng": -157.82868
   },
@@ -608,6 +611,19 @@
     "requires_id": true,
     "redemption": "show_id",
     "status": "unverified"
+  },
+  {
+    "id": "solera-waikiki-90d2e7",
+    "name": "Solera",
+    "category": "food",
+    "source_url": "https://solerawaikiki.com/afterglow/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "383 Kalaimoku St, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2826223,
+    "lng": -157.8298755
   },
   {
     "id": "wicked-maine-lobster-waikiki-1ff397",
@@ -718,6 +734,20 @@
     "lng": -157.8474074
   },
   {
+    "id": "gyu-kaku-waikiki-waikiki-c0467c",
+    "name": "Gyu-Kaku Waikiki",
+    "category": "food",
+    "source_url": "https://www.gyu-kaku.com/waikiki/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "hours": "TUES–SUN 11:30AM–6:30PM",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.280458,
+    "lng": -157.8292466
+  },
+  {
     "id": "aloha-beer-co-kakaako-5882a0",
     "name": "Aloha Beer Co.",
     "category": "food",
@@ -769,7 +799,9 @@
     "last_verified": "2026-08-08",
     "subcategory": "happy_hour",
     "neighborhood": "Waikiki",
-    "status": "unverified",
+    "hours": "5pm-6:30pm",
+    "discount": "happy hour specials",
+    "status": "active",
     "lat": 21.2805377,
     "lng": -157.8278334
   },
@@ -944,6 +976,20 @@
     "lng": -157.8522387
   },
   {
+    "id": "the-counter-hawaii-kahala-b8949e",
+    "name": "The Counter Hawaii",
+    "category": "food",
+    "source_url": "https://thecounterhawaii.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Kahala",
+    "address": "4211 Waialae Ave, E-1, Honolulu, HI, 96816",
+    "lat": 21.2778625,
+    "lng": -157.7860605,
+    "discount": "$3 off all mules and margaritas",
+    "status": "active"
+  },
+  {
     "id": "honolulu-burger-co-kaimuki-7831c5",
     "name": "Honolulu Burger Co.",
     "category": "food",
@@ -976,7 +1022,9 @@
     "last_verified": "2026-08-08",
     "subcategory": "happy_hour",
     "neighborhood": "Kailua",
-    "status": "unverified"
+    "hours": "3:30-5:30PM",
+    "discount": "$2 Off All Beers",
+    "status": "active"
   },
   {
     "id": "smith-kings-chinatown-5f208b",
@@ -1172,7 +1220,10 @@
     "last_verified": "2026-08-08",
     "subcategory": "pet_grooming",
     "neighborhood": "Moiliili",
-    "status": "unverified"
+    "address": "1350 S King Street #117, Honolulu, Hi 96814",
+    "status": "unverified",
+    "lat": 21.2993288,
+    "lng": -157.8407473
   },
   {
     "id": "fresh-catch-kapahulu-0d7f4b",
@@ -1430,6 +1481,122 @@
     "lng": -157.8709244
   },
   {
+    "id": "ruths-chris-steak-house-waikiki-8d6062",
+    "name": "Ruth's Chris Steak House",
+    "category": "food",
+    "discount": "Complimentary appetizer",
+    "redemption": "show_id",
+    "requires_id": true,
+    "address": "226 Lewers Street, Waikiki Beach Walk, Honolulu, HI 96815",
+    "lat": 21.2826,
+    "lng": -157.829,
+    "neighborhood": "Waikiki",
+    "source_url": "https://www.waikikibeachwalk.com/Events-And-News/Kamaaina-Military.htm",
+    "last_verified": "2026-08-08",
+    "status": "active",
+    "conditions": "show valid Hawaii ID; Not valid with any other promotions, discounts, or Classics menu."
+  },
+  {
+    "id": "taormina-sicilian-cuisine-waikiki-98f0c8",
+    "name": "Taormina Sicilian Cuisine",
+    "category": "food",
+    "source_url": "https://taorminarestaurant.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "227 Lewers St, Honolulu, HI 96815",
+    "status": "unverified",
+    "lat": 21.2790765,
+    "lng": -157.8308725
+  },
+  {
+    "id": "olili-waikiki-1f01e2",
+    "name": "'Olili",
+    "category": "food",
+    "source_url": "https://www.oliliwaikikihawaii.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2380 Kuhio Avenue, 2nd floor, Honolulu, HI 96815",
+    "discount": "happy hour specials",
+    "status": "unverified",
+    "lat": 21.278464,
+    "lng": -157.8244616
+  },
+  {
+    "id": "heavenly-island-lifestyle-hawaii-kai-hawaii-kai-1a6972",
+    "name": "Heavenly Island Lifestyle Hawaii Kai",
+    "category": "food",
+    "source_url": "https://www.heavenly-hawaiikai.com/happyhour",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Hawaii Kai",
+    "discount": "happy hour specials",
+    "status": "unverified"
+  },
+  {
+    "id": "tropics-hawaii-kai-hawaii-kai-666340",
+    "name": "Tropics Hawaii Kai",
+    "category": "food",
+    "source_url": "https://www.tropicshikai.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "happy_hour",
+    "neighborhood": "Hawaii Kai",
+    "address": "377 Keahole Street, Honolulu, HI, 96825-3405",
+    "hours": "Sat 6pm to 9pm",
+    "discount": "happy hour specials",
+    "status": "unverified",
+    "lat": 21.2849444,
+    "lng": -157.7074779
+  },
+  {
+    "id": "body-mind-spa-aiea-a29642",
+    "name": "Body & Mind Spa",
+    "category": "service",
+    "source_url": "https://www.bodymind-spa.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "spa_massage",
+    "neighborhood": "Aiea",
+    "status": "unverified"
+  },
+  {
+    "id": "indulge-spa-hawaii-aiea-64dd13",
+    "name": "Indulge Spa Hawaii",
+    "category": "service",
+    "source_url": "https://www.indulgexhi.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "spa_massage",
+    "neighborhood": "Aiea",
+    "status": "unverified",
+    "lat": 21.3835167,
+    "lng": -157.9508036
+  },
+  {
+    "id": "lily-wax-lounge-spa-kahala-c2ff7e",
+    "name": "Lily Wax Lounge & Spa",
+    "category": "service",
+    "source_url": "https://lilywaxlounge.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "spa_massage",
+    "neighborhood": "Kahala",
+    "address": "4614 Kilauea Ave. #204, Honolulu, HI 96816",
+    "status": "unverified",
+    "lat": 21.275047,
+    "lng": -157.7851564
+  },
+  {
+    "id": "mios-designs-barbershop-kalihi-3498d5",
+    "name": "Mio's Designs Barbershop",
+    "category": "service",
+    "source_url": "https://miosdesignsbarbershop.com/",
+    "last_verified": "2026-08-08",
+    "subcategory": "salon_barber",
+    "neighborhood": "Kalihi",
+    "address": "1101 N King street, suit 5, Honolulu, Hawaii, 96817",
+    "hours": "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:30-6:30",
+    "status": "unverified"
+  },
+  {
     "id": "giovanni-pastrami-waikiki-74b645",
     "name": "Giovanni Pastrami",
     "category": "food",
@@ -1460,21 +1627,5 @@
     "last_verified": "2026-08-08",
     "status": "active",
     "conditions": "show valid Hawaii ID; Valid only during lunch (11:00am-2:00pm). Not valid on truffle dishes, prix-fixe course, and alcoholic beverages."
-  },
-  {
-    "id": "ruths-chris-steak-house-waikiki-8d6062",
-    "name": "Ruth's Chris Steak House",
-    "category": "food",
-    "discount": "Complimentary appetizer",
-    "redemption": "show_id",
-    "requires_id": true,
-    "address": "226 Lewers Street, Waikiki Beach Walk, Honolulu, HI 96815",
-    "lat": 21.2826,
-    "lng": -157.829,
-    "neighborhood": "Waikiki",
-    "source_url": "https://www.waikikibeachwalk.com/Events-And-News/Kamaaina-Military.htm",
-    "last_verified": "2026-08-08",
-    "status": "active",
-    "conditions": "show valid Hawaii ID; Not valid with any other promotions, discounts, or Classics menu."
   }
 ]
