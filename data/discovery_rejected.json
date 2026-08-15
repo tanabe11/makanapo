@@ -31,6 +31,16 @@
     {"name": "Wai'olu Ocean Cuisine", "url": "https://www.hilton.com/en/hotels/hnlwiol-ka-lai-waikiki-beach/dining/waiolu-ocean-cuisine/", "reason": "fetch_403", "note": "403 to logged-out crawler on Hilton hotel dining page; real Sunset/Late-Night HH exists but page not crawlable", "date": "2026-08-08"},
     {"name": "Haili's Hawaiian Food", "url": "https://www.hailishawaiianfood.com/", "reason": "closed", "note": "Kapahulu (Palani Ave) location closed; last day of operation reported June 30 2026 (Yelp CLOSED)", "date": "2026-08-08"},
     {"name": "Aloha K9 Kuts", "url": "https://alohak9kuts.com/", "reason": "dns_fail", "note": "domain does not resolve (Kalihi pet groomer, N King St)", "date": "2026-08-08"},
-    {"name": "Monarch Poke", "url": "https://monarchpoke.com/", "reason": "ssl_fail", "note": "TLS cert hostname mismatch (Pearl Kai Shopping Center, Aiea); domain resolves but not crawlable", "date": "2026-08-08"}
+    {"name": "Monarch Poke", "url": "https://monarchpoke.com/", "reason": "ssl_fail", "note": "TLS cert hostname mismatch (Pearl Kai Shopping Center, Aiea); domain resolves but not crawlable", "date": "2026-08-08"},
+    {"name": "Beach Bar (Moana Surfrider)", "url": "https://www.beachbarwaikiki.com/", "reason": "fetch_403", "note": "403 to logged-out crawler; daily mai tai happy hour exists but site not crawlable", "date": "2026-08-15"},
+    {"name": "Beachhouse at the Moana", "url": "https://www.beachhousewaikiki.com/", "reason": "fetch_403", "note": "403 to logged-out crawler (Moana Surfrider restaurant)", "date": "2026-08-15"},
+    {"name": "Kaimuki Auto Repair", "url": "http://www.kaimukiautorepair.com/", "reason": "closed", "note": "site returns 404 (domain resolves, no page); business likely rebranded/offline, recheck before re-adding", "date": "2026-08-15"},
+    {"name": "Manoa Nails", "url": "", "reason": "off_scope", "note": "Manoa Marketplace nail salon, no dedicated official website found (Instagram/Facebook/Fresha only)", "date": "2026-08-15"},
+    {"name": "Bliss Salon & Barbering", "url": "https://www.blisssalon.us/", "reason": "off_scope", "note": "Kakaako barbershop (435 Kamakee St), no crawlable official site — blisssalon.us appears to be an unrelated same-named salon", "date": "2026-08-15"},
+    {"name": "Victoria Nail & Hair Salon", "url": "", "reason": "off_scope", "note": "Kakaako nail salon (1050 Ala Moana Blvd D6), no official website found, only directory listings", "date": "2026-08-15"},
+    {"name": "Hanalei Pedicure Salon", "url": "", "reason": "off_scope", "note": "Kakaako nail salon (401 Kamakee St), no official website found, only Groupon/Yelp", "date": "2026-08-15"},
+    {"name": "Rigo", "url": "", "reason": "off_scope", "note": "Kapahulu Spanish-Italian restaurant with real HH (885 Kapahulu Ave), no official website found (only aggregators/TikTok); revisit if they launch a site", "date": "2026-08-15"},
+    {"name": "Mokihana Haus", "url": "", "reason": "off_scope", "note": "Kaimuki beer bar (1127 11th Ave), slated to open summer 2026, no official website yet; revisit after opening", "date": "2026-08-15"},
+    {"name": "La Vie by G.LION", "url": "https://www.laviewaikiki.com/", "reason": "non_consumer_deal", "note": "Ritz-Carlton Residences Waikiki fine dining, no kamaaina/HH discount found; site shares G.LION restaurant group with already-covered Solera (solerawaikiki.com)", "date": "2026-08-15"}
   ]
 }

@@ -817,6 +817,80 @@
       "neighborhood": "Kalihi",
       "name": "Mio's Designs Barbershop",
       "_added": "2026-08-08"
+    },
+    {
+      "url": "https://hiltonhawaiianvillage.com/dine/tropics-bar-and-grill/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Tropics Bar & Grill",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://www.halekulani.com/dining/house-without-a-key/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "House Without a Key",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://www.halekulani.com/dining/lewers-lounge/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Waikiki",
+      "name": "Lewers Lounge",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://www.akira-japanese-restaurant.com/",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Moiliili",
+      "name": "Akira Japanese Restaurant",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://ponopotions.com/pages/pewa",
+      "category": "food",
+      "subcategory": "happy_hour",
+      "neighborhood": "Chinatown",
+      "name": "Pewa by Pono Potions",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://kapahuluautorepair.com/",
+      "category": "service",
+      "subcategory": "auto",
+      "neighborhood": "Kapahulu",
+      "name": "Kapahulu Auto Repair",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://www.pacpaws.com/",
+      "category": "service",
+      "subcategory": "pet_grooming",
+      "neighborhood": "Aina Haina",
+      "name": "Pacific Paws Pet Salon",
+      "_added": "2026-08-15"
+    },
+    {
+      "url": "https://luxnailssalonhonolulu.com/",
+      "category": "service",
+      "subcategory": "salon_nails",
+      "neighborhood": "Kakaako",
+      "name": "Lux Nails Salon",
+      "_added": "2026-08-15",
+      "force_status": "unverified"
+    },
+    {
+      "url": "https://www.waleahawaii.com/",
+      "category": "service",
+      "subcategory": "salon_nails",
+      "neighborhood": "Kakaako",
+      "name": "Walea by Salon Glitter",
+      "_added": "2026-08-15",
+      "force_status": "unverified"
     }
   ]
 }

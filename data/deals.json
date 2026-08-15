@@ -1040,6 +1040,21 @@
     "lng": -157.8634757
   },
   {
+    "id": "bar-35-chinatown-1450cd",
+    "name": "Bar 35",
+    "category": "food",
+    "source_url": "https://www.bar35hawaii.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Chinatown",
+    "address": "35 N HOTEL STREET, HONOLULU, HI 96817",
+    "hours": "Thursday & Friday 4pm-2am",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.311453,
+    "lng": -157.8624324
+  },
+  {
     "id": "skull-crown-trading-co-chinatown-73b695",
     "name": "Skull & Crown Trading Co.",
     "category": "food",
@@ -1197,6 +1212,19 @@
     "status": "unverified"
   },
   {
+    "id": "pets-in-the-city-moiliili-932016",
+    "name": "Pets In The City",
+    "category": "service",
+    "source_url": "https://www.petsinthecityhawaii.com/dog-grooming/",
+    "last_verified": "2026-08-15",
+    "subcategory": "pet_grooming",
+    "neighborhood": "Moiliili",
+    "address": "1350 S King Street #117, Honolulu, Hi 96814",
+    "status": "unverified",
+    "lat": 21.2993288,
+    "lng": -157.8407473
+  },
+  {
     "id": "fresh-catch-kapahulu-0d7f4b",
     "name": "Fresh Catch",
     "category": "food",
@@ -1208,6 +1236,21 @@
     "status": "unverified",
     "lat": 21.2883463,
     "lng": -157.8126895
+  },
+  {
+    "id": "nori-bar-waikiki-waikiki-e41d91",
+    "name": "Nori Bar Waikiki",
+    "category": "food",
+    "source_url": "https://noribarhawaii.com/waikiki/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2255 Kuhio Ave, Honolulu, HI 96815",
+    "hours": "2PM-5PM",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.2794303,
+    "lng": -157.8269253
   },
   {
     "id": "swell-restaurant-pool-bar-waikiki-e1ff0b",
@@ -1248,6 +1291,19 @@
     "status": "unverified",
     "lat": 21.2900448,
     "lng": -157.8327205
+  },
+  {
+    "id": "liliha-bakery-beach-walk-waikiki-541cc1",
+    "name": "Liliha Bakery (Beach Walk)",
+    "category": "food",
+    "source_url": "https://www.lilihabakery.com/waikikilanding",
+    "last_verified": "2026-08-15",
+    "subcategory": "cafe",
+    "neighborhood": "Waikiki",
+    "address": "226 Lewers Street, 2nd Floor, Honolulu, HI, 96815",
+    "status": "unverified",
+    "lat": 21.2792095,
+    "lng": -157.8310517
   },
   {
     "id": "hawaii-kai-salon-day-spa-hawaii-kai-050a9b",
@@ -1478,6 +1534,21 @@
     "status": "active"
   },
   {
+    "id": "tropics-hawaii-kai-hawaii-kai-666340",
+    "name": "Tropics Hawaii Kai",
+    "category": "food",
+    "source_url": "https://www.tropicshikai.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Hawaii Kai",
+    "address": "377 Keahole Street, Honolulu, HI, 96825-3405",
+    "hours": "Sat 6pm to 9pm",
+    "discount": "happy hour specials",
+    "status": "active",
+    "lat": 21.2849444,
+    "lng": -157.7074779
+  },
+  {
     "id": "body-mind-spa-aiea-a29642",
     "name": "Body & Mind Spa",
     "category": "service",
@@ -1486,6 +1557,18 @@
     "subcategory": "spa_massage",
     "neighborhood": "Aiea",
     "status": "unverified"
+  },
+  {
+    "id": "indulge-spa-hawaii-aiea-64dd13",
+    "name": "Indulge Spa Hawaii",
+    "category": "service",
+    "source_url": "https://www.indulgexhi.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "spa_massage",
+    "neighborhood": "Aiea",
+    "status": "unverified",
+    "lat": 21.3835167,
+    "lng": -157.9508036
   },
   {
     "id": "lily-wax-lounge-spa-kahala-c2ff7e",
@@ -1510,6 +1593,121 @@
     "neighborhood": "Kalihi",
     "address": "1101 N King street, suit 5, Honolulu, Hawaii, 96817",
     "hours": "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:30-6:30",
+    "status": "unverified"
+  },
+  {
+    "id": "tropics-bar-grill-waikiki-f1a13f",
+    "name": "Tropics Bar & Grill",
+    "category": "food",
+    "source_url": "https://hiltonhawaiianvillage.com/dine/tropics-bar-and-grill/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2005 Kalia Road, Honolulu, Hawaii 96815",
+    "status": "unverified",
+    "lat": 21.2824394,
+    "lng": -157.836713
+  },
+  {
+    "id": "house-without-a-key-waikiki-120a6a",
+    "name": "House Without a Key",
+    "category": "food",
+    "source_url": "https://www.halekulani.com/dining/house-without-a-key/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2199 Kalia Road, HI",
+    "status": "unverified",
+    "lat": 21.2779627,
+    "lng": -157.8323674
+  },
+  {
+    "id": "lewers-lounge-waikiki-fb9d3c",
+    "name": "Lewers Lounge",
+    "category": "food",
+    "source_url": "https://www.halekulani.com/dining/lewers-lounge/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Waikiki",
+    "address": "2199 Kalia Road, HI",
+    "status": "unverified",
+    "lat": 21.2779627,
+    "lng": -157.8323674
+  },
+  {
+    "id": "akira-japanese-restaurant-moiliili-8a963e",
+    "name": "Akira Japanese Restaurant",
+    "category": "food",
+    "source_url": "https://www.akira-japanese-restaurant.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Moiliili",
+    "hours": "Mon-Sat 4:30pm-5:30pm",
+    "discount": "happy hour specials",
+    "status": "unverified"
+  },
+  {
+    "id": "pewa-by-pono-potions-chinatown-fd7b4b",
+    "name": "Pewa by Pono Potions",
+    "category": "food",
+    "source_url": "https://ponopotions.com/pages/pewa",
+    "last_verified": "2026-08-15",
+    "subcategory": "happy_hour",
+    "neighborhood": "Chinatown",
+    "address": "1115 BETHEL ST. HONOLULU, HI 96813",
+    "hours": "2 PM -5 PM",
+    "discount": "50% off on all wines",
+    "status": "unverified",
+    "lat": 21.3106226,
+    "lng": -157.8612924
+  },
+  {
+    "id": "kapahulu-auto-repair-kapahulu-f6bd7f",
+    "name": "Kapahulu Auto Repair",
+    "category": "service",
+    "source_url": "https://kapahuluautorepair.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "auto",
+    "neighborhood": "Kapahulu",
+    "address": "3131 Castle St, Honolulu, HI, 96815",
+    "status": "unverified",
+    "lat": 21.2762037,
+    "lng": -157.8143416
+  },
+  {
+    "id": "pacific-paws-pet-salon-aina-haina-f58749",
+    "name": "Pacific Paws Pet Salon",
+    "category": "service",
+    "source_url": "https://www.pacpaws.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "pet_grooming",
+    "neighborhood": "Aina Haina",
+    "address": "820 W Hind Dr, Ste 1242, Honolulu, HI 96821",
+    "discount": "complimentary nail trim",
+    "status": "unverified",
+    "lat": 21.278456,
+    "lng": -157.7537964
+  },
+  {
+    "id": "lux-nails-salon-kakaako-26785d",
+    "name": "Lux Nails Salon",
+    "category": "service",
+    "source_url": "https://luxnailssalonhonolulu.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "salon_nails",
+    "neighborhood": "Kakaako",
+    "address": "400 Keawe St Unit #105, Honolulu, HI 96813",
+    "status": "unverified"
+  },
+  {
+    "id": "walea-by-salon-glitter-kakaako-d11585",
+    "name": "Walea by Salon Glitter",
+    "category": "service",
+    "source_url": "https://www.waleahawaii.com/",
+    "last_verified": "2026-08-15",
+    "subcategory": "salon_nails",
+    "neighborhood": "Kakaako",
+    "address": "808 949 2218987 Queen St. #N-105, Honolulu, HI 96814",
     "status": "unverified"
   },
   {
